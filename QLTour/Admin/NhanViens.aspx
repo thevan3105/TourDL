@@ -1,0 +1,140 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/mtHome.Master" AutoEventWireup="true" CodeBehind="NhanViens.aspx.cs" Inherits="QLTour.Admin.NhanViens" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        a#ContentPlaceHolder1_hplloi {
+            margin-left: 45%;
+        }
+        
+    </style>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-lg-10">
+            <h2>Nhân viên</h2>
+            <ol class="breadcrumb">
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a>Danh mục</a>
+                </li>
+                <li class="active">
+                    <strong>Nhân viên</strong>
+                </li>
+            </ol>
+        </div>
+        <div class="col-lg-2">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <%--<h5>Border Table </h5>--%>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="#">Config option 1</a>
+                            </li>
+                            <li><a href="#">Config option 2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <asp:HyperLink runat="server" ID="hplloi" CssClass="text-danger"></asp:HyperLink>
+                    <br />
+                    <asp:HyperLink runat="server" ID="hplBtnThem" class="btn btn-info" NavigateUrl="QLNhanVien.aspx">Thêm Nhân viên</asp:HyperLink>
+
+                    <asp:GridView runat="server" ID="dgvNhanVien"
+                        class="table table-bordered table-hover"
+                        AutoGenerateColumns="false">
+                        <Columns>
+                            <asp:BoundField DataField="MaNV" HeaderText="Mã nhân viên" />
+                            <asp:BoundField DataField="TenNV" HeaderText="Tên nhân viên" />
+                            <asp:BoundField DataField="NghiepVu" HeaderText="Nghiệp vụ" />
+                            <asp:TemplateField>
+                                <HeaderTemplate>
+                                    Ngày sinh
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <%# ((DateTime)Eval("NgaySinh")).ToString("dd/MM/yyyy")%>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:BoundField DataField="GioiTinh" HeaderText="Giới tính" />
+                            <asp:BoundField DataField="DiaChi" HeaderText="Địa chỉ" />
+                            <asp:BoundField DataField="SDT" HeaderText="Số điện thoại" />
+                            <asp:BoundField DataField="TaiKhoan" HeaderText="tài khoản" />
+                            <asp:BoundField DataField="PassWord" HeaderText="Mật khẩu" />
+
+                            <asp:TemplateField>
+                                <HeaderTemplate>
+                                    Chức năng
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <asp:HyperLink runat="server" ID="btnSua" Text="Sửa" NavigateUrl='<%# "QLNhanVien.aspx?manv=" + Eval("MaNV").ToString() %>' />
+                                    <asp:LinkButton runat="server" ID="btnXoa" Text="Xóa"
+                                        OnClientClick="return valid();"
+                                        CommandArgument='<%# Eval("MaNV").ToString() %>'
+                                        OnCommand="btnXoa_Command" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                    </asp:GridView>
+                    <asp:GridView runat="server" ID="dgvNhanVienCSKH"
+                        class="table table-bordered table-hover"
+                        AutoGenerateColumns="false">
+                        <Columns>
+                            <asp:BoundField DataField="MaNV" HeaderText="Mã nhân viên" />
+                            <asp:BoundField DataField="TenNV" HeaderText="Tên nhân viên" />
+                            <asp:BoundField DataField="NghiepVu" HeaderText="Nghiệp vụ" />
+                            <asp:TemplateField>
+                                <HeaderTemplate>
+                                    Ngày sinh
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <%# ((DateTime)Eval("NgaySinh")).ToString("dd/MM/yyyy")%>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:BoundField DataField="GioiTinh" HeaderText="Giới tính" />
+                            <asp:BoundField DataField="DiaChi" HeaderText="Địa chỉ" />
+                            <asp:BoundField DataField="SDT" HeaderText="Số điện thoại" />
+                            <asp:BoundField DataField="TaiKhoan" HeaderText="tài khoản" />
+                            <asp:BoundField DataField="PassWord" HeaderText="Mật khẩu" />
+
+                            <asp:TemplateField>
+                                <HeaderTemplate>
+                                    Chức năng
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <asp:HyperLink runat="server" ID="btnSua" Text="Sửa" NavigateUrl='<%# "QLNhanVien.aspx?manv=" + Eval("MaNV").ToString() %>' />
+
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                    </asp:GridView>
+                </div>
+            </div>
+        </div>
+    </div>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+    <script>
+        function valid() {
+            if (confirm("Bạn thực sự muốn xóa?") == true) {
+                return true;
+            }
+            return false;
+        }
+
+    </script>
+</asp:Content>

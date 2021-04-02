@@ -1,0 +1,1043 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B4689A85-64C8-49C6-9746-DD8CA656CF5A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QLTour</RootNamespace>
+    <AssemblyName>QLTour</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44349</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="Admin\BooKings.aspx" />
+    <Content Include="Admin\ConTact.aspx" />
+    <Content Include="Admin\CTTours.aspx" />
+    <Content Include="Admin\DangKy.aspx" />
+    <Content Include="Admin\DiaDiemDLs.aspx" />
+    <Content Include="Admin\DoiMK.aspx" />
+    <Content Include="Admin\Home.aspx" />
+    <Content Include="Admin\KhachHangs.aspx" />
+    <Content Include="Admin\KhachSans.aspx" />
+    <Content Include="Admin\LichTrinhs.aspx" />
+    <Content Include="Admin\LoaiPhuongTiens.aspx" />
+    <Content Include="Admin\LoaiTours.aspx" />
+    <Content Include="Admin\Login.aspx" />
+    <Content Include="Admin\NhanViens.aspx" />
+    <Content Include="Admin\PhuongTiens.aspx" />
+    <Content Include="Admin\QLBooKing.aspx" />
+    <Content Include="Admin\QLCTTour.aspx" />
+    <Content Include="Admin\QLDDDL.aspx" />
+    <Content Include="Admin\QLKhachHang.aspx" />
+    <Content Include="Admin\QLKhachSan.aspx" />
+    <Content Include="Admin\QLLichTrinh.aspx" />
+    <Content Include="Admin\QLLoaiPhuongTien.aspx" />
+    <Content Include="Admin\QLLoaiTour.aspx" />
+    <Content Include="Admin\QLNhanVien.aspx" />
+    <Content Include="Admin\QLPhuongTien.aspx" />
+    <Content Include="Admin\QLTours.aspx" />
+    <Content Include="Admin\Template\css\animate.css" />
+    <Content Include="Admin\Template\css\bootstrap.min.css" />
+    <Content Include="Admin\Template\css\patterns\header-profile-skin-1.png" />
+    <Content Include="Admin\Template\css\patterns\header-profile-skin-2.png" />
+    <Content Include="Admin\Template\css\patterns\header-profile-skin-3.png" />
+    <Content Include="Admin\Template\css\patterns\header-profile.png" />
+    <Content Include="Admin\Template\css\patterns\shattered.png" />
+    <Content Include="Admin\Template\css\plugins\blueimp\css\blueimp-gallery.min.css" />
+    <Content Include="Admin\Template\css\plugins\blueimp\img\error.png" />
+    <Content Include="Admin\Template\css\plugins\blueimp\img\error.svg" />
+    <Content Include="Admin\Template\css\plugins\blueimp\img\loading.gif" />
+    <Content Include="Admin\Template\css\plugins\blueimp\img\play-pause.png" />
+    <Content Include="Admin\Template\css\plugins\blueimp\img\play-pause.svg" />
+    <Content Include="Admin\Template\css\plugins\blueimp\img\video-play.png" />
+    <Content Include="Admin\Template\css\plugins\blueimp\img\video-play.svg" />
+    <Content Include="Admin\Template\css\plugins\chosen\chosen-sprite%402x.png" />
+    <Content Include="Admin\Template\css\plugins\chosen\chosen-sprite.png" />
+    <Content Include="Admin\Template\css\plugins\chosen\chosen.css" />
+    <Content Include="Admin\Template\css\plugins\codemirror\ambiance.css" />
+    <Content Include="Admin\Template\css\plugins\codemirror\codemirror.css" />
+    <Content Include="Admin\Template\css\plugins\colorpicker\bootstrap-colorpicker.min.css" />
+    <Content Include="Admin\Template\css\plugins\cropper\cropper.min.css" />
+    <Content Include="Admin\Template\css\plugins\datapicker\datepicker3.css" />
+    <Content Include="Admin\Template\css\plugins\dataTables\dataTables.bootstrap.css" />
+    <Content Include="Admin\Template\css\plugins\dataTables\dataTables.responsive.css" />
+    <Content Include="Admin\Template\css\plugins\dataTables\dataTables.tableTools.min.css" />
+    <Content Include="Admin\Template\css\plugins\dropzone\basic.css" />
+    <Content Include="Admin\Template\css\plugins\dropzone\dropzone.css" />
+    <Content Include="Admin\Template\css\plugins\fullcalendar\fullcalendar.css" />
+    <Content Include="Admin\Template\css\plugins\fullcalendar\fullcalendar.print.css" />
+    <Content Include="Admin\Template\css\plugins\iCheck\custom.css" />
+    <Content Include="Admin\Template\css\plugins\iCheck\green%402x.png" />
+    <Content Include="Admin\Template\css\plugins\iCheck\green.png" />
+    <Content Include="Admin\Template\css\plugins\images\bootstrap-colorpicker\alpha-horizontal.png" />
+    <Content Include="Admin\Template\css\plugins\images\bootstrap-colorpicker\alpha.png" />
+    <Content Include="Admin\Template\css\plugins\images\bootstrap-colorpicker\hue-horizontal.png" />
+    <Content Include="Admin\Template\css\plugins\images\bootstrap-colorpicker\hue.png" />
+    <Content Include="Admin\Template\css\plugins\images\bootstrap-colorpicker\saturation.png" />
+    <Content Include="Admin\Template\css\plugins\images\sort_asc.png" />
+    <Content Include="Admin\Template\css\plugins\images\sort_desc.png" />
+    <Content Include="Admin\Template\css\plugins\images\sprite-skin-flat.png" />
+    <Content Include="Admin\Template\css\plugins\images\spritemap%402x.png" />
+    <Content Include="Admin\Template\css\plugins\images\spritemap.png" />
+    <Content Include="Admin\Template\css\plugins\ionRangeSlider\ion.rangeSlider.css" />
+    <Content Include="Admin\Template\css\plugins\ionRangeSlider\ion.rangeSlider.skinFlat.css" />
+    <Content Include="Admin\Template\css\plugins\jasny\jasny-bootstrap.min.css" />
+    <Content Include="Admin\Template\css\plugins\jqGrid\ui.jqgrid.css" />
+    <Content Include="Admin\Template\css\plugins\jQueryUI\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Admin\Template\css\plugins\jQueryUI\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Admin\Template\css\plugins\jQueryUI\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Admin\Template\css\plugins\jQueryUI\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Admin\Template\css\plugins\jQueryUI\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Admin\Template\css\plugins\jQueryUI\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Admin\Template\css\plugins\jQueryUI\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Admin\Template\css\plugins\jQueryUI\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Admin\Template\css\plugins\jQueryUI\images\ui-icons_222222_256x240.png" />
+    <Content Include="Admin\Template\css\plugins\jQueryUI\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Admin\Template\css\plugins\jQueryUI\images\ui-icons_454545_256x240.png" />
+    <Content Include="Admin\Template\css\plugins\jQueryUI\images\ui-icons_888888_256x240.png" />
+    <Content Include="Admin\Template\css\plugins\jQueryUI\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Admin\Template\css\plugins\jQueryUI\jquery-ui-1.10.4.custom.min.css" />
+    <Content Include="Admin\Template\css\plugins\jsTree\32px.png" />
+    <Content Include="Admin\Template\css\plugins\jsTree\40px.png" />
+    <Content Include="Admin\Template\css\plugins\jsTree\style.min.css" />
+    <Content Include="Admin\Template\css\plugins\jsTree\throbber.gif" />
+    <Content Include="Admin\Template\css\plugins\morris\morris-0.4.3.min.css" />
+    <Content Include="Admin\Template\css\plugins\nouslider\jquery.nouislider.css" />
+    <Content Include="Admin\Template\css\plugins\steps\jquery.steps.css" />
+    <Content Include="Admin\Template\css\plugins\summernote\summernote-bs3.css" />
+    <Content Include="Admin\Template\css\plugins\summernote\summernote.css" />
+    <Content Include="Admin\Template\css\plugins\switchery\switchery.css" />
+    <Content Include="Admin\Template\css\plugins\toastr\toastr.min.css" />
+    <Content Include="Admin\Template\css\style.css" />
+    <Content Include="Admin\Template\font-awesome\css\font-awesome.css" />
+    <Content Include="Admin\Template\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Admin\Template\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Admin\Template\img\a1.jpg" />
+    <Content Include="Admin\Template\img\a2.jpg" />
+    <Content Include="Admin\Template\img\a3.jpg" />
+    <Content Include="Admin\Template\img\a4.jpg" />
+    <Content Include="Admin\Template\img\a5.jpg" />
+    <Content Include="Admin\Template\img\a6.jpg" />
+    <Content Include="Admin\Template\img\a7.jpg" />
+    <Content Include="Admin\Template\img\a8.jpg" />
+    <Content Include="Admin\Template\img\angular_logo.png" />
+    <Content Include="Admin\Template\img\corgi.jpg" />
+    <Content Include="Admin\Template\img\dashbard4_1.jpg" />
+    <Content Include="Admin\Template\img\dashbard4_2.jpg" />
+    <Content Include="Admin\Template\img\email_1.jpg" />
+    <Content Include="Admin\Template\img\email_2.jpg" />
+    <Content Include="Admin\Template\img\email_3.jpg" />
+    <Content Include="Admin\Template\img\full_height.jpg" />
+    <Content Include="Admin\Template\img\gallery\1.jpg" />
+    <Content Include="Admin\Template\img\gallery\10.jpg" />
+    <Content Include="Admin\Template\img\gallery\10s.jpg" />
+    <Content Include="Admin\Template\img\gallery\11.jpg" />
+    <Content Include="Admin\Template\img\gallery\11s.jpg" />
+    <Content Include="Admin\Template\img\gallery\12.jpg" />
+    <Content Include="Admin\Template\img\gallery\12s.jpg" />
+    <Content Include="Admin\Template\img\gallery\1s.jpg" />
+    <Content Include="Admin\Template\img\gallery\2.jpg" />
+    <Content Include="Admin\Template\img\gallery\2s.jpg" />
+    <Content Include="Admin\Template\img\gallery\3.jpg" />
+    <Content Include="Admin\Template\img\gallery\3s.jpg" />
+    <Content Include="Admin\Template\img\gallery\4.jpg" />
+    <Content Include="Admin\Template\img\gallery\4s.jpg" />
+    <Content Include="Admin\Template\img\gallery\5.jpg" />
+    <Content Include="Admin\Template\img\gallery\5s.jpg" />
+    <Content Include="Admin\Template\img\gallery\6.jpg" />
+    <Content Include="Admin\Template\img\gallery\6s.jpg" />
+    <Content Include="Admin\Template\img\gallery\7.jpg" />
+    <Content Include="Admin\Template\img\gallery\7s.jpg" />
+    <Content Include="Admin\Template\img\gallery\8.jpg" />
+    <Content Include="Admin\Template\img\gallery\8s.jpg" />
+    <Content Include="Admin\Template\img\gallery\9.jpg" />
+    <Content Include="Admin\Template\img\gallery\9s.jpg" />
+    <Content Include="Admin\Template\img\html_logo.png" />
+    <Content Include="Admin\Template\img\meteor_logo.png" />
+    <Content Include="Admin\Template\img\mvc_logo.png" />
+    <Content Include="Admin\Template\img\off_canvas.jpg" />
+    <Content Include="Admin\Template\img\p1.jpg" />
+    <Content Include="Admin\Template\img\p2.jpg" />
+    <Content Include="Admin\Template\img\p3.jpg" />
+    <Content Include="Admin\Template\img\profile.jpg" />
+    <Content Include="Admin\Template\img\profile_big.jpg" />
+    <Content Include="Admin\Template\img\profile_small.jpg" />
+    <Content Include="Admin\Template\img\p_big1.jpg" />
+    <Content Include="Admin\Template\img\p_big2.jpg" />
+    <Content Include="Admin\Template\img\p_big3.jpg" />
+    <Content Include="Admin\Template\img\rails_logo.png" />
+    <Content Include="Admin\Template\img\zender_logo.png" />
+    <Content Include="Admin\Template\js\bootstrap.js" />
+    <Content Include="Admin\Template\js\bootstrap.min.js" />
+    <Content Include="Admin\Template\js\demo\chartjs-demo.js" />
+    <Content Include="Admin\Template\js\demo\flot-demo.js" />
+    <Content Include="Admin\Template\js\demo\morris-demo.js" />
+    <Content Include="Admin\Template\js\demo\peity-demo.js" />
+    <Content Include="Admin\Template\js\demo\rickshaw-demo.js" />
+    <Content Include="Admin\Template\js\demo\sparkline-demo.js" />
+    <Content Include="Admin\Template\js\inspinia.js" />
+    <Content Include="Admin\Template\js\jquery-2.1.1.js" />
+    <Content Include="Admin\Template\js\jquery-ui-1.10.4.min.js" />
+    <Content Include="Admin\Template\js\jquery-ui.custom.min.js" />
+    <Content Include="Admin\Template\js\plugins\blueimp\jquery.blueimp-gallery.min.js" />
+    <Content Include="Admin\Template\js\plugins\chartJs\Chart.min.js" />
+    <Content Include="Admin\Template\js\plugins\chosen\chosen.jquery.js" />
+    <Content Include="Admin\Template\js\plugins\codemirror\codemirror.js" />
+    <Content Include="Admin\Template\js\plugins\codemirror\mode\javascript\javascript.js" />
+    <Content Include="Admin\Template\js\plugins\colorpicker\bootstrap-colorpicker.min.js" />
+    <Content Include="Admin\Template\js\plugins\cropper\cropper.min.js" />
+    <Content Include="Admin\Template\js\plugins\datapicker\bootstrap-datepicker.js" />
+    <Content Include="Admin\Template\js\plugins\dataTables\dataTables.bootstrap.js" />
+    <Content Include="Admin\Template\js\plugins\dataTables\dataTables.responsive.js" />
+    <Content Include="Admin\Template\js\plugins\dataTables\dataTables.tableTools.min.js" />
+    <Content Include="Admin\Template\js\plugins\dataTables\jquery.dataTables.js" />
+    <Content Include="Admin\Template\js\plugins\diff_match_patch\javascript\diff_match_patch.js" />
+    <Content Include="Admin\Template\js\plugins\dropzone\dropzone.js" />
+    <Content Include="Admin\Template\js\plugins\easypiechart\jquery.easypiechart.js" />
+    <Content Include="Admin\Template\js\plugins\flot\curvedLines.js" />
+    <Content Include="Admin\Template\js\plugins\flot\jquery.flot.js" />
+    <Content Include="Admin\Template\js\plugins\flot\jquery.flot.pie.js" />
+    <Content Include="Admin\Template\js\plugins\flot\jquery.flot.resize.js" />
+    <Content Include="Admin\Template\js\plugins\flot\jquery.flot.spline.js" />
+    <Content Include="Admin\Template\js\plugins\flot\jquery.flot.symbol.js" />
+    <Content Include="Admin\Template\js\plugins\flot\jquery.flot.time.js" />
+    <Content Include="Admin\Template\js\plugins\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="Admin\Template\js\plugins\fullcalendar\fullcalendar.min.js" />
+    <Content Include="Admin\Template\js\plugins\fullcalendar\moment.min.js" />
+    <Content Include="Admin\Template\js\plugins\gritter\images\gritter-light.png" />
+    <Content Include="Admin\Template\js\plugins\gritter\images\gritter.png" />
+    <Content Include="Admin\Template\js\plugins\gritter\images\ie-spacer.gif" />
+    <Content Include="Admin\Template\js\plugins\gritter\jquery.gritter.css" />
+    <Content Include="Admin\Template\js\plugins\gritter\jquery.gritter.min.js" />
+    <Content Include="Admin\Template\js\plugins\iCheck\icheck.min.js" />
+    <Content Include="Admin\Template\js\plugins\idle-timer\idle-timer.min.js" />
+    <Content Include="Admin\Template\js\plugins\ionRangeSlider\ion.rangeSlider.min.js" />
+    <Content Include="Admin\Template\js\plugins\jasny\jasny-bootstrap.min.js" />
+    <Content Include="Admin\Template\js\plugins\jeditable\jquery.jeditable.js" />
+    <Content Include="Admin\Template\js\plugins\jqGrid\i18n\grid.locale-en.js" />
+    <Content Include="Admin\Template\js\plugins\jqGrid\jquery.jqGrid.min.js" />
+    <Content Include="Admin\Template\js\plugins\jquery-ui\jquery-ui.min.js" />
+    <Content Include="Admin\Template\js\plugins\jsKnob\jquery.knob.js" />
+    <Content Include="Admin\Template\js\plugins\jsTree\jstree.min.js" />
+    <Content Include="Admin\Template\js\plugins\jvectormap\jquery-jvectormap-1.2.2.min.js" />
+    <Content Include="Admin\Template\js\plugins\jvectormap\jquery-jvectormap-world-mill-en.js" />
+    <Content Include="Admin\Template\js\plugins\metisMenu\jquery.metisMenu.js" />
+    <Content Include="Admin\Template\js\plugins\morris\morris.js" />
+    <Content Include="Admin\Template\js\plugins\morris\raphael-2.1.0.min.js" />
+    <Content Include="Admin\Template\js\plugins\nestable\jquery.nestable.js" />
+    <Content Include="Admin\Template\js\plugins\nouslider\jquery.nouislider.min.js" />
+    <Content Include="Admin\Template\js\plugins\pace\pace.min.js" />
+    <Content Include="Admin\Template\js\plugins\peity\jquery.peity.min.js" />
+    <Content Include="Admin\Template\js\plugins\preetyTextDiff\jquery.pretty-text-diff.min.js" />
+    <Content Include="Admin\Template\js\plugins\rickshaw\rickshaw.min.js" />
+    <Content Include="Admin\Template\js\plugins\rickshaw\vendor\d3.v3.js" />
+    <Content Include="Admin\Template\js\plugins\slimscroll\jquery.slimscroll.min.js" />
+    <Content Include="Admin\Template\js\plugins\sparkline\jquery.sparkline.min.js" />
+    <Content Include="Admin\Template\js\plugins\staps\jquery.steps.min.js" />
+    <Content Include="Admin\Template\js\plugins\summernote\summernote.min.js" />
+    <Content Include="Admin\Template\js\plugins\switchery\switchery.js" />
+    <Content Include="Admin\Template\js\plugins\tinycon\tinycon.min.js" />
+    <Content Include="Admin\Template\js\plugins\toastr\toastr.min.js" />
+    <Content Include="Admin\Template\js\plugins\validate\jquery.validate.min.js" />
+    <Content Include="Admin\Template\js\plugins\video\responsible-video.js" />
+    <Content Include="Admin\Tours.aspx" />
+    <Content Include="Admin\TrangChu.aspx" />
+    <Content Include="Admin\UPLoadAnh.aspx" />
+    <Content Include="Blog.aspx" />
+    <Content Include="Contacts.aspx" />
+    <Content Include="Demo.aspx" />
+    <Content Include="DoiMK.aspx" />
+    <Content Include="EditInfo.aspx" />
+    <Content Include="Home.aspx" />
+    <Content Include="Images\background_login.jpg" />
+    <Content Include="Images\background_register.jpg" />
+    <Content Include="Images\blog_1.jpg" />
+    <Content Include="Images\cocsan.jpg" />
+    <Content Include="Images\home_slider.jpg" />
+    <Content Include="Images\listing1.jpg" />
+    <Content Include="Images\listing10.jpg" />
+    <Content Include="Images\listing11.jpg" />
+    <Content Include="Images\listing12.jpg" />
+    <Content Include="Images\listing13.jpg" />
+    <Content Include="Images\listing14.jpg" />
+    <Content Include="Images\listing15.jpg" />
+    <Content Include="Images\listing16.jpg" />
+    <Content Include="Images\listing17.jpg" />
+    <Content Include="Images\listing18.jpg" />
+    <Content Include="Images\listing19.jpg" />
+    <Content Include="Images\listing2.jpg" />
+    <Content Include="Images\listing20.jpg" />
+    <Content Include="Images\listing21.jpg" />
+    <Content Include="Images\listing22.jpg" />
+    <Content Include="Images\listing23.jpg" />
+    <Content Include="Images\listing24.jpg" />
+    <Content Include="Images\listing25.jpg" />
+    <Content Include="Images\listing26.jpg" />
+    <Content Include="Images\listing27.jpg" />
+    <Content Include="Images\listing3.jpg" />
+    <Content Include="Images\listing4.jpg" />
+    <Content Include="Images\listing5.jpg" />
+    <Content Include="Images\listing6.jpg" />
+    <Content Include="Images\listing7.jpg" />
+    <Content Include="Images\listing8.jpg" />
+    <Content Include="Images\listing9.jpg" />
+    <Content Include="Images\listing_2.jpg" />
+    <Content Include="Images\listing_3.jpg" />
+    <Content Include="Images\listing_4.jpg" />
+    <Content Include="Images\listing_5.jpg" />
+    <Content Include="Images\listing_6.jpg" />
+    <Content Include="Images\listing_7.jpg" />
+    <Content Include="Images\listing_8.jpg" />
+    <Content Include="Images\listing_9.jpg" />
+    <Content Include="Images\nhatrang1.jpg" />
+    <Content Include="Images\nhatrang3.jpg" />
+    <Content Include="Images\phuquoc1.jpg" />
+    <Content Include="Images\phuquoc2.jpg" />
+    <Content Include="Images\phuquoc3.jpg" />
+    <Content Include="Images\phuquoc4.jpg" />
+    <Content Include="Images\slide1.jpg" />
+    <Content Include="Images\thapbac.jpg" />
+    <Content Include="Images\wallpapers.jpg" />
+    <Content Include="Images\wallpapers1.jpg" />
+    <Content Include="Login.aspx" />
+    <Content Include="Offers.aspx" />
+    <Content Include="Register.aspx" />
+    <Content Include="Search.aspx" />
+    <Content Include="Single_listing.aspx" />
+    <Content Include="Status.aspx" />
+    <Content Include="Template\images\about_background.jpg" />
+    <Content Include="Template\images\add.jpg" />
+    <Content Include="Template\images\backpack.png" />
+    <Content Include="Template\images\bicycle.png" />
+    <Content Include="Template\images\blog_1.jpg" />
+    <Content Include="Template\images\blog_2.jpg" />
+    <Content Include="Template\images\blog_3.jpg" />
+    <Content Include="Template\images\blog_background.jpg" />
+    <Content Include="Template\images\bus.png" />
+    <Content Include="Template\images\compass.png" />
+    <Content Include="Template\images\contact.png" />
+    <Content Include="Template\images\contact_background.jpg" />
+    <Content Include="Template\images\cruise.png" />
+    <Content Include="Template\images\cta.jpg" />
+    <Content Include="Template\images\departure.png" />
+    <Content Include="Template\images\diving.png" />
+    <Content Include="Template\images\dropdown.png" />
+    <Content Include="Template\images\elements_background.jpg" />
+    <Content Include="Template\images\footer_blog_1.jpg" />
+    <Content Include="Template\images\footer_blog_2.jpg" />
+    <Content Include="Template\images\footer_blog_3.jpg" />
+    <Content Include="Template\images\gallery_1.jpg" />
+    <Content Include="Template\images\gallery_2.jpg" />
+    <Content Include="Template\images\gallery_3.jpg" />
+    <Content Include="Template\images\gallery_4.jpg" />
+    <Content Include="Template\images\gallery_5.jpg" />
+    <Content Include="Template\images\gallery_6.jpg" />
+    <Content Include="Template\images\home_slider.jpg" />
+    <Content Include="Template\images\icon_1.png" />
+    <Content Include="Template\images\icon_2.png" />
+    <Content Include="Template\images\icon_3.png" />
+    <Content Include="Template\images\ie.ico" />
+    <Content Include="Template\images\intro.png" />
+    <Content Include="Template\images\intro_1.jpg" />
+    <Content Include="Template\images\intro_2.jpg" />
+    <Content Include="Template\images\intro_3.jpg" />
+    <Content Include="Template\images\island.png" />
+    <Content Include="Template\images\island_t.png" />
+    <Content Include="Template\images\kayak.png" />
+    <Content Include="Template\images\latest_1.jpg" />
+    <Content Include="Template\images\latest_2.jpg" />
+    <Content Include="Template\images\latest_3.jpg" />
+    <Content Include="Template\images\latest_4.jpg" />
+    <Content Include="Template\images\listing_1.jpg" />
+    <Content Include="Template\images\listing_2.jpg" />
+    <Content Include="Template\images\listing_3.jpg" />
+    <Content Include="Template\images\listing_4.jpg" />
+    <Content Include="Template\images\listing_5.jpg" />
+    <Content Include="Template\images\listing_6.jpg" />
+    <Content Include="Template\images\listing_7.jpg" />
+    <Content Include="Template\images\listing_8.jpg" />
+    <Content Include="Template\images\listing_9.jpg" />
+    <Content Include="Template\images\listing_gallery_1.jpg" />
+    <Content Include="Template\images\listing_hotel.jpg" />
+    <Content Include="Template\images\listing_thumb_1.jpg" />
+    <Content Include="Template\images\listing_thumb_2.jpg" />
+    <Content Include="Template\images\listing_thumb_3.jpg" />
+    <Content Include="Template\images\listing_thumb_4.jpg" />
+    <Content Include="Template\images\listing_thumb_5.jpg" />
+    <Content Include="Template\images\listing_thumb_6.jpg" />
+    <Content Include="Template\images\listing_thumb_7.jpg" />
+    <Content Include="Template\images\listing_thumb_8.jpg" />
+    <Content Include="Template\images\listing_thumb_9.jpg" />
+    <Content Include="Template\images\logo.png" />
+    <Content Include="Template\images\man.png" />
+    <Content Include="Template\images\message.svg" />
+    <Content Include="Template\images\milestone_1.png" />
+    <Content Include="Template\images\milestone_2.png" />
+    <Content Include="Template\images\milestone_3.png" />
+    <Content Include="Template\images\milestone_4.png" />
+    <Content Include="Template\images\nav_next.svg" />
+    <Content Include="Template\images\nav_prev.svg" />
+    <Content Include="Template\images\nav_rect.svg" />
+    <Content Include="Template\images\next.png" />
+    <Content Include="Template\images\offer_1.jpg" />
+    <Content Include="Template\images\offer_2.jpg" />
+    <Content Include="Template\images\offer_3.jpg" />
+    <Content Include="Template\images\offer_4.jpg" />
+    <Content Include="Template\images\offer_5.jpg" />
+    <Content Include="Template\images\offer_6.jpg" />
+    <Content Include="Template\images\offer_7.jpg" />
+    <Content Include="Template\images\offer_8.jpg" />
+    <Content Include="Template\images\phone-call.svg" />
+    <Content Include="Template\images\placeholder.svg" />
+    <Content Include="Template\images\planet-earth.svg" />
+    <Content Include="Template\images\post.png" />
+    <Content Include="Template\images\prev.png" />
+    <Content Include="Template\images\review_1.jpg" />
+    <Content Include="Template\images\review_2.jpg" />
+    <Content Include="Template\images\room_1.jpg" />
+    <Content Include="Template\images\room_2.jpg" />
+    <Content Include="Template\images\sailboat.png" />
+    <Content Include="Template\images\search.png" />
+    <Content Include="Template\images\search.svg" />
+    <Content Include="Template\images\single_background.jpg" />
+    <Content Include="Template\images\stats_1.png" />
+    <Content Include="Template\images\stats_2.png" />
+    <Content Include="Template\images\stats_3.png" />
+    <Content Include="Template\images\stats_4.png" />
+    <Content Include="Template\images\suitcase.png" />
+    <Content Include="Template\images\test_1.jpg" />
+    <Content Include="Template\images\test_2.jpg" />
+    <Content Include="Template\images\test_3.jpg" />
+    <Content Include="Template\images\trend_1.png" />
+    <Content Include="Template\images\trend_2.png" />
+    <Content Include="Template\images\trend_3.png" />
+    <Content Include="Template\images\trend_4.png" />
+    <Content Include="Template\images\trend_5.png" />
+    <Content Include="Template\images\trend_6.png" />
+    <Content Include="Template\images\trend_7.png" />
+    <Content Include="Template\images\trend_8.png" />
+    <Content Include="Template\js\about_custom.js" />
+    <Content Include="Template\js\anime.min.js" />
+    <Content Include="Template\js\blog_custom.js" />
+    <Content Include="Template\js\contact_custom.js" />
+    <Content Include="Template\js\custom.js" />
+    <Content Include="Template\js\elements_custom.js" />
+    <Content Include="Template\js\jquery-3.2.1.min.js" />
+    <Content Include="Template\js\jquery.min.js" />
+    <Content Include="Template\js\offers_custom.js" />
+    <Content Include="Template\js\single_listing_custom.js" />
+    <Content Include="Template\plugins\colorbox\colorbox.css" />
+    <Content Include="Template\plugins\colorbox\images\border.png" />
+    <Content Include="Template\plugins\colorbox\images\controls.png" />
+    <Content Include="Template\plugins\colorbox\images\loading.gif" />
+    <Content Include="Template\plugins\colorbox\images\loading_background.png" />
+    <Content Include="Template\plugins\colorbox\images\overlay.png" />
+    <Content Include="Template\plugins\colorbox\jquery.colorbox-min.js" />
+    <Content Include="Template\plugins\easing\easing.js" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="Template\plugins\greensock\animation.gsap.min.js" />
+    <Content Include="Template\plugins\greensock\ScrollToPlugin.min.js" />
+    <Content Include="Template\plugins\greensock\TimelineMax.min.js" />
+    <Content Include="Template\plugins\greensock\TweenMax.min.js" />
+    <Content Include="Template\plugins\Isotope\isotope.pkgd.min.js" />
+    <Content Include="Template\plugins\jquery-circle-progress-1.2.2\circle-progress.js" />
+    <Content Include="Template\plugins\OwlCarousel2-2.2.1\ajax-loader.gif" />
+    <Content Include="Template\plugins\OwlCarousel2-2.2.1\animate.css" />
+    <Content Include="Template\plugins\OwlCarousel2-2.2.1\owl.carousel.css" />
+    <Content Include="Template\plugins\OwlCarousel2-2.2.1\owl.carousel.js" />
+    <Content Include="Template\plugins\OwlCarousel2-2.2.1\owl.theme.default.css" />
+    <Content Include="Template\plugins\OwlCarousel2-2.2.1\owl.video.play.png" />
+    <Content Include="Template\plugins\parallax-js-master\parallax.min.js" />
+    <Content Include="Template\plugins\progressbar\progressbar.min.js" />
+    <Content Include="Template\plugins\scrollmagic\ScrollMagic.min.js" />
+    <Content Include="Template\styles\about_responsive.css" />
+    <Content Include="Template\styles\about_styles.css" />
+    <Content Include="Template\styles\blog_responsive.css" />
+    <Content Include="Template\styles\blog_styles.css" />
+    <Content Include="Template\styles\bootstrap4\bootstrap.min.css" />
+    <Content Include="Template\styles\bootstrap4\bootstrap.min.js" />
+    <Content Include="Template\styles\bootstrap4\popper.js" />
+    <Content Include="Template\styles\contact_responsive.css" />
+    <Content Include="Template\styles\contact_styles.css" />
+    <Content Include="Template\styles\elements_responsive.css" />
+    <Content Include="Template\styles\elements_styles.css" />
+    <Content Include="Template\styles\main_styles.css" />
+    <Content Include="Template\styles\offers_responsive.css" />
+    <Content Include="Template\styles\offers_styles.css" />
+    <Content Include="Template\styles\responsive.css" />
+    <Content Include="Template\styles\single_listing_responsive.css" />
+    <Content Include="Template\styles\single_listing_styles.css" />
+    <Content Include="TourDL.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TourDL.edmx</DependentUpon>
+      <LastGenOutput>TourDL.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="TourDL.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TourDL.edmx</DependentUpon>
+      <LastGenOutput>TourDL.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\BooKings.aspx.cs">
+      <DependentUpon>BooKings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\BooKings.aspx.designer.cs">
+      <DependentUpon>BooKings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ConTact.aspx.cs">
+      <DependentUpon>ConTact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ConTact.aspx.designer.cs">
+      <DependentUpon>ConTact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\CTTours.aspx.cs">
+      <DependentUpon>CTTours.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\CTTours.aspx.designer.cs">
+      <DependentUpon>CTTours.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\DangKy.aspx.cs">
+      <DependentUpon>DangKy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\DangKy.aspx.designer.cs">
+      <DependentUpon>DangKy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\DiaDiemDLs.aspx.cs">
+      <DependentUpon>DiaDiemDLs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\DiaDiemDLs.aspx.designer.cs">
+      <DependentUpon>DiaDiemDLs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\DoiMK.aspx.cs">
+      <DependentUpon>DoiMK.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\DoiMK.aspx.designer.cs">
+      <DependentUpon>DoiMK.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\KhachHangs.aspx.cs">
+      <DependentUpon>KhachHangs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\KhachHangs.aspx.designer.cs">
+      <DependentUpon>KhachHangs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\KhachSans.aspx.cs">
+      <DependentUpon>KhachSans.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\KhachSans.aspx.designer.cs">
+      <DependentUpon>KhachSans.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\LichTrinhs.aspx.cs">
+      <DependentUpon>LichTrinhs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\LichTrinhs.aspx.designer.cs">
+      <DependentUpon>LichTrinhs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\LoaiPhuongTiens.aspx.cs">
+      <DependentUpon>LoaiPhuongTiens.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\LoaiPhuongTiens.aspx.designer.cs">
+      <DependentUpon>LoaiPhuongTiens.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\LoaiTours.aspx.cs">
+      <DependentUpon>LoaiTours.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\LoaiTours.aspx.designer.cs">
+      <DependentUpon>LoaiTours.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\mtHome.Master.cs">
+      <DependentUpon>mtHome.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\mtHome.Master.designer.cs">
+      <DependentUpon>mtHome.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\NhanViens.aspx.cs">
+      <DependentUpon>NhanViens.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\NhanViens.aspx.designer.cs">
+      <DependentUpon>NhanViens.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\PhuongTiens.aspx.cs">
+      <DependentUpon>PhuongTiens.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\PhuongTiens.aspx.designer.cs">
+      <DependentUpon>PhuongTiens.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\QLBooKing.aspx.cs">
+      <DependentUpon>QLBooKing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\QLBooKing.aspx.designer.cs">
+      <DependentUpon>QLBooKing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\QLCTTour.aspx.cs">
+      <DependentUpon>QLCTTour.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\QLCTTour.aspx.designer.cs">
+      <DependentUpon>QLCTTour.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\QLDDDL.aspx.cs">
+      <DependentUpon>QLDDDL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\QLDDDL.aspx.designer.cs">
+      <DependentUpon>QLDDDL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\QLKhachHang.aspx.cs">
+      <DependentUpon>QLKhachHang.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\QLKhachHang.aspx.designer.cs">
+      <DependentUpon>QLKhachHang.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\QLKhachSan.aspx.cs">
+      <DependentUpon>QLKhachSan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\QLKhachSan.aspx.designer.cs">
+      <DependentUpon>QLKhachSan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\QLLichTrinh.aspx.cs">
+      <DependentUpon>QLLichTrinh.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\QLLichTrinh.aspx.designer.cs">
+      <DependentUpon>QLLichTrinh.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\QLLoaiPhuongTien.aspx.cs">
+      <DependentUpon>QLLoaiPhuongTien.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\QLLoaiPhuongTien.aspx.designer.cs">
+      <DependentUpon>QLLoaiPhuongTien.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\QLLoaiTour.aspx.cs">
+      <DependentUpon>QLLoaiTour.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\QLLoaiTour.aspx.designer.cs">
+      <DependentUpon>QLLoaiTour.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\QLNhanVien.aspx.cs">
+      <DependentUpon>QLNhanVien.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\QLNhanVien.aspx.designer.cs">
+      <DependentUpon>QLNhanVien.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\QLPhuongTien.aspx.cs">
+      <DependentUpon>QLPhuongTien.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\QLPhuongTien.aspx.designer.cs">
+      <DependentUpon>QLPhuongTien.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\QLTours.aspx.cs">
+      <DependentUpon>QLTours.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\QLTours.aspx.designer.cs">
+      <DependentUpon>QLTours.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\SiteAdmin.Master.cs">
+      <DependentUpon>SiteAdmin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\SiteAdmin.Master.designer.cs">
+      <DependentUpon>SiteAdmin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Tours.aspx.cs">
+      <DependentUpon>Tours.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Tours.aspx.designer.cs">
+      <DependentUpon>Tours.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\TrangChu.aspx.cs">
+      <DependentUpon>TrangChu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\TrangChu.aspx.designer.cs">
+      <DependentUpon>TrangChu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UPLoadAnh.aspx.cs">
+      <DependentUpon>UPLoadAnh.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UPLoadAnh.aspx.designer.cs">
+      <DependentUpon>UPLoadAnh.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Blog.aspx.cs">
+      <DependentUpon>Blog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Blog.aspx.designer.cs">
+      <DependentUpon>Blog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Booking.cs">
+      <DependentUpon>TourDL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Comment.cs">
+      <DependentUpon>TourDL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contact.cs">
+      <DependentUpon>TourDL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contacts.aspx.cs">
+      <DependentUpon>Contacts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contacts.aspx.designer.cs">
+      <DependentUpon>Contacts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CTTour.cs">
+      <DependentUpon>TourDL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DanhGia.cs">
+      <DependentUpon>TourDL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Demo.aspx.cs">
+      <DependentUpon>Demo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Demo.aspx.designer.cs">
+      <DependentUpon>Demo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DiaDiemDL.cs">
+      <DependentUpon>TourDL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DoiMK.aspx.cs">
+      <DependentUpon>DoiMK.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DoiMK.aspx.designer.cs">
+      <DependentUpon>DoiMK.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditInfo.aspx.cs">
+      <DependentUpon>EditInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditInfo.aspx.designer.cs">
+      <DependentUpon>EditInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KhachHang.cs">
+      <DependentUpon>TourDL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhachSan.cs">
+      <DependentUpon>TourDL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LichTrinh.cs">
+      <DependentUpon>TourDL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoaiPhuongTien.cs">
+      <DependentUpon>TourDL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoaiTour.cs">
+      <DependentUpon>TourDL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Media.cs">
+      <DependentUpon>TourDL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="News.cs">
+      <DependentUpon>TourDL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien.cs">
+      <DependentUpon>TourDL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Offers.aspx.cs">
+      <DependentUpon>Offers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Offers.aspx.designer.cs">
+      <DependentUpon>Offers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PhuongTien.cs">
+      <DependentUpon>TourDL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Single_listing.aspx.cs">
+      <DependentUpon>Single_listing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Single_listing.aspx.designer.cs">
+      <DependentUpon>Single_listing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SiteCustomer.Master.cs">
+      <DependentUpon>SiteCustomer.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiteCustomer.Master.designer.cs">
+      <DependentUpon>SiteCustomer.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Slide.cs">
+      <DependentUpon>TourDL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>TourDL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>TourDL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Status.aspx.cs">
+      <DependentUpon>Status.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Status.aspx.designer.cs">
+      <DependentUpon>Status.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>TourDL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tour.cs">
+      <DependentUpon>TourDL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TourDL.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TourDL.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TourDL.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TourDL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TourDL.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TourDL.edmx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\Template\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Admin\Template\font-awesome\fonts\fontawesome-webfont.eot_" />
+    <Content Include="Admin\Template\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Admin\Template\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Admin\Template\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Admin\Template\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Admin\Template\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Admin\Template\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Admin\Template\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Admin\SiteAdmin.Master" />
+    <Content Include="Admin\mtHome.Master" />
+    <None Include="packages.config" />
+    <Content Include="Template\fonts\beyond_the_mountains.otf" />
+    <Content Include="Template\fonts\beyond_the_mountains.ttf" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\less\core.less" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\less\list.less" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\less\path.less" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="Template\plugins\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="SiteCustomer.Master" />
+    <EntityDeploy Include="TourDL.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TourDL.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="TourDL.edmx.diagram">
+      <DependentUpon>TourDL.edmx</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55986</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44349/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
