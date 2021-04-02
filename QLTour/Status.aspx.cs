@@ -58,32 +58,12 @@ namespace QLTour
             //string MaKS = obj1.Ma.ToString();
             //lbKhachSan.Text = db.KhachSan.First(x => x.MaKS == MaKS).TenKS;
         }
-
-        //void getData(string MaTour)
-        //{
-        //    TourDLEntities db = new TourDLEntities();
-        //    QLTour.CTTour obj = db.CTTour.FirstOrDefault(x => x.MaTour == MaTour);
-        //    string gianl = obj.GiaveNL.ToString();
-        //    string giate = obj.GiaVeTE.ToString();
-
-        //    DataTable dt = new DataTable();
-        //    dt.Columns.AddRange(new DataColumn[2] { new DataColumn("Item"), new DataColumn("Price") });
-        //    dt.Rows.Add("Người lớn", gianl);
-        //    dt.Rows.Add("Trẻ em", giate);
-        //    GridView1.DataSource = dt;
-        //    GridView1.DataBind();
-        //    txtGiaNL.Text = obj.GiaveNL.ToString();
-        //    txtGiaTE.Text = obj.GiaVeTE.ToString();
-        //}
-
         //
         void getdata(string MaTour)
         {
             TourDLEntities db = new TourDLEntities();
             QLTour.CTTour obj = db.CTTour.FirstOrDefault(x => x.MaTour == MaTour);
             List<QLTour.CTTour> lst = db.CTTour.Where(x => x.MaTour == MaTour).ToList();
-            //dgvCTTour.DataSource = lst;
-            //dgvCTTour.DataBind();
             txtGiaNL.Text = obj.GiaveNL.ToString();
             txtGiaTE.Text = obj.GiaVeTE.ToString();
         }
