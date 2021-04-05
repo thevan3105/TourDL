@@ -9,14 +9,26 @@ using System.Web.UI.WebControls;
 
 namespace QLTour.Admin
 {
-    public partial class Home : System.Web.UI.Page
+    public partial class Home1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            lbupdatetimechart.Text = getdateupdatechart();
             getgiatourmax();
             countmax();
             countmin();
             sumtongdoanhthu();
+            txtLineChart2.Text = getDataLineChart2();
+            txtLineChart.Text = getDataLineChart();
+            lbdoanhthuthangtruoc.Text = sumtongdoanhthu().ToString("N0");
+            lbdoanhthuthanghientai.Text = sumtongdoanhthuthangnay().ToString("N0");
+            lbtongdanhthulastyear.Text = doanhthuquy().ToString("N0");
+        }
+        public string getdateupdatechart()
+        {
+            DateTime updatechart = new DateTime();
+            updatechart = DateTime.Now;
+            return updatechart.ToString("dd/MM/yyyy hh:mm");
         }
         string getDataLineChart()
         {
@@ -111,8 +123,8 @@ namespace QLTour.Admin
             da.Fill(dt);  // đổ dữ liệu vào kho
             cnn.Close();  // đóng kết nối
 
-            dgvkhdatmax.DataSource = dt;
-            dgvkhdatmax.DataBind();
+            //dgvtourdatmin.DataSource = dt;
+            //dgvtourdatmin.DataBind();
 
         }
         // LẤY RA TÊN TÊN KHÁCH HÀNG ĐẶT ít TOUR NHẤT
@@ -131,8 +143,8 @@ namespace QLTour.Admin
             da.Fill(dt);  // đổ dữ liệu vào kho
             cnn.Close();  // đóng kết nối
 
-            dgvkhdatmin.DataSource = dt;
-            dgvkhdatmin.DataBind();
+            //dgvtourdatmin.DataSource = dt;
+            //dgvtourdatmin.DataBind();
 
         }
         // LẤY RA TÊN TOUR ĐẶT NHIỀU NHẤT
@@ -153,8 +165,8 @@ namespace QLTour.Admin
             da.Fill(dt);  // đổ dữ liệu vào kho
             cnn.Close();  // đóng kết nối
 
-            dgvtourdatmin.DataSource = dt;
-            dgvtourdatmin.DataBind();
+            //dgvtourdatmax.DataSource = dt;
+            //dgvtourdatmax.DataBind();
 
         }
 
@@ -173,8 +185,8 @@ namespace QLTour.Admin
             da.Fill(dt);  // đổ dữ liệu vào kho
             cnn.Close();  // đóng kết nối
 
-            dgvnhanvienbanmax.DataSource = dt;
-            dgvnhanvienbanmax.DataBind();
+            //dgvnhanvienbanmax.DataSource = dt;
+            //dgvnhanvienbanmax.DataBind();
 
         }
         // LẤY RA TÊN NHÂN VIÊN BÁN TOUR ít NHẤT
@@ -192,8 +204,8 @@ namespace QLTour.Admin
             da.Fill(dt);  // đổ dữ liệu vào kho
             cnn.Close();  // đóng kết nối
 
-            dgvnhanvienbanmin.DataSource = dt;
-            dgvnhanvienbanmin.DataBind();
+            //dgvnhanvienbanmax.DataSource = dt;
+            //dgvnhanvienbanmax.DataBind();
 
         }
         // LẤY RA TÊN TOUR ĐẶT ÍT NHẤT
@@ -204,7 +216,6 @@ namespace QLTour.Admin
 
             cnn.Open();
             string sql = "select top 1  Tour.TenTour from Tour, Booking where Tour.MaTour = Booking.MaTour group by Booking.MaTour, Tour.TenTour order by COUNT(1)";
-
             SqlCommand com = new SqlCommand(sql, cnn); //bat dau truy van
             com.CommandType = CommandType.Text;
             SqlDataAdapter da = new SqlDataAdapter(com); //chuyen du lieu ve
@@ -212,24 +223,8 @@ namespace QLTour.Admin
             da.Fill(dt);  // đổ dữ liệu vào kho
             cnn.Close();  // đóng kết nối
 
-            dgvtourdatmin.DataSource = dt;
-            dgvtourdatmin.DataBind();
-        }
-        public string soluongdattourmin()
-        {
-            TourDLEntities db = new TourDLEntities();
-            SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=Van;Integrated Security=True");
-
-            cnn.Open();
-            string sl = "select top 1  count(1) from Tour, Booking where Tour.MaTour = Booking.MaTour group by Booking.MaTour, Tour.TenTour order by COUNT(1)";
-            SqlCommand com = new SqlCommand(sl, cnn); //bat dau truy van
-            com.CommandType = CommandType.Text;
-            SqlDataAdapter da = new SqlDataAdapter(com); //chuyen du lieu ve
-            DataTable dt = new DataTable(); //tạo một kho ảo để lưu trữ dữ liệu
-            da.Fill(dt);  // đổ dữ liệu vào kho
-            cnn.Close();  // đóng kết nối
-
-            return dt.ToString();
+            //dgvtourdatmax.DataSource = dt;
+            //dgvtourdatmax.DataBind();
         }
         // LẤY RA TOUR CÓ SỐ LƯỢNG ĐẶT NHIỀU NHẤT
         public string getTenTourmax()
@@ -276,13 +271,24 @@ namespace QLTour.Admin
             TourDLEntities db = new TourDLEntities();
             DateTime today = DateTime.Now;
             List<QLTour.Booking> lst = db.Booking.Where(x => x.NgayBook.Value.Month == today.Month - 1).ToList();
-            dgvalltour.DataSource = lst;
-            dgvalltour.DataBind();
+            //dgvalltour.DataSource = lst;
+            //dgvalltour.DataBind();
         }
 
         // LẤY RA DOANH THU QUÝ TRƯỚC
         public int doanhthuquy()
         {
+            //TourDLEntities db = new TourDLEntities();
+            //SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=Van;Integrated Security=True");
+
+            //cnn.Open();
+            //string sql = "select top 1  Tour.TenTour from Tour, Booking where Tour.MaTour = Booking.MaTour and group by Booking.MaTour, Tour.TenTour order by COUNT(1)";
+            //SqlCommand com = new SqlCommand(sql, cnn); //bat dau truy van
+            //com.CommandType = CommandType.Text;
+            //SqlDataAdapter da = new SqlDataAdapter(com); //chuyen du lieu ve
+            //DataTable dt = new DataTable(); //tạo một kho ảo để lưu trữ dữ liệu
+            //da.Fill(dt);  // đổ dữ liệu vào kho
+            //cnn.Close();  // đóng kết nối
 
             int t1 = sumtongdoanhthu();
             int t2 = sumtongdoanhthu() - 1;

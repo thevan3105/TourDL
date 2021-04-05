@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QLTour.Admin {
-    
-    
-    public partial class mtHome {
-        
+namespace QLTour.Admin
+{
+
+
+    public partial class mtHome
+    {
+
         /// <summary>
         /// head control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace QLTour.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
-        
+
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace QLTour.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
+
         /// <summary>
         /// lbtenAcount control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace QLTour.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbtenAcount;
-        
+
         /// <summary>
         /// lbnghiepvunv control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace QLTour.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbnghiepvunv;
-        
+
         /// <summary>
         /// lbtLogOutLeft control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace QLTour.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbtLogOutLeft;
-        
+
         /// <summary>
         /// hplupanhavatar control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace QLTour.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hplupanhavatar;
-        
+
         /// <summary>
         /// hpltour control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace QLTour.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hpltour;
-        
+
         /// <summary>
         /// hplchitiettour control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace QLTour.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hplchitiettour;
-        
+
         /// <summary>
         /// hplloaitour control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace QLTour.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hplloaitour;
-        
+
         /// <summary>
         /// hpllichtrinh control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace QLTour.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hpllichtrinh;
-        
+
         /// <summary>
         /// hplkhachang control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace QLTour.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hplkhachang;
-        
+
         /// <summary>
         /// hplnhanvien control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace QLTour.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hplnhanvien;
-        
+
         /// <summary>
         /// hplbooking control.
         /// </summary>
@@ -128,7 +130,7 @@ namespace QLTour.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hplbooking;
-        
+
         /// <summary>
         /// hplphuongtien control.
         /// </summary>
@@ -137,7 +139,7 @@ namespace QLTour.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hplphuongtien;
-        
+
         /// <summary>
         /// hplloaiphuongtien control.
         /// </summary>
@@ -146,7 +148,7 @@ namespace QLTour.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hplloaiphuongtien;
-        
+
         /// <summary>
         /// hpldiadiemdulich control.
         /// </summary>
@@ -155,7 +157,7 @@ namespace QLTour.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hpldiadiemdulich;
-        
+
         /// <summary>
         /// hplkhachsan control.
         /// </summary>
@@ -164,7 +166,7 @@ namespace QLTour.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hplkhachsan;
-        
+
         /// <summary>
         /// hplContact control.
         /// </summary>
@@ -173,7 +175,16 @@ namespace QLTour.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hplContact;
-        
+
+        /// <summary>
+        /// hplbcthongke control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hplbcthongke;
+
         /// <summary>
         /// lblTaiKhoan control.
         /// </summary>
@@ -182,7 +193,7 @@ namespace QLTour.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal lblTaiKhoan;
-        
+
         /// <summary>
         /// lbtlogout control.
         /// </summary>
@@ -191,7 +202,7 @@ namespace QLTour.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbtlogout;
-        
+
         /// <summary>
         /// ContentPlaceHolder1 control.
         /// </summary>
@@ -200,7 +211,7 @@ namespace QLTour.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
-        
+
         /// <summary>
         /// ContentPlaceHolder2 control.
         /// </summary>

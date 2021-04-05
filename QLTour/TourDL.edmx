@@ -19,6 +19,7 @@
           <Property Name="MaNV" Type="nvarchar" MaxLength="50" />
           <Property Name="TrangThai" Type="int" />
           <Property Name="GiaTien" Type="int" />
+          <Property Name="NgayBook" Type="datetime" />
         </EntityType>
         <EntityType Name="Comment">
           <Key>
@@ -490,6 +491,7 @@
           <NavigationProperty Name="KhachHang" Relationship="Self.FK_Booking_KhachHang" FromRole="Booking" ToRole="KhachHang" />
           <NavigationProperty Name="LichTrinh" Relationship="Self.FK_Booking_LichTrinh" FromRole="Booking" ToRole="LichTrinh" />
           <NavigationProperty Name="NhanVien" Relationship="Self.FK_Booking_NhanVien" FromRole="Booking" ToRole="NhanVien" />
+          <Property Name="NgayBook" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Contact">
           <Key>
@@ -984,6 +986,7 @@
           <EntitySetMapping Name="Booking">
             <EntityTypeMapping TypeName="TourDLModel.Booking">
               <MappingFragment StoreEntitySet="Booking">
+                <ScalarProperty Name="NgayBook" ColumnName="NgayBook" />
                 <ScalarProperty Name="MaVe" ColumnName="MaVe" />
                 <ScalarProperty Name="MaTour" ColumnName="MaTour" />
                 <ScalarProperty Name="SLNguoiLon" ColumnName="SLNguoiLon" />

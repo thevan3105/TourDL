@@ -83,6 +83,7 @@
     <Content Include="Admin\DiaDiemDLs.aspx" />
     <Content Include="Admin\DoiMK.aspx" />
     <Content Include="Admin\Home.aspx" />
+    <Content Include="Admin\Home1.aspx" />
     <Content Include="Admin\KhachHangs.aspx" />
     <Content Include="Admin\KhachSans.aspx" />
     <Content Include="Admin\LichTrinhs.aspx" />
@@ -605,6 +606,13 @@
     <Compile Include="Admin\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Home1.aspx.cs">
+      <DependentUpon>Home1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Home1.aspx.designer.cs">
+      <DependentUpon>Home1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\KhachHangs.aspx.cs">
       <DependentUpon>KhachHangs.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -647,6 +655,7 @@
     <Compile Include="Admin\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\LuotDat.cs" />
     <Compile Include="Admin\mtHome.Master.cs">
       <DependentUpon>mtHome.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

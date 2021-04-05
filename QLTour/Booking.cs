@@ -24,6 +24,7 @@ namespace QLTour
         public string MaNV { get; set; }
         public Nullable<int> TrangThai { get; set; }
         public Nullable<int> GiaTien { get; set; }
+        public Nullable<System.DateTime> NgayBook { get; set; }
     
         public virtual KhachHang KhachHang { get; set; }
         public virtual LichTrinh LichTrinh { get; set; }
