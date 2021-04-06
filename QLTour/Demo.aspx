@@ -10,70 +10,40 @@
     <link rel="stylesheet" type="text/css" href="Template/styles/offers_styles.css">
     <link rel="stylesheet" type="text/css" href="Template/styles/offers_responsive.css">
     <style>
-        /* Button used to open the contact form - fixed at the bottom of the page */
-        .open-button {
-            background-color: #555;
-            color: white;
-            padding: 16px 20px;
-            border: none;
-            cursor: pointer;
-            opacity: 0.8;
-            bottom: 23px;
-            right: 28px;
-            width: 280px;
+        .input_field {
+            color: black;
+        }
+        .rating {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center
         }
 
-        /* The popup form - hidden by default */
-        .form-popup {
-            display: none;
-            bottom: 0;
-            right: 15px;
-            border: 3px solid #f1f1f1;
-            z-index: 9;
-        }
-
-        /* Add styles to the form container */
-        .form-container {
-            max-width: 300px;
-            padding: 10px;
-            background-color: white;
-        }
-
-            /* Full-width input fields */
-            .form-container input[type=text], .form-container input[type=password] {
-                width: 100%;
-                padding: 15px;
-                margin: 5px 0 22px 0;
-                border: none;
-                background: #f1f1f1;
+            .rating > input {
+                display: none
             }
 
-                /* When the inputs get focus, do something */
-                .form-container input[type=text]:focus, .form-container input[type=password]:focus {
-                    background-color: #ddd;
-                    outline: none;
+            .rating > label {
+                position: relative;
+                width: 1em;
+                font-size: 6vw;
+                color: #FFD600;
+                cursor: pointer
+            }
+
+                .rating > label::before {
+                    content: "\2605";
+                    position: absolute;
+                    opacity: 0
                 }
 
-            /* Set a style for the submit/login button */
-            .form-container .btn {
-                background-color: #4CAF50;
-                color: white;
-                padding: 16px 20px;
-                border: none;
-                cursor: pointer;
-                width: 100%;
-                margin-bottom: 10px;
-                opacity: 0.8;
-            }
+                .rating > label:hover:before,
+                .rating > label:hover ~ label:before {
+                    opacity: 1 !important
+                }
 
-            /* Add a red background color to the cancel button */
-            .form-container .cancel {
-                background-color: red;
-            }
-
-            /* Add some hover effects to buttons */
-            .form-container .btn:hover, .open-button:hover {
-                opacity: 1;
+            .rating > input:checked ~ label:before {
+                opacity: 1
             }
     </style>
 </asp:Content>
@@ -90,21 +60,38 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <button class="open-button" onclick="openForm()">Open Form</button>
+    <div class="container">
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="line-height: 0.5">Đánh giá</button>
 
-    <div class="form-popup" id="myForm">
-        <div class="form-container">
-            <h1>Login</h1>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
 
-            <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" required>
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Đánh giá tour ...</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="rating">
+                            <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+                            <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+                            <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+                            <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+                            <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button runat="server" ID="btnDong" Text="Đóng" class="btn btn-default" OnClick="btnDong_Click"></asp:Button>
+                    </div>
+                </div>
 
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
-
-            <button type="submit" class="btn">Login</button>
-            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </div>
         </div>
+
+    </div>
+    <div>
+        <asp:Label runat="server" ID="lbTest"></asp:Label>
     </div>
 </asp:Content>
 
@@ -118,13 +105,4 @@
     <script src="Template/plugins/parallax-js-master/parallax.min.js"></script>
     <script src="Template/js/offers_custom.js"></script>
     <script type="text/javascript" src="Template/js/jquery.min.js"></script>
-    <script>
-        function openForm() {
-            document.getElementById("myForm").style.display = "block";
-        }
-
-        function closeForm() {
-            document.getElementById("myForm").style.display = "none";
-        }
-    </script>
 </asp:Content>

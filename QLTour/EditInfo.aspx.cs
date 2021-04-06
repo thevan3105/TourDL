@@ -9,6 +9,7 @@ namespace QLTour
 {
     public partial class EditInfo : System.Web.UI.Page
     {
+        TourDLEntities db = new TourDLEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -23,7 +24,6 @@ namespace QLTour
                     //Load dữ liệu
                     lbTaiKhoan.Text = Session["TaiKhoan"].ToString();
                     // Query về db để lấy các thông tin còn lại
-                    TourDLEntities db = new TourDLEntities();
                     QLTour.KhachHang obj = db.KhachHang.FirstOrDefault(x => x.TaiKhoan == lbTaiKhoan.Text);
                     if (obj == null)
                     {
@@ -45,11 +45,6 @@ namespace QLTour
                 //getData();
             }
         }
-        //void tongtien(string makh)
-        //{
-        //    TourDLEntities db = new TourDLEntities();
-        //    lbtongtien.Text = db.Booking.Where(x => x.MaKH == makh).Sum(x => x.GiaTien).ToString();
-        //}
         public string getTrangThai(string trangthai)
         {
             if (trangthai == "0")
@@ -74,7 +69,6 @@ namespace QLTour
         {
             try
             {
-                TourDLEntities db = new TourDLEntities();
                 if (db.Booking.FirstOrDefault(x => x.MaKH == makh) == null)
                 {
                     lbError.Text = "bạn chưa có giao dịch";
@@ -94,23 +88,19 @@ namespace QLTour
         }
         public string getTenTour(string MaTour)
         {
-                TourDLEntities db = new TourDLEntities();
-                return db.Tour.First(x => x.MaTour == MaTour).TenTour;
+            return db.Tour.First(x => x.MaTour == MaTour).TenTour;
         }
 
         public string getLichtrinhBD(string MaLT)
         {
-            TourDLEntities db = new TourDLEntities();
             return db.LichTrinh.First(x => x.MaLT == MaLT).NgayBD.ToString();
         }
         public string getLichtrinhKT(string MaLT)
         {
-            TourDLEntities db = new TourDLEntities();
             return db.LichTrinh.First(x => x.MaLT == MaLT).NgayKT.ToString();
         }
         public string getDiaDiem(string MaDDDL)
         {
-            TourDLEntities db = new TourDLEntities();
             return db.DiaDiemDL.First(x => x.MaDDDL == MaDDDL).TenDDDL.ToString();
         }
 
@@ -119,7 +109,6 @@ namespace QLTour
             try
             {
                 // Sửa dữ liệu
-                TourDLEntities db = new TourDLEntities();
                 QLTour.KhachHang obj = db.KhachHang.FirstOrDefault(x => x.TaiKhoan == lbTaiKhoan.Text);
                 if (obj == null)
                 {
@@ -148,7 +137,6 @@ namespace QLTour
         {
             string mave = e.CommandArgument.ToString();
             int abc = Int32.Parse(mave);
-            TourDLEntities db = new TourDLEntities();
             QLTour.Booking obj = db.Booking.FirstOrDefault(x => x.MaVe == abc);
 
             if (obj.TrangThai == 1)
@@ -163,6 +151,33 @@ namespace QLTour
                 Response.Redirect("EditInfo.aspx");
             }
             
+        }
+
+        protected void btnDong_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string mave = lbMave.Text.ToString();
+                int abc = Int32.Parse(mave);
+                QLTour.DanhGia obj = db.DanhGia.FirstOrDefault(x => x.MaVe == abc);
+                obj.MaTour = "";
+                obj.MaKH = "";
+                obj.MaVe = abc;
+                obj.Diem = Int32.Parse(Request.Form["rating"]);
+                db.DanhGia.Add(obj);
+                db.SaveChanges();
+            }
+            catch (Exception)
+            {
+                Response.Redirect("EditInfo.aspx");
+                throw;
+            }
+        }
+
+        protected void ID_DanhGia_Command(object sender, CommandEventArgs e)
+        {
+            lbMave.Text = e.CommandArgument.ToString();
+            Response.Redirect("EditInfo.aspx");
         }
     }
 }

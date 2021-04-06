@@ -23,13 +23,13 @@
                 display: none
             }
 
-            /*.rating > label {
+            .rating > label {
                 position: relative;
                 width: 1em;
                 font-size: 6vw;
                 color: #FFD600;
                 cursor: pointer
-            }*/
+            }
 
                 .rating > label::before {
                     content: "\2605";
@@ -109,7 +109,7 @@
                 <div style="float: left; width: 100%; text-align: center">
                     <asp:GridView runat="server" ID="dgvLichSu" class="table table-bordered table-hover" AutoGenerateColumns="false">
                     <Columns>
-                        <asp:BoundField DataField="MaVe" HeaderText="Mã vé" />
+                        <asp:BoundField DataField="NgayBook" HeaderText="Ngày đặt" />
 
                         <asp:TemplateField>
                                 <HeaderTemplate>
@@ -176,9 +176,10 @@
                                 <%# getTrangThai(Eval("TrangThai").ToString())%>
                             </ItemTemplate>
                         </asp:TemplateField>
+                        <%--Ngày đặt--%>
                         <asp:TemplateField>
                             <HeaderTemplate>
-                                Chức năng hủy tour
+                                Hủy tour
                             </HeaderTemplate>
                             <ItemTemplate>
                                 <asp:LinkButton runat="server" ID="btnXoa" Text="Hủy"
@@ -189,23 +190,41 @@
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <HeaderTemplate>
-                                Đánh giá tour
+                                Đánh giá
                             </HeaderTemplate>
                             <ItemTemplate>
-                                <%--<div class="rating">
-                                    <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
-                                    <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
-                                    <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
-                                    <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
-                                    <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
-                                </div>--%>
-                                <asp:LinkButton runat="server" ID="btnDanhGia" Text="Đánh giá"
-                                    CommandArgument='<%# Eval("Mave").ToString() %>'/>
+                                <asp:LinkButton runat="server" Text="Đánh giá" ID="ID_DanhGia" CommandArgument='<%# Eval("Mave").ToString() %>' data-toggle="modal" data-target="#myModal" OnCommand="ID_DanhGia_Command"></asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
-                </asp:GridView>
+                    </asp:GridView>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Đánh giá tour <asp:Label runat="server" ID="lbMave"></asp:Label></h5>
+                </div>
+                <div class="modal-body">
+                    <div class="rating">
+                        <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+                        <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+                        <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+                        <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+                        <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <asp:Button runat="server" Text="Đánh giá" ID="btnDong" class="btn btn-default" data-dismiss="modal" OnClick="btnDong_Click"></asp:Button>
+                </div>
+            </div>
+            <div>
+                <asp:Label runat="server" ID="test"></asp:Label>
             </div>
         </div>
     </div>

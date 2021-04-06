@@ -32,5 +32,9 @@ namespace QLTour
             }
         }
 
+        protected void btnDong_Click(object sender, EventArgs e)
+        {
+            lbTest.Text = Request.Form["rating"].ToString();
+        }
     }
 }
