@@ -109,6 +109,7 @@
     <Content Include="Admin\QLNhanVien.aspx" />
     <Content Include="Admin\QLPhuongTien.aspx" />
     <Content Include="Admin\QLTours.aspx" />
+    <Content Include="Admin\Search.aspx" />
     <Content Include="Admin\Template\css\animate.css" />
     <Content Include="Admin\Template\css\bootstrap.min.css" />
     <Content Include="Admin\Template\css\patterns\header-profile-skin-1.png" />
@@ -773,6 +774,13 @@
     </Compile>
     <Compile Include="Admin\QLTours.aspx.designer.cs">
       <DependentUpon>QLTours.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\SiteAdmin.Master.cs">
       <DependentUpon>SiteAdmin.Master</DependentUpon>
