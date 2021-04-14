@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QLTour {
-    
-    
-    public partial class Single_listing {
-        
+namespace QLTour
+{
+
+
+    public partial class Single_listing
+    {
+
         /// <summary>
         /// rpName control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace QLTour {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rpName;
-        
+
         /// <summary>
         /// rpGiaVe control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace QLTour {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rpGiaVe;
-        
+
         /// <summary>
         /// abc control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace QLTour {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField abc;
-        
+
         /// <summary>
         /// rpAnhDaiDien control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace QLTour {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rpAnhDaiDien;
-        
+
         /// <summary>
         /// rpAnhTour control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace QLTour {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rpAnhTour;
-        
+
         /// <summary>
         /// rpMoTa control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace QLTour {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rpMoTa;
-        
+
         /// <summary>
         /// rpMoTaCT control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace QLTour {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rpMoTaCT;
-        
+
         /// <summary>
         /// rpLichTrinh control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace QLTour {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rpLichTrinh;
-        
+
         /// <summary>
         /// txtComments control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace QLTour {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtComments;
-        
+
         /// <summary>
         /// btnSend control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace QLTour {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSend;
-        
+
         /// <summary>
         /// rpReview control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace QLTour {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rpReview;
-        
+
         /// <summary>
         /// lbText control.
         /// </summary>

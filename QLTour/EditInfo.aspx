@@ -9,43 +9,6 @@
     <link href="Template/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="Template/styles/contact_styles.css">
     <link rel="stylesheet" type="text/css" href="Template/styles/contact_responsive.css">
-    <style>
-        .input_field {
-            color: black;
-        }
-        .rating {
-            display: flex;
-            flex-direction: row-reverse;
-            justify-content: center
-        }
-
-            .rating > input {
-                display: none
-            }
-
-            .rating > label {
-                position: relative;
-                width: 1em;
-                font-size: 6vw;
-                color: #FFD600;
-                cursor: pointer
-            }
-
-                .rating > label::before {
-                    content: "\2605";
-                    position: absolute;
-                    opacity: 0
-                }
-
-                .rating > label:hover:before,
-                .rating > label:hover ~ label:before {
-                    opacity: 1 !important
-                }
-
-            .rating > input:checked ~ label:before {
-                opacity: 1
-            }
-    </style>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="slider" runat="server">
@@ -193,38 +156,14 @@
                                 Đánh giá
                             </HeaderTemplate>
                             <ItemTemplate>
-                                <asp:LinkButton runat="server" Text="Đánh giá" ID="ID_DanhGia" CommandArgument='<%# Eval("Mave").ToString() %>' data-toggle="modal" data-target="#myModal" OnCommand="ID_DanhGia_Command"></asp:LinkButton>
+                                <asp:LinkButton runat="server" ID="btnRating" Text="Đánh giá"
+                                    CommandArgument='<%# Eval("Mave").ToString() %>'
+                                    OnCommand="btnRating_Command" />
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
                     </asp:GridView>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Đánh giá tour <asp:Label runat="server" ID="lbMave"></asp:Label></h5>
-                </div>
-                <div class="modal-body">
-                    <div class="rating">
-                        <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
-                        <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
-                        <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
-                        <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
-                        <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <asp:Button runat="server" Text="Đánh giá" ID="btnDong" class="btn btn-default" data-dismiss="modal" OnClick="btnDong_Click"></asp:Button>
-                </div>
-            </div>
-            <div>
-                <asp:Label runat="server" ID="test"></asp:Label>
             </div>
         </div>
     </div>

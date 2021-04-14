@@ -376,12 +376,14 @@
     <Content Include="Login.aspx" />
     <Content Include="Offers.aspx" />
     <Content Include="Register.aspx" />
+    <Content Include="Reviews.aspx" />
     <Content Include="Search.aspx" />
     <Content Include="Single_listing.aspx" />
     <Content Include="Status.aspx" />
     <Content Include="Template\images\about_background.jpg" />
     <Content Include="Template\images\add.jpg" />
     <Content Include="Template\images\backpack.png" />
+    <Content Include="Template\images\Best-Product-Review-Sites.jpg" />
     <Content Include="Template\images\bicycle.png" />
     <Content Include="Template\images\blog_1.jpg" />
     <Content Include="Template\images\blog_2.jpg" />
@@ -918,6 +920,13 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reviews.aspx.cs">
+      <DependentUpon>Reviews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reviews.aspx.designer.cs">
+      <DependentUpon>Reviews.aspx</DependentUpon>
     </Compile>
     <Compile Include="Search.aspx.cs">
       <DependentUpon>Search.aspx</DependentUpon>

@@ -153,31 +153,9 @@ namespace QLTour
             
         }
 
-        protected void btnDong_Click(object sender, EventArgs e)
+        protected void btnRating_Command(object sender, CommandEventArgs e)
         {
-            try
-            {
-                string mave = lbMave.Text.ToString();
-                int abc = Int32.Parse(mave);
-                QLTour.DanhGia obj = db.DanhGia.FirstOrDefault(x => x.MaVe == abc);
-                obj.MaTour = "";
-                obj.MaKH = "";
-                obj.MaVe = abc;
-                obj.Diem = Int32.Parse(Request.Form["rating"]);
-                db.DanhGia.Add(obj);
-                db.SaveChanges();
-            }
-            catch (Exception)
-            {
-                Response.Redirect("EditInfo.aspx");
-                throw;
-            }
-        }
 
-        protected void ID_DanhGia_Command(object sender, CommandEventArgs e)
-        {
-            lbMave.Text = e.CommandArgument.ToString();
-            Response.Redirect("EditInfo.aspx");
         }
     }
 }
