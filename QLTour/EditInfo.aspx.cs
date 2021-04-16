@@ -155,7 +155,13 @@ namespace QLTour
 
         protected void btnRating_Command(object sender, CommandEventArgs e)
         {
+            string MaVe = e.CommandArgument.ToString();
+            int mave = Int32.Parse(MaVe);
+            QLTour.Booking obj = db.Booking.FirstOrDefault(x => x.MaVe == mave);
+            string matour = obj.MaTour;
+            string makh = obj.MaKH;
 
+            Response.Redirect("Reviews.aspx?MaTour=" + matour + "&MaVe=" + MaVe + "&MaKH=" + makh);
         }
     }
 }

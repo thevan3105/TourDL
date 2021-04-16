@@ -157,7 +157,7 @@
                             </HeaderTemplate>
                             <ItemTemplate>
                                 <asp:LinkButton runat="server" ID="btnRating" Text="Đánh giá"
-                                    CommandArgument='<%# Eval("Mave").ToString() %>'
+                                    CommandArgument='<%# Eval("MaVe").ToString() %>'
                                     OnCommand="btnRating_Command" />
                             </ItemTemplate>
                         </asp:TemplateField>

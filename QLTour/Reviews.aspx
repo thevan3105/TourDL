@@ -53,6 +53,23 @@
             margin-left: 25%;
             margin-right: 25%;
         }
+
+        .button {
+            background-color: cadetblue;
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            float: inherit;
+        }
+
+        .button5 {
+            border-radius: 350%;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="slider" runat="server">
@@ -60,7 +77,6 @@
 
     <div class="home">
         <div class="home_background parallax-window" data-parallax="scroll" data-image-src="Template/images/Best-Product-Review-Sites.jpg"></div>
-        <asp:TextBox runat="server" ID="txtSearch" Enabled="false"></asp:TextBox>
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -75,10 +91,9 @@
                 <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
                 <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
             </div>
-            <div>Tên tour: </div>
-            <div>Giá tour: </div>
-            <div>Lịch trình: </div>
-            <button>ABC</button>
+            <div>Tên tour: <asp:Label runat="server" ID="lbTenTour"></asp:Label></div>
+            <div>Giá tour: <asp:Label runat="server" ID="lbGiaTour"></asp:Label> đ</div>
+            <div style="margin-left: 41%"><asp:Button runat="server" class="button button5" Text="Đánh giá" ID="btnDanhGia" OnClick="btnDanhGia_Click"></asp:Button></div>
         </div>
         <div class="col-sm-3"></div>
     </div>
