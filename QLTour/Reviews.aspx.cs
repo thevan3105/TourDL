@@ -40,11 +40,13 @@ namespace QLTour
         {
             QLTour.DanhGia obj = new QLTour.DanhGia();
             obj.MaTour = Request.QueryString["MaTour"];
-            obj.MaKH = "";
-            obj.MaVe = 0;
-            obj.Diem = 0;
+            obj.MaKH = Request.QueryString["MaKH"];
+            obj.MaVe = Int32.Parse(Request.QueryString["MaVe"]);
+            obj.Diem = Int32.Parse(Request.Form["rating"].ToString());
             db.DanhGia.Add(obj);
             db.SaveChanges();
+            Response.Write("<script>alert('Cảm ơn bạn đã đánh giá');</script>");
+            Response.Redirect("EditInfo.aspx");
         }
     }
 }
