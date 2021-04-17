@@ -40,9 +40,37 @@ namespace QLTour
                         string makh = obj.MaKH;
                         getdata(makh);
                         //tongtien(makh);
+                        //conditions ranting
+
                     }
                 }
                 //getData();
+            }
+        }
+        public bool getVisibleDG(string mave)
+        {
+            int abc = int.Parse(mave);
+            QLTour.Booking obj = db.Booking.First(x =>x.MaVe == abc);
+            if (obj.DanhGia.Count(x =>x.Diem != null) > 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        public bool getVisibleDG1(string mave)
+        {
+            int abc = int.Parse(mave);
+            QLTour.Booking obj = db.Booking.First(x => x.MaVe == abc);
+            if (obj.DanhGia.Count(x => x.Diem != null) > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
         public string getTrangThai(string trangthai)

@@ -9,6 +9,11 @@
     <link href="Template/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="Template/styles/contact_styles.css">
     <link rel="stylesheet" type="text/css" href="Template/styles/contact_responsive.css">
+    <style>
+        .ranting {
+            opacity: 0.3;
+        }
+    </style>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="slider" runat="server">
@@ -158,7 +163,14 @@
                             <ItemTemplate>
                                 <asp:LinkButton runat="server" ID="btnRating" Text="Đánh giá"
                                     CommandArgument='<%# Eval("MaVe").ToString() %>'
-                                    OnCommand="btnRating_Command" />
+                                    OnCommand="btnRating_Command"
+                                    Visible= <%# getVisibleDG(Eval("MaVe").ToString()) %>/>
+
+                                <asp:LinkButton runat="server" ID="btnDaDG" Text="Đã đánh giá"
+                                    OnClientClick="return valid1();"
+                                    Visible= <%# getVisibleDG1(Eval("MaVe").ToString()) %>
+                                    class ="ranting"
+                                    />
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
@@ -181,6 +193,9 @@
                 return true;
             }
             return false;
+        }
+        function valid1() {
+            alert("Bạn đã đánh giá tour này")
         }
     </script>
 </asp:Content>

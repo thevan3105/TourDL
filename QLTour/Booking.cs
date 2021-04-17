@@ -14,6 +14,12 @@ namespace QLTour
     
     public partial class Booking
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Booking()
+        {
+            this.DanhGia = new HashSet<DanhGia>();
+        }
+    
         public int MaVe { get; set; }
         public string MaTour { get; set; }
         public Nullable<int> SLNguoiLon { get; set; }
@@ -29,5 +35,7 @@ namespace QLTour
         public virtual KhachHang KhachHang { get; set; }
         public virtual LichTrinh LichTrinh { get; set; }
         public virtual NhanVien NhanVien { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DanhGia> DanhGia { get; set; }
     }
 }

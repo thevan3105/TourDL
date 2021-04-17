@@ -21,5 +21,6 @@ namespace QLTour
         public Nullable<int> Diem { get; set; }
     
         public virtual Tour Tour { get; set; }
+        public virtual Booking Booking { get; set; }
     }
 }

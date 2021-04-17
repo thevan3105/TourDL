@@ -37,6 +37,7 @@
         <AssociationConnector Association="TourDLModel.FK_Comment_Tour" />
         <EntityTypeShape EntityType="TourDLModel.DanhGia" Width="1.5" PointX="5.25" PointY="18.5" />
         <AssociationConnector Association="TourDLModel.FK_DanhGia_Tour" />
+        <AssociationConnector Association="TourDLModel.FK_DanhGia_Booking" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

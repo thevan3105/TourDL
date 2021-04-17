@@ -279,6 +279,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_DanhGia_Booking">
+          <End Role="Booking" Type="Self.Booking" Multiplicity="0..1" />
+          <End Role="DanhGia" Type="Self.DanhGia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Booking">
+              <PropertyRef Name="MaVe" />
+            </Principal>
+            <Dependent Role="DanhGia">
+              <PropertyRef Name="MaVe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_DanhGia_Tour">
           <End Role="Tour" Type="Self.Tour" Multiplicity="0..1" />
           <End Role="DanhGia" Type="Self.DanhGia" Multiplicity="*" />
@@ -441,6 +453,10 @@
             <End Role="Tour" EntitySet="Tour" />
             <End Role="CTTour" EntitySet="CTTour" />
           </AssociationSet>
+          <AssociationSet Name="FK_DanhGia_Booking" Association="Self.FK_DanhGia_Booking">
+            <End Role="Booking" EntitySet="Booking" />
+            <End Role="DanhGia" EntitySet="DanhGia" />
+          </AssociationSet>
           <AssociationSet Name="FK_DanhGia_Tour" Association="Self.FK_DanhGia_Tour">
             <End Role="Tour" EntitySet="Tour" />
             <End Role="DanhGia" EntitySet="DanhGia" />
@@ -492,6 +508,7 @@
           <NavigationProperty Name="LichTrinh" Relationship="Self.FK_Booking_LichTrinh" FromRole="Booking" ToRole="LichTrinh" />
           <NavigationProperty Name="NhanVien" Relationship="Self.FK_Booking_NhanVien" FromRole="Booking" ToRole="NhanVien" />
           <Property Name="NgayBook" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="DanhGia" Relationship="TourDLModel.FK_DanhGia_Booking" FromRole="Booking" ToRole="DanhGia" />
         </EntityType>
         <EntityType Name="Contact">
           <Key>
@@ -908,6 +925,10 @@
             <End Role="Tour" EntitySet="Tour" />
             <End Role="DanhGia" EntitySet="DanhGia" />
           </AssociationSet>
+          <AssociationSet Name="FK_DanhGia_Booking" Association="TourDLModel.FK_DanhGia_Booking">
+            <End Role="Booking" EntitySet="Booking" />
+            <End Role="DanhGia" EntitySet="DanhGia" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -964,6 +985,7 @@
           <Property Name="MaVe" Type="Int32" />
           <Property Name="Diem" Type="Int32" />
           <NavigationProperty Name="Tour" Relationship="TourDLModel.FK_DanhGia_Tour" FromRole="DanhGia" ToRole="Tour" />
+          <NavigationProperty Name="Booking" Relationship="TourDLModel.FK_DanhGia_Booking" FromRole="DanhGia" ToRole="Booking" />
         </EntityType>
         <Association Name="FK_DanhGia_Tour">
           <End Type="TourDLModel.Tour" Role="Tour" Multiplicity="0..1" />
@@ -974,6 +996,18 @@
             </Principal>
             <Dependent Role="DanhGia">
               <PropertyRef Name="MaTour" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DanhGia_Booking">
+          <End Type="TourDLModel.Booking" Role="Booking" Multiplicity="0..1" />
+          <End Type="TourDLModel.DanhGia" Role="DanhGia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Booking">
+              <PropertyRef Name="MaVe" />
+            </Principal>
+            <Dependent Role="DanhGia">
+              <PropertyRef Name="MaVe" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
