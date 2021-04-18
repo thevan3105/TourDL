@@ -136,9 +136,9 @@
                                                 <div class="offer_reviews">
                                                     <div class="offer_reviews_content">
                                                         <div class="offer_reviews_title">Điểm</div>
-                                                        <div class="offer_reviews_subtitle">/*count*/ Đánh giá</div>
+                                                        <div class="offer_reviews_subtitle"><%# getCount(Eval("MaTour").ToString()) %> Đánh giá</div>
                                                     </div>
-                                                    <div class="offer_reviews_rating text-center">/point/</div>
+                                                    <div class="offer_reviews_rating text-center"><%# getPoint(Eval("MaTour").ToString()) %></div>
                                                 </div>
                                             </div>
                                             <br>

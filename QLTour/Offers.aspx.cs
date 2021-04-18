@@ -23,6 +23,18 @@ namespace QLTour
             rpSanPhamHot.DataSource = lst;
             rpSanPhamHot.DataBind();
         }
+        public string getCount(string MaTour)
+        {
+            TourDLEntities db = new TourDLEntities();
+            QLTour.Tour obj = db.Tour.FirstOrDefault(x =>x.MaTour == MaTour);
+            return obj.DanhGia.Count(x => x.Diem > 0).ToString();
+        }
+        public string getPoint(string MaTour)
+        {
+            TourDLEntities db = new TourDLEntities();
+            QLTour.Tour obj = db.Tour.FirstOrDefault(x => x.MaTour == MaTour);
+            return obj.DanhGia.Average(x => x.Diem).ToString();
+        }
 
         public string getAnhDaiDien(string MaTour)
         {
