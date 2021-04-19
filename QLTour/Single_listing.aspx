@@ -177,9 +177,9 @@
                                 <div class="hotel_review">
                                     <div class="hotel_review_content">
                                         <div class="hotel_review_title">very good</div>
-                                        <div class="hotel_review_subtitle">100 reviews</div>
+                                        <div class="hotel_review_subtitle"><asp:Label runat="server" ID="lbCountCmt"></asp:Label> reviews</div>
                                     </div>
-                                    <div class="hotel_review_rating text-center">8.1</div>
+                                    <div class="hotel_review_rating text-center"><asp:Label runat="server" ID="lbPoint"></asp:Label></div>
                                 </div>
                             </div>
                         </div>
@@ -362,7 +362,7 @@
                                         <div class="row">
                                             <div class="col-lg-1">
                                                 <div class="review_image">
-                                                    <img src="Template/images/review_2.jpg" alt="https://unsplash.com/@saaout">
+                                                    <img src="Images/T006_202101201534410675.jpg" alt="https://unsplash.com/@saaout">
                                                 </div>
                                             </div>
                                             <div class="col-lg-11">

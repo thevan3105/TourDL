@@ -51,6 +51,24 @@ namespace QLTour
         protected global::System.Web.UI.WebControls.Repeater rpAnhDaiDien;
 
         /// <summary>
+        /// lbCountCmt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbCountCmt;
+
+        /// <summary>
+        /// lbPoint control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbPoint;
+
+        /// <summary>
         /// rpAnhTour control.
         /// </summary>
         /// <remarks>

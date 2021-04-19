@@ -28,8 +28,22 @@ namespace QLTour
                     //getMaxUser();
                     getMoTaCT(Request.QueryString["MaTour"]);
                     getReview(Request.QueryString["MaTour"]);
+                    getPoint(Request.QueryString["MaTour"]);
+                    getCountCmt(Request.QueryString["MaTour"]);
                 }
             }
+        }
+        public void getPoint(string MaTour)
+        {
+            TourDLEntities db = new TourDLEntities();
+            QLTour.Tour obj = db.Tour.FirstOrDefault(x => x.MaTour == MaTour);
+            lbPoint.Text = obj.DanhGia.Average(x => x.Diem).ToString();
+        }
+        public void getCountCmt(string MaTour)
+        {
+            TourDLEntities db = new TourDLEntities();
+            QLTour.Tour obj = db.Tour.FirstOrDefault(x => x.MaTour == MaTour);
+            lbCountCmt.Text = obj.Comment.Count(x => x.ID_comment > 0).ToString();
         }
         void getReview(string MaTour)
         {
