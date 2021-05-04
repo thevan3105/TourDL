@@ -54,7 +54,7 @@ namespace QLTour
             rpReview.DataBind();
             if (lst.Count == 0)
             {
-                lbText.Text = "Khong co nhan xet";
+                lbText.Text = "Không có nhận xét";
             }
         }
         void getMoTaCT(string MaTour)
@@ -179,7 +179,7 @@ namespace QLTour
             {
                 TourDLEntities db = new TourDLEntities();
 
-                string name = "Nguoi dung an danh";
+                string name = "Người dùng ẩn danh";
                 if (Session["TaiKhoan"] != null)
                 {
                     string taikhoan = Session["TaiKhoan"].ToString();
