@@ -10,17 +10,12 @@
 namespace QLTour
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class DanhGia
+    public partial class toptourdatmax_Result
     {
-        public int STT { get; set; }
         public string MaTour { get; set; }
-        public string MaKH { get; set; }
-        public Nullable<int> MaVe { get; set; }
-        public Nullable<int> Diem { get; set; }
-    
-        public virtual Booking Booking { get; set; }
-        public virtual Tour Tour { get; set; }
+        public string TenTour { get; set; }
+        public string MaLoaiTour { get; set; }
+        public Nullable<int> SLD { get; set; }
     }
 }

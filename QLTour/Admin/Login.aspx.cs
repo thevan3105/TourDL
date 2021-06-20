@@ -45,7 +45,7 @@ namespace QLTour.Admin
                     // Dang nhap thanh cong
                     Session["username"] = obj.MaNV;
                     //Session["TaiKhoan"] = obj.TaiKhoan; 
-                    Response.Redirect("Home.aspx");
+                    Response.Redirect("Home1.aspx");
                 }
                 else
                 {

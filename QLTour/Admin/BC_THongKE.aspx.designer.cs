@@ -24,15 +24,6 @@ namespace QLTour.Admin
         protected global::System.Web.UI.WebControls.LinkButton lbtntourdatmax;
 
         /// <summary>
-        /// lbtongdoanhthu control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtongdoanhthu;
-
-        /// <summary>
         /// lbttimbooktheoten control.
         /// </summary>
         /// <remarks>
@@ -60,6 +51,24 @@ namespace QLTour.Admin
         protected global::System.Web.UI.WebControls.TextBox txttimkiem;
 
         /// <summary>
+        /// txttimngaybd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txttimngaybd;
+
+        /// <summary>
+        /// txttimngaykt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txttimngaykt;
+
+        /// <summary>
         /// btntimkiem control.
         /// </summary>
         /// <remarks>
@@ -76,23 +85,5 @@ namespace QLTour.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView dgvtimbooktheoten;
-
-        /// <summary>
-        /// dgvtdt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvtdt;
-
-        /// <summary>
-        /// lbtongdt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbtongdt;
     }
 }

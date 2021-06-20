@@ -15,10 +15,10 @@ namespace QLTour
     public partial class News
     {
         public int ID_News { get; set; }
-        public Nullable<System.DateTime> Time { get; set; }
-        public string Contents { get; set; }
-        public string Url_Img { get; set; }
         public string Title { get; set; }
+        public Nullable<System.DateTime> Time { get; set; }
+        public string Url_Img { get; set; }
+        public string Contents { get; set; }
         public string Tag { get; set; }
     }
 }

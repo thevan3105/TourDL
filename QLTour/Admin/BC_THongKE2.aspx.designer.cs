@@ -24,15 +24,6 @@ namespace QLTour.Admin
         protected global::System.Web.UI.WebControls.LinkButton lbtntourdatmax;
 
         /// <summary>
-        /// lbtongdoanhthu control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtongdoanhthu;
-
-        /// <summary>
         /// lbttimbooktheoten control.
         /// </summary>
         /// <remarks>
@@ -87,12 +78,39 @@ namespace QLTour.Admin
         protected global::System.Web.UI.WebControls.GridView dgvtourdatmax;
 
         /// <summary>
-        /// lbtongdt control.
+        /// lbngaybd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbtongdt;
+        protected global::System.Web.UI.WebControls.Label lbngaybd;
+
+        /// <summary>
+        /// lbngaykt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbngaykt;
+
+        /// <summary>
+        /// dgvtongdoanhthu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView dgvtongdoanhthu;
+
+        /// <summary>
+        /// lbtongdoanhthu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbtongdoanhthu;
     }
 }

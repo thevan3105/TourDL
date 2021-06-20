@@ -13,15 +13,22 @@ namespace QLTour.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //selecnhanvienbanmin();
+            //selecnhanvienbanmax();
+            //seleckhdatmin();
+            //seleckhdatmax();
+            //selectourdatmin();
             lbupdatetimechart.Text = getdateupdatechart();
             getgiatourmax();
             countmax();
             countmin();
+            //selectourdatmax();
+            //lbmax.Text = selectourdatmax();
             sumtongdoanhthu();
             txtLineChart2.Text = getDataLineChart2();
             txtLineChart.Text = getDataLineChart();
             lbdoanhthuthangtruoc.Text = sumtongdoanhthu().ToString("N0");
-            lbdoanhthuthanghientai.Text = sumtongdoanhthuthangnay().ToString("N0");
+            lbdoanhthuthanghientai.Text = sumtongdoanhthuthangnay().ToString();
             lbtongdanhthulastyear.Text = doanhthuquy().ToString("N0");
         }
         public string getdateupdatechart()
@@ -112,7 +119,7 @@ namespace QLTour.Admin
         {
 
             TourDLEntities db = new TourDLEntities();
-            SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=Van;Integrated Security=True");
+            SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=TourDLV;Integrated Security=True");
 
             cnn.Open();
             string sql = "select  top 1  KhachHang.TenKH from KhachHang, Booking where KhachHang.MaKH = Booking.MaKH group by Booking.MaKH, KhachHang.TenKH order by COUNT(1) desc";
@@ -132,7 +139,7 @@ namespace QLTour.Admin
         {
 
             TourDLEntities db = new TourDLEntities();
-            SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=Van;Integrated Security=True");
+            SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=TourDLV;Integrated Security=True");
 
             cnn.Open();
             string sql = "select  top 1  KhachHang.TenKH  from KhachHang, Booking where KhachHang.MaKH = Booking.MaKH group by Booking.MaKH, KhachHang.TenKH order by COUNT(1)";
@@ -154,7 +161,7 @@ namespace QLTour.Admin
             //var obj = db.Booking.GroupBy(x => x.MaTour).OrderByDescending(y => y.Count()).Take(1);
             //return obj.ToString();
             TourDLEntities db = new TourDLEntities();
-            SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=Van;Integrated Security=True");
+            SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=TourDLV;Integrated Security=True");
 
             cnn.Open();
             string sql = "select top 1  Tour.TenTour from Tour, Booking where Tour.MaTour = Booking.MaTour group by Booking.MaTour, Tour.TenTour order by COUNT(1) desc";
@@ -174,7 +181,7 @@ namespace QLTour.Admin
         public void selecnhanvienbanmax()
         {
             TourDLEntities db = new TourDLEntities();
-            SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=Van;Integrated Security=True");
+            SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=TourDLV;Integrated Security=True");
 
             cnn.Open();
             string sql = "select  top 1  NhanVien.TenNV from NhanVien, Booking where NhanVien.MaNV = Booking.MaNV group by Booking.MaNV, NhanVien.TenNV order by COUNT(1) desc";
@@ -193,7 +200,7 @@ namespace QLTour.Admin
         public void selecnhanvienbanmin()
         {
             TourDLEntities db = new TourDLEntities();
-            SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=Van;Integrated Security=True");
+            SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=TourDLV;Integrated Security=True");
 
             cnn.Open();
             string sql = "select  top 1  NhanVien.TenNV from NhanVien, Booking where NhanVien.MaNV = Booking.MaNV group by Booking.MaNV, NhanVien.TenNV order by COUNT(1)";
@@ -212,7 +219,7 @@ namespace QLTour.Admin
         public void selectourdatmin()
         {
             TourDLEntities db = new TourDLEntities();
-            SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=Van;Integrated Security=True");
+            SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=TourDLV;Integrated Security=True");
 
             cnn.Open();
             string sql = "select top 1  Tour.TenTour from Tour, Booking where Tour.MaTour = Booking.MaTour group by Booking.MaTour, Tour.TenTour order by COUNT(1)";
@@ -245,18 +252,33 @@ namespace QLTour.Admin
         // TỔNG DANH THU BOOKING NĂM TRƯỚC
         public int sumtongdoanhthulastyear()
         {
-            TourDLEntities db = new TourDLEntities();
-            DateTime today = DateTime.Now;
-            string lastyear = db.Booking.Where(x => x.NgayBook.Value.Month == today.Month).OrderByDescending(x => x.GiaTien).Sum(y => y.GiaTien).ToString();
-            return int.Parse(lastyear);
+            try
+            {
+                TourDLEntities db = new TourDLEntities();
+                DateTime today = DateTime.Now;
+                string lastyear = db.Booking.Where(x => x.NgayBook.Value.Month == today.Month).OrderByDescending(x => x.GiaTien).Sum(y => y.GiaTien).ToString();
+                return int.Parse(lastyear);
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
         }
         // TỔNG DANH THU BOOKING THÁNG HIỆN TẠI
         public int sumtongdoanhthuthangnay()
         {
-            TourDLEntities db = new TourDLEntities();
-            DateTime today = DateTime.Now;
-            string ten = db.Booking.Where(x => x.NgayBook.Value.Month == today.Month).OrderByDescending(x => x.GiaTien).Sum(y => y.GiaTien).ToString();
-            return int.Parse(ten);
+            try
+            {
+                TourDLEntities db = new TourDLEntities();
+                DateTime today = DateTime.Now;
+                string ten = db.Booking.Where(x => x.NgayBook.Value.Month == today.Month).OrderByDescending(x => x.GiaTien).Sum(y => y.GiaTien).ToString();
+                return int.Parse(ten);
+            }
+            catch (Exception)
+            {
+                return 0;
+                throw;
+            }
         }
 
         //SỰ KIỆN ONCLICK LẤY LẤY TẤT CẢ CÁC ĐỐI TƯỢNG TRONG BOOKING

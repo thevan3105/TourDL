@@ -14,33 +14,12 @@
             width: 100%;
         }
 
-        .col-lg-8 {
-            width: 50.666667%;
-        }
-
-        .col-lg-3 {
-            width: 34%;
-        }
-
-        .col-lg-1 {
-            width: 8.33333333%;
-        }
-
-        .col-sm-2 {
-            width: 76.666667%;
-        }
-
         table#ContentPlaceHolder1_dgvtourdatmax {
             width: 138px;
         }
 
         table#ContentPlaceHolder1_dgvtourdatmin {
             width: 138px;
-        }
-
-        .col-md-6 {
-            width: 100%;
-            max-height: 380px;
         }
 
         div#page-wrapper {
@@ -72,14 +51,15 @@
         }
 
         .offers_sorting_container {
-            background: #19eaf1;
-            font-weight: bold;
+            font-family: -webkit-pictograph;
+            padding-bottom: 25px;
+            border-bottom: 3px solid cornflowerblue;
         }
 
         ul.offers_sorting {
             text-align: center;
-            border: 4px solid #04ff00;
             width: 100%;
+            border:none;
         }
 
         .offer_name {
@@ -103,37 +83,38 @@
             display: inline-block;
         }
 
-            .offers_sorting li ul {
-                display: none;
-            }
+        .offers_sorting li ul {
+            display: none;
+        }
 
-            .offers_sorting > li:hover .offers_sorting li ul {
-                display: block;
-            }
+        .offers_sorting > li:hover .offers_sorting li ul {
+            display: block;
+        }
 
-            .offers_sorting > li {
-                display: inline-table;
-                position: relative;
-                width: 404px;
-                height: 50px;
-                font-size: 18px;
-                font-weight: 700;
-                color: #2d2c2c;
-                text-transform: uppercase;
-                line-height: 50px;
-                cursor: pointer;
-                border: solid 2px #dadada;
-                padding-left: 25px;
-                padding-right: 14px;
-                margin-right: 0px;
-            }
+        .offers_sorting > li {
+            display: inline-table;
+            position: relative;
+            width: 404px;
+            height: 50px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #2d2c2c;
+            text-transform: uppercase;
+            line-height: 50px;
+            cursor: pointer;
+            border: solid 2px #dadada;
+            padding-left: 25px;
+            padding-right: 14px;
+            border-radius: 5px;
+            margin-right: 0px;
+        }
 
         .row.border-bottom.white-bg.dashboard-header {
             font-family: cursive;
         }
 
         .offers_item.rating_6 .row {
-            margin-right: -15px;
+            margin-right: 0px;
             margin-left: 0px;
             color: black;
         }
@@ -149,10 +130,10 @@
             visibility: hidden;
             opacity: 0;
             z-index: 1;
-            /*box-shadow: 0 15px 25px rgb(63 78 100 / 15%);*/
+            box-shadow: 0 15px 25px rgb(63 78 100 / 15%);
             -webkit-transition: opacity 0.3s ease;
             -moz-transition: opacity 0.3s ease;
-            /*-ms-transition: opacity 0.3s ease;*/
+            -ms-transition: opacity 0.3s ease;
             -o-transition: opacity 0.3s ease;
             transition: all 0.3s ease;
         }
@@ -173,8 +154,8 @@
         }
 
         .row {
-            margin-right: -15px;
-            margin-left: -15px;
+            margin-right: 0px;
+            margin-left: 0px;
             color: black;
         }
 
@@ -191,7 +172,7 @@
         .offers_item.rating_5 .row {
             width: 100%;
             max-height: 380px;
-            margin-left: 2px;
+            margin-left: 0px;
         }
 
         .pagination {
@@ -266,20 +247,18 @@
         }
 
         .hd1_1 {
-            width: 274px;
             border-right: 2px outset;
             padding: 10px 0px 10px 0px;
+            width: 266px;
         }
 
         .hd1 {
-            width: 411px;
             display: flex;
             text-align: center;
             border: 1px lightslategrey;
         }
 
         .hd2 {
-            width: 421px;
             display: flex;
         }
 
@@ -301,18 +280,18 @@
         }
 
         .hd1_3 {
-            width: 264px;
             border-right: 2px outset;
             padding: 10px 0px 10px 0px;
         }
 
         .hd1_2 {
             text-align: center;
-            width: 137px;
             border-right: 2px outset;
             padding: 10px 0px 10px 0px;
         }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -372,110 +351,118 @@
             </ul>
         </div>
         <div class="headtable">
-            <div class="hd1">
-                <div class="hd1_1">
-                    Tất cả booking tháng trước
-                </div>
-                <div class="hd1_2">
-                    Tour book max/ Tour book min
-                </div>
-            </div>
-            <div class="hd2">
-                <div class="hd1_3">
-                    Khách hàng book ít tour nhất
-                </div>
-                <div class="hd1_3">
-                    Khách hàng book nhiều tour nhất
-                </div>
-            </div>
-            <div class="hd2">
-                <div class="hd1_3">
-                    Nhân viên bán nhiều tour nhất
-                </div>
-                <div class="hd1_3">
-                    Nhân viên bán ít tour nhất
-                </div>
-            </div>
-        </div>
-        <%--Reoeater hiển thị all--%>
-        <div class="offers_item rating_5">
             <div class="row">
-                <div class="col-md-8 ">
-                    <div class="card-body table-responsive p-0" style="height: 380px;">
-                        <asp:GridView runat="server" ID="dgvalltour" AutoGenerateColumns="false" class="table table-bordered table-head-fixed table-hover text-nowrap text-center">
-                            <Columns>
-                                <asp:BoundField DataField="MaTour" HeaderText="Mã tour" />
-                                <asp:TemplateField>
-                                    <HeaderTemplate>
-                                        Ngày Book
-                                    </HeaderTemplate>
-                                    <ItemTemplate>
-                                        <%# ((DateTime)Eval("NgayBook")).ToString("dd/MM/yyyy")%>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:BoundField DataField="MaNV" HeaderText="Mã nhân viên" />
-                            </Columns>
-                        </asp:GridView>
+                <div class="col-xs-12 col-md-4 col-lg-4 col-xl-4 hd1" style="padding: 0px;">
+                    <div class="col-xs-8 col-md-8 col-lg-8 col-xl-8 hd1_1">
+                        Tất cả booking tháng trước
+                    </div>
+                    <div class="col-xs-4 col-md-4 col-lg-4 col-xl-4 hd1_2">
+                        Tour book max/ Tour book min
                     </div>
                 </div>
-                <div class="col-md-4 ">
-                    <div class="card-body table-responsive p-0" style="height: 380px;">
-                        <asp:GridView runat="server" ID="dgvtourdatmin" AutoGenerateColumns="false" class="table table-bordered table-head-fixed table-hover text-nowrap text-center">
-                            <Columns>
-                                <asp:BoundField DataField="TenTour" HeaderText="Tên Tour" />
-                            </Columns>
-                        </asp:GridView>
+                <div class="col-xs-12 col-md-4 col-lg-4 col-xl-4 hd2" style="padding: 0px;">
+                    <div class="col-xs-6 col-md-6 col-lg-6 col-xl-6 hd1_3">
+                        Khách hàng book ít tour nhất
+                    </div>
+                    <div class="col-xs-6 col-md-6 col-lg-6 col-xl-6 hd1_3">
+                        Khách hàng book nhiều tour nhất
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-4 col-lg-4 col-xl-4 hd2" style="padding: 0px;">
+                    <div class="col-xs-6 col-md-6 col-lg-6 col-xl-6 hd1_3">
+                        Nhân viên bán nhiều tour nhất
+                    </div>
+                    <div class="col-xs-6 col-md-6 col-lg-6 col-xl-6 hd1_3">
+                        Nhân viên bán ít tour nhất
                     </div>
                 </div>
             </div>
         </div>
-        <%-- grivdiew kh đặt nhiều nhất/ ít nhất--%>
-        <div class="offers_item rating_6">
-            <div class="row">
 
-                <div class="col-md-4 ">
-                    <div class="card-body table-responsive p-0" style="height: 380px;">
-                        <asp:GridView runat="server" ID="dgvkhdatmin" AutoGenerateColumns="false" class="table table-bordered table-head-fixed table-hover text-nowrap text-center">
-                            <Columns>
-                                <asp:BoundField DataField="TenKH" HeaderText="Tên Khách Hàng" />
-                            </Columns>
-                        </asp:GridView>
-                    </div>
-                </div>
-                <div class="col-md-4 ">
-                    <div class="card-body table-responsive p-0" style="height: 380px;">
-                        <asp:GridView runat="server" ID="dgvkhdatmax" AutoGenerateColumns="false" class="table table-bordered table-head-fixed table-hover text-nowrap text-center">
-                            <Columns>
-                                <asp:BoundField DataField="TenKH" HeaderText="Tên Khách Hàng" />
-                            </Columns>
-                        </asp:GridView>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <%-- grivdiew nhân viên sell nhiều nhất/ ít nhất--%>
-        <div class="offers_item rating_7">
+        <div class="content">
             <div class="row">
-                <div class="col-md-4 ">
-                    <div class="card-body table-responsive p-0" style="height: 380px;">
-                        <asp:GridView runat="server" ID="dgvnhanvienbanmax" AutoGenerateColumns="false" class="table table-bordered table-head-fixed table-hover text-nowrap text-center">
-                            <Columns>
-                                <asp:BoundField DataField="TenNV" HeaderText="Tên Nhân Viên" />
-                            </Columns>
-                        </asp:GridView>
+                <%--Reoeater hiển thị all--%>
+                <div class="col-xs-12 col-md-4 col-lg-4 col-xl-4 offers_item rating_5" style="padding: 0px;">
+                    <div class="row">
+                        <div class="col-xs-8 col-md-8 col-lg-8 col-xl-8">
+                            <div class="card-body table-responsive p-0" style="height: 380px;">
+                                <asp:GridView runat="server" ID="dgvalltour" AutoGenerateColumns="false" class="table table-bordered table-head-fixed table-hover text-nowrap text-center">
+                                    <Columns>
+                                        <asp:BoundField DataField="MaTour" HeaderText="Mã tour" />
+                                        <asp:TemplateField>
+                                            <HeaderTemplate>
+                                                Ngày Book
+                                            </HeaderTemplate>
+                                            <ItemTemplate>
+                                                <%# ((DateTime)Eval("NgayBook")).ToString("dd/MM/yyyy")%>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:BoundField DataField="MaNV" HeaderText="Mã nhân viên" />
+                                    </Columns>
+                                </asp:GridView>
+                            </div>
+                        </div>
+                        <div class="col-md-4 ">
+                            <div class="card-body table-responsive p-0" style="height: 380px;">
+                                <asp:GridView runat="server" ID="dgvtourdatmin" AutoGenerateColumns="false" class="table table-bordered table-head-fixed table-hover text-nowrap text-center">
+                                    <Columns>
+                                        <asp:BoundField DataField="TenTour" HeaderText="Tên Tour" />
+                                    </Columns>
+                                </asp:GridView>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4 ">
-                    <div class="card-body table-responsive p-0" style="height: 380px;">
-                        <asp:GridView runat="server" ID="dgvnhanvienbanmin" AutoGenerateColumns="false" class="table table-bordered table-head-fixed table-hover text-nowrap text-center">
-                            <Columns>
-                                <asp:BoundField DataField="TenNV" HeaderText="Tên Nhân Viên" />
-                            </Columns>
-                        </asp:GridView>
+                <%-- grivdiew kh đặt nhiều nhất/ ít nhất--%>
+                <div class="col-xs-12 col-md-4 col-lg-4 col-xl-4 offers_item rating_6" style="padding: 0px;">
+                    <div class="row">
+
+                        <div class="col-xs-6 col-md-6 col-lg-6 col-xl-6">
+                            <div class="card-body table-responsive p-0" style="height: 380px;">
+                                <asp:GridView runat="server" ID="dgvkhdatmin" AutoGenerateColumns="false" class="table table-bordered table-head-fixed table-hover text-nowrap text-center">
+                                    <Columns>
+                                        <asp:BoundField DataField="TenKH" HeaderText="Tên Khách Hàng" />
+                                    </Columns>
+                                </asp:GridView>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-md-6 col-lg-6 col-xl-6">
+                            <div class="card-body table-responsive p-0" style="height: 380px;">
+                                <asp:GridView runat="server" ID="dgvkhdatmax" AutoGenerateColumns="false" class="table table-bordered table-head-fixed table-hover text-nowrap text-center">
+                                    <Columns>
+                                        <asp:BoundField DataField="TenKH" HeaderText="Tên Khách Hàng" />
+                                    </Columns>
+                                </asp:GridView>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%-- grivdiew nhân viên sell nhiều nhất/ ít nhất--%>
+                <div class="col-xs-12 col-md-4 col-lg-4 col-xl-4 offers_item rating_7" style="padding: 0px;">
+                    <div class="row">
+                        <div class="col-xs-6 col-md-6 col-lg-6 col-xl-6">
+                            <div class="card-body table-responsive p-0" style="height: 380px;">
+                                <asp:GridView runat="server" ID="dgvnhanvienbanmax" AutoGenerateColumns="false" class="table table-bordered table-head-fixed table-hover text-nowrap text-center">
+                                    <Columns>
+                                        <asp:BoundField DataField="TenNV" HeaderText="Tên Nhân Viên" />
+                                    </Columns>
+                                </asp:GridView>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-md-6 col-lg-6 col-xl-6">
+                            <div class="card-body table-responsive p-0" style="height: 380px;">
+                                <asp:GridView runat="server" ID="dgvnhanvienbanmin" AutoGenerateColumns="false" class="table table-bordered table-head-fixed table-hover text-nowrap text-center">
+                                    <Columns>
+                                        <asp:BoundField DataField="TenNV" HeaderText="Tên Nhân Viên" />
+                                    </Columns>
+                                </asp:GridView>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        
     </div>
 </asp:Content>
 
