@@ -14,7 +14,7 @@ namespace QLTour.Admin
         protected DataTable myDT;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           
             //getngaybk();
             //getthangbk();
             //getnambk();
@@ -493,5 +493,6 @@ namespace QLTour.Admin
             }
         }
 
+        
     }
 }

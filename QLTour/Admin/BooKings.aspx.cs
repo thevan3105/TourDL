@@ -29,7 +29,6 @@ namespace QLTour.Admin
                     {
                         getDataSELL();
                     }
-
                     else
                     {
                         getData();
@@ -105,6 +104,24 @@ namespace QLTour.Admin
             {
                 //
             }
+        }
+
+        protected void dgvbooking_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            dgvbooking.PageIndex = e.NewPageIndex;
+            getData();
+        }
+
+        protected void dgvbookingCSKH_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            dgvbookingCSKH.PageIndex = e.NewPageIndex;
+            getDataCSKH();
+        }
+
+        protected void dgvbookingSELL_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            dgvbookingSELL.PageIndex = e.NewPageIndex;
+            getDataSELL();
         }
     }
 }

@@ -393,6 +393,9 @@
         <div class="form-group">
             <div class="row">
                 <asp:TextBox runat="server" ID="txttimkiem" placeholder="Tìm kiếm..." class="col-xs-12 col-md-4 col-lg-4 form-control"></asp:TextBox>
+                
+                
+                  <input type="date" id="birthday" name="birthday">
                 <asp:TextBox runat="server" ID="txttimngaybd" placeholder="Ngày bắt đầu 01/01/2020..." class="col-xs-12 col-md-4 col-lg-4 form-control"></asp:TextBox>
                 <asp:TextBox runat="server" ID="txttimngaykt" placeholder="Ngày kết thúc 10/10/2021..." class="col-xs-12 col-md-4 col-lg-4 form-control"></asp:TextBox>
                 <asp:Button runat="server" ID="btntimkiem"  Text="Tìm kiếm" class="col-xs-12 col-md-1 col-lg-1 form-control" OnClick="btntimkiem_Click" />

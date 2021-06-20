@@ -43,7 +43,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="ibox-content">
+                <div class="ibox-content" style="box-shadow: 0 0 10px;">
                     
                     <asp:GridView runat="server" ID="dgvConTact"
                         class="table table-bordered table-hover"
@@ -54,21 +54,20 @@
                             <asp:BoundField DataField="Email" HeaderText="Email" />
                             <asp:BoundField DataField="Subject" HeaderText="Subject" />
                             <asp:BoundField DataField="Message" HeaderText="Message" />
-
                             <asp:TemplateField>
                                 <HeaderTemplate>
                                     Chức năng
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    
-                                    <asp:LinkButton runat="server" ID="btnXoa" Text="Xóa"
+                                    <asp:LinkButton runat="server" ID="btnXoa" Text="Xóa" class="btn btn-danger btn-xs"
                                         OnClientClick="return valid();"
-                                        CommandArgument='<%# Eval("MaKS").ToString() %>' 
+                                        CommandArgument='<%# Eval("MaKH").ToString() %>' 
                                         OnCommand="btnXoa_Command" />
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
+                    
                     <asp:GridView runat="server" ID="dgvConTactCSKH"
                         class="table table-bordered table-hover"
                         AutoGenerateColumns="false">

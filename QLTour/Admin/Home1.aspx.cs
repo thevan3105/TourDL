@@ -39,215 +39,322 @@ namespace QLTour.Admin
         }
         string getDataLineChart()
         {
-            TourDLEntities db = new TourDLEntities();
+            try
+            {
+                TourDLEntities db = new TourDLEntities();
 
-            List<string> arrData = new List<string>();
-            DateTime today = DateTime.Now;
-            for (int i = 1; i <= 12; i++)
-            {
-                Booking obj = db.Booking.FirstOrDefault(x => x.NgayBook.Value.Month == i && x.NgayBook.Value.Year == today.Year);
-                if (obj != null)
+                List<string> arrData = new List<string>();
+                DateTime today = DateTime.Now;
+                for (int i = 1; i <= 12; i++)
                 {
-                    string a = db.Booking.Where(x => x.NgayBook.Value.Month == i && x.NgayBook.Value.Year == today.Year).Sum(gr => gr.GiaTien).ToString();
-                    arrData.Add(a);
+                    Booking obj = db.Booking.FirstOrDefault(x => x.NgayBook.Value.Month == i && x.NgayBook.Value.Year == today.Year);
+                    if (obj != null)
+                    {
+                        string a = db.Booking.Where(x => x.NgayBook.Value.Month == i && x.NgayBook.Value.Year == today.Year).Sum(gr => gr.GiaTien).ToString();
+                        arrData.Add(a);
+                    }
+                    else
+                    {
+                        arrData.Add("0");
+                    }
                 }
-                else
+                string str = "";
+                for (int i = 0; i < arrData.Count; i++)
                 {
-                    arrData.Add("0");
+                    str += arrData[i] + " ";
                 }
+                str = str.Substring(0, str.Length - 1);
+                return str;
             }
-            string str = "";
-            for (int i = 0; i < arrData.Count; i++)
+            catch (Exception)
             {
-                str += arrData[i] + " ";
+
+                throw;
             }
-            str = str.Substring(0, str.Length - 1);
-            return str;
+            
         }
         string getDataLineChart2()
         {
-            TourDLEntities db = new TourDLEntities();
+            try
+            {
+                TourDLEntities db = new TourDLEntities();
 
-            List<string> arrData = new List<string>();
-            DateTime today = DateTime.Now;
-            for (int i = 1; i <= 12; i++)
-            {
-                Booking obj = db.Booking.FirstOrDefault(x => x.NgayBook.Value.Month == i && x.NgayBook.Value.Year == today.Year);
-                if (obj != null)
+                List<string> arrData = new List<string>();
+                DateTime today = DateTime.Now;
+                for (int i = 1; i <= 12; i++)
                 {
-                    string a = db.Booking.Where(x => x.NgayBook.Value.Month == i && x.NgayBook.Value.Year == today.Year - 1).Sum(gr => gr.GiaTien).ToString();
-                    arrData.Add(a);
+                    Booking obj = db.Booking.FirstOrDefault(x => x.NgayBook.Value.Month == i && x.NgayBook.Value.Year == today.Year);
+                    if (obj != null)
+                    {
+                        string a = db.Booking.Where(x => x.NgayBook.Value.Month == i && x.NgayBook.Value.Year == today.Year - 1).Sum(gr => gr.GiaTien).ToString();
+                        arrData.Add(a);
+                    }
+                    else
+                    {
+                        arrData.Add("0");
+                    }
                 }
-                else
+                string str = "";
+                for (int i = 0; i < arrData.Count; i++)
                 {
-                    arrData.Add("0");
+                    str += arrData[i] + " ";
                 }
+                str = str.Substring(0, str.Length - 1);
+                return str;
             }
-            string str = "";
-            for (int i = 0; i < arrData.Count; i++)
+            catch (Exception)
             {
-                str += arrData[i] + " ";
+
+                throw;
             }
-            str = str.Substring(0, str.Length - 1);
-            return str;
+            
         }
         // LẤY 5 TOUR CÓ GIÁ TIỀN CAO NHẤT TỪ CAO ĐỀN THẤP
         public void getgiatourmax()
         {
-            TourDLEntities db = new TourDLEntities();
-            List<QLTour.Tour> lst = db.Tour.OrderByDescending(x => x.GiaTien).Take(5).ToList();
-            //rptoursx.DataSource = lst;
-            //rptoursx.DataBind();
+            try
+            {
+                TourDLEntities db = new TourDLEntities();
+                List<QLTour.Tour> lst = db.Tour.OrderByDescending(x => x.GiaTien).Take(5).ToList();
+                //rptoursx.DataSource = lst;
+                //rptoursx.DataBind();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public void countmax()
         {
-            TourDLEntities db = new TourDLEntities();
-            List<QLTour.Tour> laymaxgia = db.Tour.OrderByDescending(x => x.GiaTien).Take(1).ToList();
-            //rptourmax.DataSource = laymaxgia;
-            //rptourmax.DataBind();
+            try
+            {
+                TourDLEntities db = new TourDLEntities();
+                List<QLTour.Tour> laymaxgia = db.Tour.OrderByDescending(x => x.GiaTien).Take(1).ToList();
+                //rptourmax.DataSource = laymaxgia;
+                //rptourmax.DataBind();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         public void countmin()
         {
-            TourDLEntities db = new TourDLEntities();
-            List<QLTour.Tour> laymingia = db.Tour.OrderBy(x => x.GiaTien).Take(1).ToList();
-            //rptourmin.DataSource = laymingia;
-            //rptourmin.DataBind();
+            try
+            {
+                TourDLEntities db = new TourDLEntities();
+                List<QLTour.Tour> laymingia = db.Tour.OrderBy(x => x.GiaTien).Take(1).ToList();
+                //rptourmin.DataSource = laymingia;
+                //rptourmin.DataBind();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         // LẤY RA TÊN TÊN KHÁCH HÀNG ĐẶT NHIỀU TOUR NHẤT
         public void seleckhdatmax()
         {
+            try
+            {
+                TourDLEntities db = new TourDLEntities();
+                SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=TourDLV;Integrated Security=True");
 
-            TourDLEntities db = new TourDLEntities();
-            SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=TourDLV;Integrated Security=True");
+                cnn.Open();
+                string sql = "select  top 1  KhachHang.TenKH from KhachHang, Booking where KhachHang.MaKH = Booking.MaKH group by Booking.MaKH, KhachHang.TenKH order by COUNT(1) desc";
+                SqlCommand com = new SqlCommand(sql, cnn); //bat dau truy van
+                com.CommandType = CommandType.Text;
+                SqlDataAdapter da = new SqlDataAdapter(com); //chuyen du lieu ve
+                DataTable dt = new DataTable(); //tạo một kho ảo để lưu trữ dữ liệu
+                da.Fill(dt);  // đổ dữ liệu vào kho
+                cnn.Close();  // đóng kết nối
 
-            cnn.Open();
-            string sql = "select  top 1  KhachHang.TenKH from KhachHang, Booking where KhachHang.MaKH = Booking.MaKH group by Booking.MaKH, KhachHang.TenKH order by COUNT(1) desc";
-            SqlCommand com = new SqlCommand(sql, cnn); //bat dau truy van
-            com.CommandType = CommandType.Text;
-            SqlDataAdapter da = new SqlDataAdapter(com); //chuyen du lieu ve
-            DataTable dt = new DataTable(); //tạo một kho ảo để lưu trữ dữ liệu
-            da.Fill(dt);  // đổ dữ liệu vào kho
-            cnn.Close();  // đóng kết nối
+                //dgvtourdatmin.DataSource = dt;
+                //dgvtourdatmin.DataBind();
+            }
+            catch (Exception)
+            {
 
-            //dgvtourdatmin.DataSource = dt;
-            //dgvtourdatmin.DataBind();
-
+                throw;
+            }
         }
         // LẤY RA TÊN TÊN KHÁCH HÀNG ĐẶT ít TOUR NHẤT
         public void seleckhdatmin()
         {
+            try
+            {
+                TourDLEntities db = new TourDLEntities();
+                SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=TourDLV;Integrated Security=True");
 
-            TourDLEntities db = new TourDLEntities();
-            SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=TourDLV;Integrated Security=True");
+                cnn.Open();
+                string sql = "select  top 1  KhachHang.TenKH  from KhachHang, Booking where KhachHang.MaKH = Booking.MaKH group by Booking.MaKH, KhachHang.TenKH order by COUNT(1)";
+                SqlCommand com = new SqlCommand(sql, cnn); //bat dau truy van
+                com.CommandType = CommandType.Text;
+                SqlDataAdapter da = new SqlDataAdapter(com); //chuyen du lieu ve
+                DataTable dt = new DataTable(); //tạo một kho ảo để lưu trữ dữ liệu
+                da.Fill(dt);  // đổ dữ liệu vào kho
+                cnn.Close();  // đóng kết nối
 
-            cnn.Open();
-            string sql = "select  top 1  KhachHang.TenKH  from KhachHang, Booking where KhachHang.MaKH = Booking.MaKH group by Booking.MaKH, KhachHang.TenKH order by COUNT(1)";
-            SqlCommand com = new SqlCommand(sql, cnn); //bat dau truy van
-            com.CommandType = CommandType.Text;
-            SqlDataAdapter da = new SqlDataAdapter(com); //chuyen du lieu ve
-            DataTable dt = new DataTable(); //tạo một kho ảo để lưu trữ dữ liệu
-            da.Fill(dt);  // đổ dữ liệu vào kho
-            cnn.Close();  // đóng kết nối
+                //dgvtourdatmin.DataSource = dt;
+                //dgvtourdatmin.DataBind();
+            }
+            catch (Exception)
+            {
 
-            //dgvtourdatmin.DataSource = dt;
-            //dgvtourdatmin.DataBind();
+                throw;
+            }
+            
 
         }
         // LẤY RA TÊN TOUR ĐẶT NHIỀU NHẤT
         public void selectourdatmax()
         {
-            //TourDLEntities db = new TourDLEntities();
-            //var obj = db.Booking.GroupBy(x => x.MaTour).OrderByDescending(y => y.Count()).Take(1);
-            //return obj.ToString();
-            TourDLEntities db = new TourDLEntities();
-            SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=TourDLV;Integrated Security=True");
+            try
+            {
+                //TourDLEntities db = new TourDLEntities();
+                //var obj = db.Booking.GroupBy(x => x.MaTour).OrderByDescending(y => y.Count()).Take(1);
+                //return obj.ToString();
+                TourDLEntities db = new TourDLEntities();
+                SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=TourDLV;Integrated Security=True");
 
-            cnn.Open();
-            string sql = "select top 1  Tour.TenTour from Tour, Booking where Tour.MaTour = Booking.MaTour group by Booking.MaTour, Tour.TenTour order by COUNT(1) desc";
-            SqlCommand com = new SqlCommand(sql, cnn); //bat dau truy van
-            com.CommandType = CommandType.Text;
-            SqlDataAdapter da = new SqlDataAdapter(com); //chuyen du lieu ve
-            DataTable dt = new DataTable(); //tạo một kho ảo để lưu trữ dữ liệu
-            da.Fill(dt);  // đổ dữ liệu vào kho
-            cnn.Close();  // đóng kết nối
+                cnn.Open();
+                string sql = "select top 1  Tour.TenTour from Tour, Booking where Tour.MaTour = Booking.MaTour group by Booking.MaTour, Tour.TenTour order by COUNT(1) desc";
+                SqlCommand com = new SqlCommand(sql, cnn); //bat dau truy van
+                com.CommandType = CommandType.Text;
+                SqlDataAdapter da = new SqlDataAdapter(com); //chuyen du lieu ve
+                DataTable dt = new DataTable(); //tạo một kho ảo để lưu trữ dữ liệu
+                da.Fill(dt);  // đổ dữ liệu vào kho
+                cnn.Close();  // đóng kết nối
 
-            //dgvtourdatmax.DataSource = dt;
-            //dgvtourdatmax.DataBind();
+                //dgvtourdatmax.DataSource = dt;
+                //dgvtourdatmax.DataBind();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
 
         }
 
         // LẤY RA TÊN NHÂN VIÊN BÁN TOUR NHIỀU NHẤT
         public void selecnhanvienbanmax()
         {
-            TourDLEntities db = new TourDLEntities();
-            SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=TourDLV;Integrated Security=True");
+            try
+            {
+                TourDLEntities db = new TourDLEntities();
+                SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=TourDLV;Integrated Security=True");
 
-            cnn.Open();
-            string sql = "select  top 1  NhanVien.TenNV from NhanVien, Booking where NhanVien.MaNV = Booking.MaNV group by Booking.MaNV, NhanVien.TenNV order by COUNT(1) desc";
-            SqlCommand com = new SqlCommand(sql, cnn); //bat dau truy van
-            com.CommandType = CommandType.Text;
-            SqlDataAdapter da = new SqlDataAdapter(com); //chuyen du lieu ve
-            DataTable dt = new DataTable(); //tạo một kho ảo để lưu trữ dữ liệu
-            da.Fill(dt);  // đổ dữ liệu vào kho
-            cnn.Close();  // đóng kết nối
+                cnn.Open();
+                string sql = "select  top 1  NhanVien.TenNV from NhanVien, Booking where NhanVien.MaNV = Booking.MaNV group by Booking.MaNV, NhanVien.TenNV order by COUNT(1) desc";
+                SqlCommand com = new SqlCommand(sql, cnn); //bat dau truy van
+                com.CommandType = CommandType.Text;
+                SqlDataAdapter da = new SqlDataAdapter(com); //chuyen du lieu ve
+                DataTable dt = new DataTable(); //tạo một kho ảo để lưu trữ dữ liệu
+                da.Fill(dt);  // đổ dữ liệu vào kho
+                cnn.Close();  // đóng kết nối
 
-            //dgvnhanvienbanmax.DataSource = dt;
-            //dgvnhanvienbanmax.DataBind();
+                //dgvnhanvienbanmax.DataSource = dt;
+                //dgvnhanvienbanmax.DataBind();
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
         }
         // LẤY RA TÊN NHÂN VIÊN BÁN TOUR ít NHẤT
         public void selecnhanvienbanmin()
         {
-            TourDLEntities db = new TourDLEntities();
-            SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=TourDLV;Integrated Security=True");
+            try
+            {
+                TourDLEntities db = new TourDLEntities();
+                SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=TourDLV;Integrated Security=True");
 
-            cnn.Open();
-            string sql = "select  top 1  NhanVien.TenNV from NhanVien, Booking where NhanVien.MaNV = Booking.MaNV group by Booking.MaNV, NhanVien.TenNV order by COUNT(1)";
-            SqlCommand com = new SqlCommand(sql, cnn); //bat dau truy van
-            com.CommandType = CommandType.Text;
-            SqlDataAdapter da = new SqlDataAdapter(com); //chuyen du lieu ve
-            DataTable dt = new DataTable(); //tạo một kho ảo để lưu trữ dữ liệu
-            da.Fill(dt);  // đổ dữ liệu vào kho
-            cnn.Close();  // đóng kết nối
+                cnn.Open();
+                string sql = "select  top 1  NhanVien.TenNV from NhanVien, Booking where NhanVien.MaNV = Booking.MaNV group by Booking.MaNV, NhanVien.TenNV order by COUNT(1)";
+                SqlCommand com = new SqlCommand(sql, cnn); //bat dau truy van
+                com.CommandType = CommandType.Text;
+                SqlDataAdapter da = new SqlDataAdapter(com); //chuyen du lieu ve
+                DataTable dt = new DataTable(); //tạo một kho ảo để lưu trữ dữ liệu
+                da.Fill(dt);  // đổ dữ liệu vào kho
+                cnn.Close();  // đóng kết nối
 
-            //dgvnhanvienbanmax.DataSource = dt;
-            //dgvnhanvienbanmax.DataBind();
+                //dgvnhanvienbanmax.DataSource = dt;
+                //dgvnhanvienbanmax.DataBind();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
 
         }
         // LẤY RA TÊN TOUR ĐẶT ÍT NHẤT
         public void selectourdatmin()
         {
-            TourDLEntities db = new TourDLEntities();
-            SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=TourDLV;Integrated Security=True");
+            try
+            {
+                TourDLEntities db = new TourDLEntities();
+                SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=TourDLV;Integrated Security=True");
 
-            cnn.Open();
-            string sql = "select top 1  Tour.TenTour from Tour, Booking where Tour.MaTour = Booking.MaTour group by Booking.MaTour, Tour.TenTour order by COUNT(1)";
-            SqlCommand com = new SqlCommand(sql, cnn); //bat dau truy van
-            com.CommandType = CommandType.Text;
-            SqlDataAdapter da = new SqlDataAdapter(com); //chuyen du lieu ve
-            DataTable dt = new DataTable(); //tạo một kho ảo để lưu trữ dữ liệu
-            da.Fill(dt);  // đổ dữ liệu vào kho
-            cnn.Close();  // đóng kết nối
+                cnn.Open();
+                string sql = "select top 1  Tour.TenTour from Tour, Booking where Tour.MaTour = Booking.MaTour group by Booking.MaTour, Tour.TenTour order by COUNT(1)";
+                SqlCommand com = new SqlCommand(sql, cnn); //bat dau truy van
+                com.CommandType = CommandType.Text;
+                SqlDataAdapter da = new SqlDataAdapter(com); //chuyen du lieu ve
+                DataTable dt = new DataTable(); //tạo một kho ảo để lưu trữ dữ liệu
+                da.Fill(dt);  // đổ dữ liệu vào kho
+                cnn.Close();  // đóng kết nối
 
-            //dgvtourdatmax.DataSource = dt;
-            //dgvtourdatmax.DataBind();
+                //dgvtourdatmax.DataSource = dt;
+                //dgvtourdatmax.DataBind();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
         // LẤY RA TOUR CÓ SỐ LƯỢNG ĐẶT NHIỀU NHẤT
         public string getTenTourmax()
         {
-            TourDLEntities db = new TourDLEntities();
-            string matour = db.Booking.GroupBy(x => x.MaTour).OrderByDescending(y => y.Count()).Take(1).ToString();
-            return matour;
+            try
+            {
+                TourDLEntities db = new TourDLEntities();
+                string matour = db.Booking.GroupBy(x => x.MaTour).OrderByDescending(y => y.Count()).Take(1).ToString();
+                return matour;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         // TỔNG DOANH THU BOOKING THÁNG TRƯỚC
         public int sumtongdoanhthu()
         {
-            TourDLEntities db = new TourDLEntities();
-            DateTime today = DateTime.Now;
-            string lastmonth = db.Booking.Where(x => x.NgayBook.Value.Month == today.Month - 1).OrderByDescending(x => x.GiaTien).Sum(y => y.GiaTien).ToString();
-            return int.Parse(lastmonth);
+            try
+            {
+                TourDLEntities db = new TourDLEntities();
+                DateTime today = DateTime.Now;
+                string lastmonth = db.Booking.Where(x => x.NgayBook.Value.Month == today.Month - 1).OrderByDescending(x => x.GiaTien).Sum(y => y.GiaTien).ToString();
+                return int.Parse(lastmonth);
+            }
+            catch (Exception)
+            {
+
+                return 0;
+            }
+            
         }
         // TỔNG DANH THU BOOKING NĂM TRƯỚC
         public int sumtongdoanhthulastyear()

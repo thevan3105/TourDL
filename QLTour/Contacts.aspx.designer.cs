@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QLTour {
-    
-    
-    public partial class Contacts {
-        
+namespace QLTour
+{
+
+
+    public partial class Contacts
+    {
+
         /// <summary>
         /// txtName control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace QLTour {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtName;
-        
+
         /// <summary>
         /// txtEmail control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace QLTour {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
-        
+
         /// <summary>
         /// txtSubject control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace QLTour {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSubject;
-        
+
         /// <summary>
         /// txtMessage control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace QLTour {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMessage;
-        
+
         /// <summary>
         /// btnSubmit control.
         /// </summary>

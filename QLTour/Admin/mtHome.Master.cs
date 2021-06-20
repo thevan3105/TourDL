@@ -99,5 +99,11 @@ namespace QLTour.Admin
             Session.Clear();
             Response.Redirect("Login.aspx");
         }
+
+        protected void btnSearch_Click1(object sender, EventArgs e)
+        {
+            string src = txtsearch.Text.ToString();
+            Response.Redirect("Search.aspx?src=" + src + "");
+        }
     }
 }

@@ -1,6 +1,18 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/mtHome.Master" AutoEventWireup="true" CodeBehind="KhachHangs.aspx.cs" Inherits="QLTour.Admin.KhachHangs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        .Edit {
+            color: #1ab394;
+            font-size: 30px;
+            padding: 7px 5px 0px 0px;
+        }
+        .Delete {
+            color: #fc2406;
+            font-size: 30px;
+            padding: 0px 0px 0px 10px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row wrapper border-bottom white-bg page-heading">
@@ -44,7 +56,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="ibox-content">
+                <div class="ibox-content" style="box-shadow: 0 0 10px;">
                     
 
                     <asp:GridView runat="server" ID="dgvKhachHang"
@@ -66,7 +78,7 @@
                                     Chức năng
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <asp:HyperLink runat="server" ID="btnSua" Text="Sửa" NavigateUrl='<%# "QLKhachHang.aspx?makh=" + Eval("MaKH").ToString() %>' />
+                                    <asp:HyperLink runat="server" ID="btnSua" class="fa fa-pencil-square-o Edit" NavigateUrl='<%# "QLKhachHang.aspx?makh=" + Eval("MaKH").ToString() %>' />
                                     
                                 </ItemTemplate>
                             </asp:TemplateField>
@@ -97,7 +109,7 @@
                                     Chức năng
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <asp:HyperLink runat="server" ID="btnSua" Text="Sửa" NavigateUrl='<%# "QLKhachHang.aspx?makh=" + Eval("MaKH").ToString() %>' />
+                                    <asp:HyperLink runat="server" ID="btnSua" class="fa fa-pencil-square-o Edit" NavigateUrl='<%# "QLKhachHang.aspx?makh=" + Eval("MaKH").ToString() %>' />
                                 </ItemTemplate>
                             </asp:TemplateField>
 

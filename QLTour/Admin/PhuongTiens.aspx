@@ -1,6 +1,18 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/mtHome.Master" AutoEventWireup="true" CodeBehind="PhuongTiens.aspx.cs" Inherits="QLTour.Admin.PhuongTiens" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        .Edit {
+            color: #1ab394;
+            font-size: 30px;
+            padding: 7px 5px 0px 0px;
+        }
+        .Delete {
+            color: #fc2406;
+            font-size: 30px;
+            padding: 0px 0px 0px 10px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row wrapper border-bottom white-bg page-heading">
@@ -44,7 +56,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="ibox-content">
+                <div class="ibox-content" style="box-shadow: 0 0 10px;">
                     <asp:HyperLink runat="server" ID="hplBtnThem" class="btn btn-info" NavigateUrl="QLPhuongTien.aspx">Tạo mới phương tiện</asp:HyperLink>
 
                     <asp:GridView runat="server" ID="dgvPhuongTien"
@@ -61,8 +73,8 @@
                                     Chức năng
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <asp:HyperLink runat="server" ID="btnSua" Text="Sửa" NavigateUrl='<%# "QLPhuongTien.aspx?mapt=" + Eval("MaPT").ToString() %>' />
-                                    <asp:LinkButton runat="server" ID="btnXoa" Text="Xóa"
+                                    <asp:HyperLink runat="server" ID="btnSua" class="fa fa-pencil-square-o Edit" NavigateUrl='<%# "QLPhuongTien.aspx?mapt=" + Eval("MaPT").ToString() %>' />
+                                    <asp:LinkButton runat="server" ID="btnXoa" class="fa fa-times Delete"
                                         OnClientClick="return valid();"
                                         CommandArgument='<%# Eval("MaPT").ToString() %>'
                                         OnCommand="btnXoa_Command1" />

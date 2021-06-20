@@ -5,7 +5,16 @@
         a#ContentPlaceHolder1_hplloi {
             margin-left: 45%;
         }
-        
+        .Edit {
+            color: #1ab394;
+            font-size: 30px;
+            padding: 7px 5px 0px 0px;
+        }
+        .Delete {
+            color: #fc2406;
+            font-size: 30px;
+            padding: 0px 0px 0px 10px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -50,7 +59,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="ibox-content">
+                <div class="ibox-content" style="box-shadow: 0 0 10px;">
                     <asp:HyperLink runat="server" ID="hplloi" CssClass="text-danger"></asp:HyperLink>
                     <br />
                     <asp:HyperLink runat="server" ID="hplBtnThem" class="btn btn-info" NavigateUrl="QLNhanVien.aspx">Thêm Nhân viên</asp:HyperLink>
@@ -81,8 +90,8 @@
                                     Chức năng
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <asp:HyperLink runat="server" ID="btnSua" Text="Sửa" NavigateUrl='<%# "QLNhanVien.aspx?manv=" + Eval("MaNV").ToString() %>' />
-                                    <asp:LinkButton runat="server" ID="btnXoa" Text="Xóa"
+                                    <asp:HyperLink runat="server" ID="btnSua" class="fa fa-pencil-square-o Edit" NavigateUrl='<%# "QLNhanVien.aspx?manv=" + Eval("MaNV").ToString() %>' />
+                                    <asp:LinkButton runat="server" ID="btnXoa" class="fa fa-times Delete"
                                         OnClientClick="return valid();"
                                         CommandArgument='<%# Eval("MaNV").ToString() %>'
                                         OnCommand="btnXoa_Command" />
@@ -116,7 +125,7 @@
                                     Chức năng
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <asp:HyperLink runat="server" ID="btnSua" Text="Sửa" NavigateUrl='<%# "QLNhanVien.aspx?manv=" + Eval("MaNV").ToString() %>' />
+                                    <asp:HyperLink runat="server" ID="btnSua" class="fa fa-pencil-square-o Edit" NavigateUrl='<%# "QLNhanVien.aspx?manv=" + Eval("MaNV").ToString() %>' />
 
                                 </ItemTemplate>
                             </asp:TemplateField>

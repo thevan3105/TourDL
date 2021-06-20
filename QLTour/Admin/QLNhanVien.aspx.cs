@@ -112,19 +112,28 @@ namespace QLTour.Admin
                     }
                     else
                     {
-                        //obj.MaNV = AutoGetma();
-                        obj.TenNV = txtTenNV.Text;
-                        obj.NghiepVu = cmbnghiepvu.SelectedValue;
-                        string ngaysinh = cmbThang.SelectedValue + "/" + cmbNgay.SelectedValue + "/" + cmbNam.SelectedValue;
-                        obj.NgaySinh = Convert.ToDateTime(ngaysinh);
-                        obj.GioiTinh = cmbgoitinh.SelectedValue;
-                        obj.DiaChi = txtDiaChi.Text;
-                        obj.SDT = Int32.Parse(txtSDT.Text) ;
-                        obj.TaiKhoan = txtTaiKhoan.Text;
-                        obj.PassWord = hash_pass;
+                        string taikhoan = txtTaiKhoan.Text;
+                        int soluong = db.NhanVien.Count(x => x.TaiKhoan == taikhoan);
+                        if (soluong == 1)
+                        {
+                            lbdatontai.Text = "tài khoản đã tồn tại!";
+                        }
+                        else
+                        {
+                            //obj.MaNV = AutoGetma();
+                            obj.TenNV = txtTenNV.Text;
+                            obj.NghiepVu = cmbnghiepvu.SelectedValue;
+                            string ngaysinh = cmbThang.SelectedValue + "/" + cmbNgay.SelectedValue + "/" + cmbNam.SelectedValue;
+                            obj.NgaySinh = Convert.ToDateTime(ngaysinh);
+                            obj.GioiTinh = cmbgoitinh.SelectedValue;
+                            obj.DiaChi = txtDiaChi.Text;
+                            obj.SDT = Int32.Parse(txtSDT.Text);
+                            obj.TaiKhoan = txtTaiKhoan.Text;
+                            obj.PassWord = hash_pass;
 
-                        db.SaveChanges();
-                        Response.Redirect("NhanViens.aspx");
+                            db.SaveChanges();
+                            Response.Redirect("NhanViens.aspx");
+                        }
                     }
                 }
             }

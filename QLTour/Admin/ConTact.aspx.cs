@@ -33,7 +33,7 @@ namespace QLTour.Admin
                     }
                     else
                     {
-                        getData();
+                        getDataCSKH();
                     }
                 }
             }
