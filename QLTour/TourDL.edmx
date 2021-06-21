@@ -19,7 +19,7 @@
           <Property Name="MaNV" Type="nvarchar" MaxLength="50" />
           <Property Name="TrangThai" Type="int" />
           <Property Name="GiaTien" Type="int" />
-          <Property Name="NgayBook" Type="datetime" />
+          <Property Name="NgayBook" Type="date" />
         </EntityType>
         <EntityType Name="Comment">
           <Key>
@@ -375,7 +375,91 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="acount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tk" Type="nvarchar" Mode="In" />
+          <Parameter Name="mk" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="childtk" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="bd" Type="nvarchar" Mode="In" />
+          <Parameter Name="kt" Type="nvarchar" Mode="In" />
+          <Parameter Name="timkiem" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="getbooking" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="getnhanvien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="gettour" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="pr_addnhanvien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaNV" Type="nvarchar" Mode="In" />
+          <Parameter Name="TenNV" Type="nvarchar" Mode="In" />
+          <Parameter Name="GioiTinh" Type="nvarchar" Mode="In" />
+          <Parameter Name="NghiepVu" Type="nvarchar" Mode="In" />
+          <Parameter Name="NgaySinh" Type="date" Mode="In" />
+          <Parameter Name="DiaCHi" Type="nvarchar" Mode="In" />
+          <Parameter Name="SDT" Type="nvarchar" Mode="In" />
+          <Parameter Name="TaiKhoan" Type="nvarchar" Mode="In" />
+          <Parameter Name="MatKhau" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="pr_chagepassNV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaNV" Type="nvarchar" Mode="In" />
+          <Parameter Name="MatKhau" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="pr_deletbooking" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaVe" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="pr_deletenhanvien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaNV" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="pr_deletetour" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaTour" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="pr_editnhanvien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaNV" Type="nvarchar" Mode="In" />
+          <Parameter Name="TenNV" Type="nvarchar" Mode="In" />
+          <Parameter Name="GioiTinh" Type="nvarchar" Mode="In" />
+          <Parameter Name="NghiepVu" Type="nvarchar" Mode="In" />
+          <Parameter Name="NgaySinh" Type="date" Mode="In" />
+          <Parameter Name="DiaCHi" Type="nvarchar" Mode="In" />
+          <Parameter Name="SDT" Type="nvarchar" Mode="In" />
+          <Parameter Name="TaiKhoan" Type="nvarchar" Mode="In" />
+          <Parameter Name="MatKhau" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="pr_ThemBooking" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaTour" Type="nvarchar" Mode="In" />
+          <Parameter Name="SLNguoiLon" Type="int" Mode="In" />
+          <Parameter Name="SLTreEm" Type="int" Mode="In" />
+          <Parameter Name="MaLT" Type="nvarchar" Mode="In" />
+          <Parameter Name="MaKH" Type="nvarchar" Mode="In" />
+          <Parameter Name="MaDDDL" Type="nvarchar" Mode="In" />
+          <Parameter Name="MaNV" Type="nvarchar" Mode="In" />
+          <Parameter Name="TrangThai" Type="nvarchar" Mode="In" />
+          <Parameter Name="GiaTien" Type="bigint" Mode="In" />
+          <Parameter Name="NgayBook" Type="date" Mode="In" />
+        </Function>
+        <Function Name="pr_themtour" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaTour" Type="nvarchar" Mode="In" />
+          <Parameter Name="TenTour" Type="nvarchar" Mode="In" />
+          <Parameter Name="MaLoaiTour" Type="nvarchar" Mode="In" />
+          <Parameter Name="GiaTien" Type="int" Mode="In" />
+          <Parameter Name="Minuser" Type="int" Mode="In" />
+          <Parameter Name="Maxuser" Type="int" Mode="In" />
+          <Parameter Name="MoTa" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="pr_timbooktheotennv" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="timkiem" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="pr_UpdateBooking" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaVe" Type="nvarchar" Mode="In" />
+          <Parameter Name="MaTour" Type="nvarchar" Mode="In" />
+          <Parameter Name="SLNguoiLon" Type="int" Mode="In" />
+          <Parameter Name="SLTreEm" Type="int" Mode="In" />
+          <Parameter Name="MaLT" Type="nvarchar" Mode="In" />
+          <Parameter Name="MaKH" Type="nvarchar" Mode="In" />
+          <Parameter Name="MaDDDL" Type="nvarchar" Mode="In" />
+          <Parameter Name="MaNV" Type="nvarchar" Mode="In" />
+          <Parameter Name="TrangThai" Type="nvarchar" Mode="In" />
+          <Parameter Name="GiaTien" Type="bigint" Mode="In" />
+          <Parameter Name="NgayBook" Type="date" Mode="In" />
+        </Function>
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -405,7 +489,30 @@
           <Parameter Name="owner_id" Type="int" Mode="In" />
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="SP_updatetour" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaTour" Type="nvarchar" Mode="In" />
+          <Parameter Name="TenTour" Type="nvarchar" Mode="In" />
+          <Parameter Name="MaLoaiTour" Type="nvarchar" Mode="In" />
+          <Parameter Name="GiaTien" Type="int" Mode="In" />
+          <Parameter Name="Minuser" Type="int" Mode="In" />
+          <Parameter Name="Maxuser" Type="int" Mode="In" />
+          <Parameter Name="MoTa" Type="nvarchar(max)" Mode="In" />
+        </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sumdoanhthutime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar" />
+        <Function Name="sumtongdt" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="bd" Type="nvarchar" Mode="In" />
+          <Parameter Name="kt" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="timbooktheotentime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="bd" Type="nvarchar" Mode="In" />
+          <Parameter Name="kt" Type="nvarchar" Mode="In" />
+          <Parameter Name="timkiem" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="toptourdatmax" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="bd" Type="nvarchar" Mode="In" />
+          <Parameter Name="kt" Type="nvarchar" Mode="In" />
+        </Function>
         <EntityContainer Name="TourDLModelStoreContainer">
           <EntitySet Name="Booking" EntityType="Self.Booking" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
@@ -494,7 +601,7 @@
           <Key>
             <PropertyRef Name="MaVe" />
           </Key>
-          <Property Name="MaVe" Type="Int32" Nullable="false" />
+          <Property Name="MaVe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MaTour" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SLNguoiLon" Type="Int32" />
           <Property Name="SLTreEm" Type="Int32" />
@@ -504,11 +611,22 @@
           <Property Name="MaNV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TrangThai" Type="Int32" />
           <Property Name="GiaTien" Type="Int32" />
+          <Property Name="NgayBook" Type="DateTime" Precision="0" />
           <NavigationProperty Name="KhachHang" Relationship="Self.FK_Booking_KhachHang" FromRole="Booking" ToRole="KhachHang" />
           <NavigationProperty Name="LichTrinh" Relationship="Self.FK_Booking_LichTrinh" FromRole="Booking" ToRole="LichTrinh" />
           <NavigationProperty Name="NhanVien" Relationship="Self.FK_Booking_NhanVien" FromRole="Booking" ToRole="NhanVien" />
-          <Property Name="NgayBook" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="DanhGia" Relationship="TourDLModel.FK_DanhGia_Booking" FromRole="Booking" ToRole="DanhGia" />
+          <NavigationProperty Name="DanhGia" Relationship="Self.FK_DanhGia_Booking" FromRole="Booking" ToRole="DanhGia" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="ID_comment" />
+          </Key>
+          <Property Name="ID_comment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaTour" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contents" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Date_seen" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Tour" Relationship="Self.FK_Comment_Tour" FromRole="Comment" ToRole="Tour" />
         </EntityType>
         <EntityType Name="Contact">
           <Key>
@@ -535,6 +653,18 @@
           <NavigationProperty Name="DiaDiemDL" Relationship="Self.FK_CTTour_DiaDiemDL" FromRole="CTTour" ToRole="DiaDiemDL" />
           <NavigationProperty Name="LoaiPhuongTien" Relationship="Self.FK_CTTour_LoaiPhuongTien" FromRole="CTTour" ToRole="LoaiPhuongTien" />
           <NavigationProperty Name="Tour" Relationship="Self.FK_CTTour_Tour" FromRole="CTTour" ToRole="Tour" />
+        </EntityType>
+        <EntityType Name="DanhGia">
+          <Key>
+            <PropertyRef Name="STT" />
+          </Key>
+          <Property Name="STT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaTour" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MaKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MaVe" Type="Int32" />
+          <Property Name="Diem" Type="Int32" />
+          <NavigationProperty Name="Booking" Relationship="Self.FK_DanhGia_Booking" FromRole="DanhGia" ToRole="Booking" />
+          <NavigationProperty Name="Tour" Relationship="Self.FK_DanhGia_Tour" FromRole="DanhGia" ToRole="Tour" />
         </EntityType>
         <EntityType Name="DiaDiemDL">
           <Key>
@@ -613,6 +743,17 @@
           <Property Name="MaTour" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Tour" Relationship="Self.FK_Media_Tour" FromRole="Media" ToRole="Tour" />
         </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="ID_News" />
+          </Key>
+          <Property Name="ID_News" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Time" Type="DateTime" Precision="0" />
+          <Property Name="Url_Img" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contents" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tag" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="NhanVien">
           <Key>
             <PropertyRef Name="MaNV" />
@@ -669,12 +810,12 @@
           <Property Name="Minuser" Type="Int32" />
           <Property Name="Maxuser" Type="Int32" />
           <Property Name="MoTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Comment" Relationship="Self.FK_Comment_Tour" FromRole="Tour" ToRole="Comment" />
           <NavigationProperty Name="CTTour" Relationship="Self.FK_CTTour_Tour" FromRole="Tour" ToRole="CTTour" />
+          <NavigationProperty Name="DanhGia" Relationship="Self.FK_DanhGia_Tour" FromRole="Tour" ToRole="DanhGia" />
           <NavigationProperty Name="LichTrinh" Relationship="Self.FK_LichTrinh_Tour" FromRole="Tour" ToRole="LichTrinh" />
           <NavigationProperty Name="LoaiTour" Relationship="Self.FK_Tour_LoaiTour" FromRole="Tour" ToRole="LoaiTour" />
           <NavigationProperty Name="Media" Relationship="Self.FK_Media_Tour" FromRole="Tour" ToRole="Media" />
-          <NavigationProperty Name="Comment" Relationship="TourDLModel.FK_Comment_Tour" FromRole="Tour" ToRole="Comment" />
-          <NavigationProperty Name="DanhGia" Relationship="TourDLModel.FK_DanhGia_Tour" FromRole="Tour" ToRole="DanhGia" />
         </EntityType>
         <Association Name="FK_Booking_KhachHang">
           <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
@@ -712,6 +853,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_DanhGia_Booking">
+          <End Role="Booking" Type="Self.Booking" Multiplicity="0..1" />
+          <End Role="DanhGia" Type="Self.DanhGia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Booking">
+              <PropertyRef Name="MaVe" />
+            </Principal>
+            <Dependent Role="DanhGia">
+              <PropertyRef Name="MaVe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comment_Tour">
+          <End Role="Tour" Type="Self.Tour" Multiplicity="0..1" />
+          <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tour">
+              <PropertyRef Name="MaTour" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="MaTour" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_CTTour_DiaDiemDL">
           <End Role="DiaDiemDL" Type="Self.DiaDiemDL" Multiplicity="0..1" />
           <End Role="CTTour" Type="Self.CTTour" Multiplicity="*" />
@@ -744,6 +909,18 @@
               <PropertyRef Name="MaTour" />
             </Principal>
             <Dependent Role="CTTour">
+              <PropertyRef Name="MaTour" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DanhGia_Tour">
+          <End Role="Tour" Type="Self.Tour" Multiplicity="0..1" />
+          <End Role="DanhGia" Type="Self.DanhGia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tour">
+              <PropertyRef Name="MaTour" />
+            </Principal>
+            <Dependent Role="DanhGia">
               <PropertyRef Name="MaTour" />
             </Dependent>
           </ReferentialConstraint>
@@ -822,8 +999,10 @@
         </Association>
         <EntityContainer Name="TourDLEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Booking" EntityType="Self.Booking" />
+          <EntitySet Name="Comment" EntityType="Self.Comment" />
           <EntitySet Name="Contact" EntityType="Self.Contact" />
           <EntitySet Name="CTTour" EntityType="Self.CTTour" />
+          <EntitySet Name="DanhGia" EntityType="Self.DanhGia" />
           <EntitySet Name="DiaDiemDL" EntityType="Self.DiaDiemDL" />
           <EntitySet Name="KhachHang" EntityType="Self.KhachHang" />
           <EntitySet Name="KhachSan" EntityType="Self.KhachSan" />
@@ -831,6 +1010,7 @@
           <EntitySet Name="LoaiPhuongTien" EntityType="Self.LoaiPhuongTien" />
           <EntitySet Name="LoaiTour" EntityType="Self.LoaiTour" />
           <EntitySet Name="Media" EntityType="Self.Media" />
+          <EntitySet Name="News" EntityType="Self.News" />
           <EntitySet Name="NhanVien" EntityType="Self.NhanVien" />
           <EntitySet Name="PhuongTien" EntityType="Self.PhuongTien" />
           <EntitySet Name="Slide" EntityType="Self.Slide" />
@@ -848,6 +1028,14 @@
             <End Role="NhanVien" EntitySet="NhanVien" />
             <End Role="Booking" EntitySet="Booking" />
           </AssociationSet>
+          <AssociationSet Name="FK_DanhGia_Booking" Association="Self.FK_DanhGia_Booking">
+            <End Role="Booking" EntitySet="Booking" />
+            <End Role="DanhGia" EntitySet="DanhGia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comment_Tour" Association="Self.FK_Comment_Tour">
+            <End Role="Tour" EntitySet="Tour" />
+            <End Role="Comment" EntitySet="Comment" />
+          </AssociationSet>
           <AssociationSet Name="FK_CTTour_DiaDiemDL" Association="Self.FK_CTTour_DiaDiemDL">
             <End Role="DiaDiemDL" EntitySet="DiaDiemDL" />
             <End Role="CTTour" EntitySet="CTTour" />
@@ -859,6 +1047,10 @@
           <AssociationSet Name="FK_CTTour_Tour" Association="Self.FK_CTTour_Tour">
             <End Role="Tour" EntitySet="Tour" />
             <End Role="CTTour" EntitySet="CTTour" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DanhGia_Tour" Association="Self.FK_DanhGia_Tour">
+            <End Role="Tour" EntitySet="Tour" />
+            <End Role="DanhGia" EntitySet="DanhGia" />
           </AssociationSet>
           <AssociationSet Name="FK_KhachSan_DiaDiemDL" Association="Self.FK_KhachSan_DiaDiemDL">
             <End Role="DiaDiemDL" EntitySet="DiaDiemDL" />
@@ -884,6 +1076,90 @@
             <End Role="Tour" EntitySet="Tour" />
             <End Role="Media" EntitySet="Media" />
           </AssociationSet>
+          <FunctionImport Name="acount" ReturnType="Collection(Boolean)">
+            <Parameter Name="tk" Mode="In" Type="String" />
+            <Parameter Name="mk" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="childtk" ReturnType="Collection(TourDLModel.childtk_Result)">
+            <Parameter Name="bd" Mode="In" Type="String" />
+            <Parameter Name="kt" Mode="In" Type="String" />
+            <Parameter Name="timkiem" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getbooking" ReturnType="Collection(TourDLModel.getbooking_Result)" />
+          <FunctionImport Name="getnhanvien" ReturnType="Collection(TourDLModel.getnhanvien_Result)" />
+          <FunctionImport Name="gettour" ReturnType="Collection(TourDLModel.gettour_Result)" />
+          <FunctionImport Name="pr_addnhanvien">
+            <Parameter Name="MaNV" Mode="In" Type="String" />
+            <Parameter Name="TenNV" Mode="In" Type="String" />
+            <Parameter Name="GioiTinh" Mode="In" Type="String" />
+            <Parameter Name="NghiepVu" Mode="In" Type="String" />
+            <Parameter Name="NgaySinh" Mode="In" Type="DateTime" />
+            <Parameter Name="DiaCHi" Mode="In" Type="String" />
+            <Parameter Name="SDT" Mode="In" Type="String" />
+            <Parameter Name="TaiKhoan" Mode="In" Type="String" />
+            <Parameter Name="MatKhau" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pr_chagepassNV">
+            <Parameter Name="MaNV" Mode="In" Type="String" />
+            <Parameter Name="MatKhau" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pr_deletbooking">
+          <Parameter Name="MaVe" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pr_deletenhanvien">
+          <Parameter Name="MaNV" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pr_deletetour">
+          <Parameter Name="MaTour" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pr_editnhanvien">
+            <Parameter Name="MaNV" Mode="In" Type="String" />
+            <Parameter Name="TenNV" Mode="In" Type="String" />
+            <Parameter Name="GioiTinh" Mode="In" Type="String" />
+            <Parameter Name="NghiepVu" Mode="In" Type="String" />
+            <Parameter Name="NgaySinh" Mode="In" Type="DateTime" />
+            <Parameter Name="DiaCHi" Mode="In" Type="String" />
+            <Parameter Name="SDT" Mode="In" Type="String" />
+            <Parameter Name="TaiKhoan" Mode="In" Type="String" />
+            <Parameter Name="MatKhau" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pr_ThemBooking">
+            <Parameter Name="MaTour" Mode="In" Type="String" />
+            <Parameter Name="SLNguoiLon" Mode="In" Type="Int32" />
+            <Parameter Name="SLTreEm" Mode="In" Type="Int32" />
+            <Parameter Name="MaLT" Mode="In" Type="String" />
+            <Parameter Name="MaKH" Mode="In" Type="String" />
+            <Parameter Name="MaDDDL" Mode="In" Type="String" />
+            <Parameter Name="MaNV" Mode="In" Type="String" />
+            <Parameter Name="TrangThai" Mode="In" Type="String" />
+            <Parameter Name="GiaTien" Mode="In" Type="Int64" />
+            <Parameter Name="NgayBook" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="pr_themtour">
+            <Parameter Name="MaTour" Mode="In" Type="String" />
+            <Parameter Name="TenTour" Mode="In" Type="String" />
+            <Parameter Name="MaLoaiTour" Mode="In" Type="String" />
+            <Parameter Name="GiaTien" Mode="In" Type="Int32" />
+            <Parameter Name="Minuser" Mode="In" Type="Int32" />
+            <Parameter Name="Maxuser" Mode="In" Type="Int32" />
+            <Parameter Name="MoTa" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pr_timbooktheotennv" ReturnType="Collection(TourDLModel.pr_timbooktheotennv_Result)">
+          <Parameter Name="timkiem" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pr_UpdateBooking">
+            <Parameter Name="MaVe" Mode="In" Type="String" />
+            <Parameter Name="MaTour" Mode="In" Type="String" />
+            <Parameter Name="SLNguoiLon" Mode="In" Type="Int32" />
+            <Parameter Name="SLTreEm" Mode="In" Type="Int32" />
+            <Parameter Name="MaLT" Mode="In" Type="String" />
+            <Parameter Name="MaKH" Mode="In" Type="String" />
+            <Parameter Name="MaDDDL" Mode="In" Type="String" />
+            <Parameter Name="MaNV" Mode="In" Type="String" />
+            <Parameter Name="TrangThai" Mode="In" Type="String" />
+            <Parameter Name="GiaTien" Mode="In" Type="Int64" />
+            <Parameter Name="NgayBook" Mode="In" Type="DateTime" />
+          </FunctionImport>
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
@@ -913,23 +1189,96 @@
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="SP_updatetour">
+            <Parameter Name="MaTour" Mode="In" Type="String" />
+            <Parameter Name="TenTour" Mode="In" Type="String" />
+            <Parameter Name="MaLoaiTour" Mode="In" Type="String" />
+            <Parameter Name="GiaTien" Mode="In" Type="Int32" />
+            <Parameter Name="Minuser" Mode="In" Type="Int32" />
+            <Parameter Name="Maxuser" Mode="In" Type="Int32" />
+            <Parameter Name="MoTa" Mode="In" Type="String" />
+          </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
-          <EntitySet Name="Comment" EntityType="TourDLModel.Comment" />
-          <EntitySet Name="News" EntityType="TourDLModel.News" />
-          <AssociationSet Name="FK_Comment_Tour" Association="TourDLModel.FK_Comment_Tour">
-            <End Role="Tour" EntitySet="Tour" />
-            <End Role="Comment" EntitySet="Comment" />
-          </AssociationSet>
-          <EntitySet Name="DanhGia" EntityType="TourDLModel.DanhGia" />
-          <AssociationSet Name="FK_DanhGia_Tour" Association="TourDLModel.FK_DanhGia_Tour">
-            <End Role="Tour" EntitySet="Tour" />
-            <End Role="DanhGia" EntitySet="DanhGia" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DanhGia_Booking" Association="TourDLModel.FK_DanhGia_Booking">
-            <End Role="Booking" EntitySet="Booking" />
-            <End Role="DanhGia" EntitySet="DanhGia" />
-          </AssociationSet>
+          <FunctionImport Name="sumtongdt" ReturnType="Collection(Int32)">
+            <Parameter Name="bd" Mode="In" Type="String" />
+            <Parameter Name="kt" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="timbooktheotentime" ReturnType="Collection(TourDLModel.timbooktheotentime_Result)">
+            <Parameter Name="bd" Mode="In" Type="String" />
+            <Parameter Name="kt" Mode="In" Type="String" />
+            <Parameter Name="timkiem" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="toptourdatmax" ReturnType="Collection(TourDLModel.toptourdatmax_Result)">
+            <Parameter Name="bd" Mode="In" Type="String" />
+            <Parameter Name="kt" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
+        <ComplexType Name="childtk_Result">
+          <Property Type="Int32" Name="MaVe" Nullable="false" />
+          <Property Type="String" Name="MaTour" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MaLT" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MaKH" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MaNV" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="NgayBook" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="GiaTien" Nullable="true" />
+          <Property Type="String" Name="TenNV" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MaNV1" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="NghiepVu" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="GioiTinh" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DiaChi" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="SDT" Nullable="true" />
+          <Property Type="String" Name="NgaySinh" Nullable="true" MaxLength="12" />
+        </ComplexType>
+        <ComplexType Name="getbooking_Result">
+          <Property Type="Int32" Name="MaVe" Nullable="false" />
+          <Property Type="String" Name="MaTour" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="SLNguoiLon" Nullable="true" />
+          <Property Type="Int32" Name="SLTreEm" Nullable="true" />
+          <Property Type="String" Name="MaLT" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MaKH" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MaDDDL" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MaNV" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="TrangThai" Nullable="true" />
+          <Property Type="Int32" Name="GiaTien" Nullable="true" />
+          <Property Type="DateTime" Name="NgayBook" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="getnhanvien_Result">
+          <Property Type="String" Name="MaNV" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="TenNV" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NghiepVu" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="NgaySinh" Nullable="true" />
+          <Property Type="String" Name="GioiTinh" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DiaChi" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TaiKhoan" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="SDT" Nullable="true" />
+          <Property Type="String" Name="PassWord" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="gettour_Result">
+          <Property Type="String" Name="MaTour" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="TenTour" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MaLoaiTour" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="GiaTien" Nullable="true" />
+          <Property Type="Int32" Name="Minuser" Nullable="true" />
+          <Property Type="Int32" Name="Maxuser" Nullable="true" />
+          <Property Type="String" Name="MoTa" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="pr_timbooktheotennv_Result">
+          <Property Type="Int32" Name="MaVe" Nullable="false" />
+          <Property Type="String" Name="MaTour" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MaLT" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MaKH" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MaNV" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="NgayBook" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="GiaTien" Nullable="true" />
+          <Property Type="String" Name="TenNV" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MaNV1" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="NghiepVu" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="GioiTinh" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DiaChi" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TaiKhoan" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="SDT" Nullable="true" />
+          <Property Type="String" Name="NgaySinh" Nullable="true" MaxLength="12" />
+        </ComplexType>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
           <Property Type="Binary" Name="definition" Nullable="true" />
@@ -941,76 +1290,28 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
-        <EntityType Name="Comment">
-          <Key>
-            <PropertyRef Name="ID_comment" />
-          </Key>
-          <Property Name="ID_comment" Type="Int32" Nullable="false" />
-          <Property Name="MaTour" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Contents" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Tour" Relationship="TourDLModel.FK_Comment_Tour" FromRole="Comment" ToRole="Tour" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Date_seen" Type="DateTime" Precision="0" />
-        </EntityType>
-        <EntityType Name="News">
-          <Key>
-            <PropertyRef Name="ID_News" />
-          </Key>
-          <Property Name="ID_News" Type="Int32" Nullable="false" />
-          <Property Name="Time" Type="DateTime" Precision="0" />
-          <Property Name="Contents" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Url_Img" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Tag" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <Association Name="FK_Comment_Tour">
-          <End Type="TourDLModel.Tour" Role="Tour" Multiplicity="0..1" />
-          <End Type="TourDLModel.Comment" Role="Comment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tour">
-              <PropertyRef Name="MaTour" />
-            </Principal>
-            <Dependent Role="Comment">
-              <PropertyRef Name="MaTour" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="DanhGia">
-          <Key>
-            <PropertyRef Name="STT" />
-          </Key>
-          <Property Name="STT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MaTour" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MaKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MaVe" Type="Int32" />
-          <Property Name="Diem" Type="Int32" />
-          <NavigationProperty Name="Tour" Relationship="TourDLModel.FK_DanhGia_Tour" FromRole="DanhGia" ToRole="Tour" />
-          <NavigationProperty Name="Booking" Relationship="TourDLModel.FK_DanhGia_Booking" FromRole="DanhGia" ToRole="Booking" />
-        </EntityType>
-        <Association Name="FK_DanhGia_Tour">
-          <End Type="TourDLModel.Tour" Role="Tour" Multiplicity="0..1" />
-          <End Type="TourDLModel.DanhGia" Role="DanhGia" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tour">
-              <PropertyRef Name="MaTour" />
-            </Principal>
-            <Dependent Role="DanhGia">
-              <PropertyRef Name="MaTour" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DanhGia_Booking">
-          <End Type="TourDLModel.Booking" Role="Booking" Multiplicity="0..1" />
-          <End Type="TourDLModel.DanhGia" Role="DanhGia" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Booking">
-              <PropertyRef Name="MaVe" />
-            </Principal>
-            <Dependent Role="DanhGia">
-              <PropertyRef Name="MaVe" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
+        <ComplexType Name="timbooktheotentime_Result">
+          <Property Type="Int32" Name="MaVe" Nullable="false" />
+          <Property Type="String" Name="MaTour" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MaLT" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MaKH" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MaNV" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="NgayBook" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="GiaTien" Nullable="true" />
+          <Property Type="String" Name="TenNV" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MaNV1" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="NghiepVu" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="GioiTinh" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DiaChi" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="SDT" Nullable="true" />
+          <Property Type="String" Name="NgaySinh" Nullable="true" MaxLength="12" />
+        </ComplexType>
+        <ComplexType Name="toptourdatmax_Result">
+          <Property Type="String" Name="MaTour" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="TenTour" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MaLoaiTour" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="SLD" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1020,7 +1321,6 @@
           <EntitySetMapping Name="Booking">
             <EntityTypeMapping TypeName="TourDLModel.Booking">
               <MappingFragment StoreEntitySet="Booking">
-                <ScalarProperty Name="NgayBook" ColumnName="NgayBook" />
                 <ScalarProperty Name="MaVe" ColumnName="MaVe" />
                 <ScalarProperty Name="MaTour" ColumnName="MaTour" />
                 <ScalarProperty Name="SLNguoiLon" ColumnName="SLNguoiLon" />
@@ -1031,6 +1331,18 @@
                 <ScalarProperty Name="MaNV" ColumnName="MaNV" />
                 <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
                 <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
+                <ScalarProperty Name="NgayBook" ColumnName="NgayBook" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comment">
+            <EntityTypeMapping TypeName="TourDLModel.Comment">
+              <MappingFragment StoreEntitySet="Comment">
+                <ScalarProperty Name="ID_comment" ColumnName="ID_comment" />
+                <ScalarProperty Name="MaTour" ColumnName="MaTour" />
+                <ScalarProperty Name="Contents" ColumnName="Contents" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Date_seen" ColumnName="Date_seen" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1056,6 +1368,17 @@
                 <ScalarProperty Name="GiaveNL" ColumnName="GiaveNL" />
                 <ScalarProperty Name="GiaVeTE" ColumnName="GiaVeTE" />
                 <ScalarProperty Name="MaLPT" ColumnName="MaLPT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DanhGia">
+            <EntityTypeMapping TypeName="TourDLModel.DanhGia">
+              <MappingFragment StoreEntitySet="DanhGia">
+                <ScalarProperty Name="STT" ColumnName="STT" />
+                <ScalarProperty Name="MaTour" ColumnName="MaTour" />
+                <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+                <ScalarProperty Name="MaVe" ColumnName="MaVe" />
+                <ScalarProperty Name="Diem" ColumnName="Diem" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1132,6 +1455,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="TourDLModel.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="ID_News" ColumnName="ID_News" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Url_Img" ColumnName="Url_Img" />
+                <ScalarProperty Name="Contents" ColumnName="Contents" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="NhanVien">
             <EntityTypeMapping TypeName="TourDLModel.NhanVien">
               <MappingFragment StoreEntitySet="NhanVien">
@@ -1191,6 +1526,102 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="acount" FunctionName="TourDLModel.Store.acount" />
+          <FunctionImportMapping FunctionImportName="childtk" FunctionName="TourDLModel.Store.childtk">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TourDLModel.childtk_Result">
+                <ScalarProperty Name="MaVe" ColumnName="MaVe" />
+                <ScalarProperty Name="MaTour" ColumnName="MaTour" />
+                <ScalarProperty Name="MaLT" ColumnName="MaLT" />
+                <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+                <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+                <ScalarProperty Name="NgayBook" ColumnName="NgayBook" />
+                <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
+                <ScalarProperty Name="TenNV" ColumnName="TenNV" />
+                <ScalarProperty Name="MaNV1" ColumnName="MaNV1" />
+                <ScalarProperty Name="NghiepVu" ColumnName="NghiepVu" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getbooking" FunctionName="TourDLModel.Store.getbooking">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TourDLModel.getbooking_Result">
+                <ScalarProperty Name="MaVe" ColumnName="MaVe" />
+                <ScalarProperty Name="MaTour" ColumnName="MaTour" />
+                <ScalarProperty Name="SLNguoiLon" ColumnName="SLNguoiLon" />
+                <ScalarProperty Name="SLTreEm" ColumnName="SLTreEm" />
+                <ScalarProperty Name="MaLT" ColumnName="MaLT" />
+                <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+                <ScalarProperty Name="MaDDDL" ColumnName="MaDDDL" />
+                <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
+                <ScalarProperty Name="NgayBook" ColumnName="NgayBook" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getnhanvien" FunctionName="TourDLModel.Store.getnhanvien">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TourDLModel.getnhanvien_Result">
+                <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+                <ScalarProperty Name="TenNV" ColumnName="TenNV" />
+                <ScalarProperty Name="NghiepVu" ColumnName="NghiepVu" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="TaiKhoan" ColumnName="TaiKhoan" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="gettour" FunctionName="TourDLModel.Store.gettour">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TourDLModel.gettour_Result">
+                <ScalarProperty Name="MaTour" ColumnName="MaTour" />
+                <ScalarProperty Name="TenTour" ColumnName="TenTour" />
+                <ScalarProperty Name="MaLoaiTour" ColumnName="MaLoaiTour" />
+                <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
+                <ScalarProperty Name="Minuser" ColumnName="Minuser" />
+                <ScalarProperty Name="Maxuser" ColumnName="Maxuser" />
+                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pr_addnhanvien" FunctionName="TourDLModel.Store.pr_addnhanvien" />
+          <FunctionImportMapping FunctionImportName="pr_chagepassNV" FunctionName="TourDLModel.Store.pr_chagepassNV" />
+          <FunctionImportMapping FunctionImportName="pr_deletbooking" FunctionName="TourDLModel.Store.pr_deletbooking" />
+          <FunctionImportMapping FunctionImportName="pr_deletenhanvien" FunctionName="TourDLModel.Store.pr_deletenhanvien" />
+          <FunctionImportMapping FunctionImportName="pr_deletetour" FunctionName="TourDLModel.Store.pr_deletetour" />
+          <FunctionImportMapping FunctionImportName="pr_editnhanvien" FunctionName="TourDLModel.Store.pr_editnhanvien" />
+          <FunctionImportMapping FunctionImportName="pr_ThemBooking" FunctionName="TourDLModel.Store.pr_ThemBooking" />
+          <FunctionImportMapping FunctionImportName="pr_themtour" FunctionName="TourDLModel.Store.pr_themtour" />
+          <FunctionImportMapping FunctionImportName="pr_timbooktheotennv" FunctionName="TourDLModel.Store.pr_timbooktheotennv">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TourDLModel.pr_timbooktheotennv_Result">
+                <ScalarProperty Name="MaVe" ColumnName="MaVe" />
+                <ScalarProperty Name="MaTour" ColumnName="MaTour" />
+                <ScalarProperty Name="MaLT" ColumnName="MaLT" />
+                <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+                <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+                <ScalarProperty Name="NgayBook" ColumnName="NgayBook" />
+                <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
+                <ScalarProperty Name="TenNV" ColumnName="TenNV" />
+                <ScalarProperty Name="MaNV1" ColumnName="MaNV1" />
+                <ScalarProperty Name="NghiepVu" ColumnName="NghiepVu" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="TaiKhoan" ColumnName="TaiKhoan" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pr_UpdateBooking" FunctionName="TourDLModel.Store.pr_UpdateBooking" />
           <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="TourDLModel.Store.sp_alterdiagram" />
           <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="TourDLModel.Store.sp_creatediagram" />
           <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="TourDLModel.Store.sp_dropdiagram" />
@@ -1214,41 +1645,39 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="TourDLModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="SP_updatetour" FunctionName="TourDLModel.Store.SP_updatetour" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="TourDLModel.Store.sp_upgraddiagrams" />
-          <EntitySetMapping Name="Comment">
-            <EntityTypeMapping TypeName="TourDLModel.Comment">
-              <MappingFragment StoreEntitySet="Comment">
-                <ScalarProperty Name="Date_seen" ColumnName="Date_seen" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Contents" ColumnName="Contents" />
-                <ScalarProperty Name="MaTour" ColumnName="MaTour" />
-                <ScalarProperty Name="ID_comment" ColumnName="ID_comment" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="News">
-            <EntityTypeMapping TypeName="TourDLModel.News">
-              <MappingFragment StoreEntitySet="News">
-                <ScalarProperty Name="Tag" ColumnName="Tag" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Url_Img" ColumnName="Url_Img" />
-                <ScalarProperty Name="Contents" ColumnName="Contents" />
-                <ScalarProperty Name="Time" ColumnName="Time" />
-                <ScalarProperty Name="ID_News" ColumnName="ID_News" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DanhGia">
-            <EntityTypeMapping TypeName="TourDLModel.DanhGia">
-              <MappingFragment StoreEntitySet="DanhGia">
-                <ScalarProperty Name="Diem" ColumnName="Diem" />
+          <FunctionImportMapping FunctionImportName="sumtongdt" FunctionName="TourDLModel.Store.sumtongdt" />
+          <FunctionImportMapping FunctionImportName="timbooktheotentime" FunctionName="TourDLModel.Store.timbooktheotentime">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TourDLModel.timbooktheotentime_Result">
                 <ScalarProperty Name="MaVe" ColumnName="MaVe" />
-                <ScalarProperty Name="MaKH" ColumnName="MaKH" />
                 <ScalarProperty Name="MaTour" ColumnName="MaTour" />
-                <ScalarProperty Name="STT" ColumnName="STT" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+                <ScalarProperty Name="MaLT" ColumnName="MaLT" />
+                <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+                <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+                <ScalarProperty Name="NgayBook" ColumnName="NgayBook" />
+                <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
+                <ScalarProperty Name="TenNV" ColumnName="TenNV" />
+                <ScalarProperty Name="MaNV1" ColumnName="MaNV1" />
+                <ScalarProperty Name="NghiepVu" ColumnName="NghiepVu" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="toptourdatmax" FunctionName="TourDLModel.Store.toptourdatmax">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TourDLModel.toptourdatmax_Result">
+                <ScalarProperty Name="MaTour" ColumnName="MaTour" />
+                <ScalarProperty Name="TenTour" ColumnName="TenTour" />
+                <ScalarProperty Name="MaLoaiTour" ColumnName="MaLoaiTour" />
+                <ScalarProperty Name="SLD" ColumnName="SLD" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

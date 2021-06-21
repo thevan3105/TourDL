@@ -4,21 +4,23 @@
 
 <html>
 <head runat="server">
-    <title>D12QTANM</title>
+    <title>E-TOUR</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="template/css/bootstrap.min.css" rel="stylesheet">
-    <link href="template/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link rel ="icon" href="../Images/title/title12.png" type="image/x-icon" />
+    <link href="Template/css/bootstrap.min.css" rel="stylesheet">
+    <link href="Template/font-awesome/css/font-awesome.css" rel="stylesheet">
 
     <!-- Toastr style -->
-    <link href="template/css/plugins/toastr/toastr.min.css" rel="stylesheet">
+    <link href="Template/css/plugins/toastr/toastr.min.css" rel="stylesheet">
 
     <!-- Gritter -->
-    <link href="template/js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+    <link href="Template/js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
 
-    <link href="template/css/animate.css" rel="stylesheet">
-    <link href="template/css/style.css" rel="stylesheet">
+    <link href="Template/css/animate.css" rel="stylesheet">
+    <link href="Template/css/style.css" rel="stylesheet">
+
     <style>
         nav.navbar.navbar-static-top {
             position: fixed;
@@ -55,9 +57,9 @@
                                 IN+
                             </div>
                         </li>
-                        <li><a href="Home.aspx"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Home</span><span class="fa arrow"></span></a></li>
+                        <li><a href="Home1.aspx"><i class="fa fa-home"></i> <span class="nav-label">HOME</span><span class="fa arrow"></span></a></li>
                         <li >
-                            <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">TOUR</span> <span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">TOUR</span> <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li><asp:HyperLink runat="server" ID="hplupanhavatar" NavigateUrl="UploadAnh.aspx">UploadAnh</asp:HyperLink></li> 
                                 <li><asp:HyperLink runat="server" ID="hpltour" NavigateUrl="Tours.aspx">Tour</asp:HyperLink></li>
@@ -67,32 +69,41 @@
                             </ul>
                         </li>
                         <li>
-                            <asp:HyperLink runat="server" ID="hplkhachang" NavigateUrl="KhachHangs.aspx"><i class="fa fa-bar-chart-o"></i><span class="nav-label">KHÁCH HÀNG</span></asp:HyperLink>
+                            <asp:HyperLink runat="server" ID="hplkhachang" NavigateUrl="KhachHangs.aspx"><i class="fa fa-users"></i><span class="nav-label">KHÁCH HÀNG</span></asp:HyperLink>
+                            
                         </li>
                         <li >
-                            <asp:HyperLink runat="server" ID="hplnhanvien" NavigateUrl="NhanViens.aspx"><i class="fa fa-bar-chart-o"></i><span class="nav-label">NHÂN VIÊN</span></asp:HyperLink>
+                            <asp:HyperLink runat="server" ID="hplnhanvien" NavigateUrl="NhanViens.aspx"><i class="fa fa-user"></i><span class="nav-label">NHÂN VIÊN</span></asp:HyperLink>
+                            
                         </li>
                         <li>
-                            <asp:HyperLink runat="server" ID="hplbooking" NavigateUrl="Bookings.aspx"><i class="fa fa-bar-chart-o"></i><span class="nav-label">BOOKING TOUR</span></asp:HyperLink>
+                            <asp:HyperLink runat="server" ID="hplbooking" NavigateUrl="Bookings.aspx"><i class="fa fa-cart-arrow-down"></i><span class="nav-label">BOOKING TOUR</span></asp:HyperLink>
+                            
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">PHƯƠNG TIỆN</span><span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-plane"></i> <span class="nav-label">PHƯƠNG TIỆN</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li><asp:HyperLink runat="server" ID="hplphuongtien" NavigateUrl="PhuongTiens.aspx">Phương tiện</asp:HyperLink></li>
                                 <li><asp:HyperLink runat="server" ID="hplloaiphuongtien" NavigateUrl="LoaiPhuongTiens.aspx">Loại Phương tiện</asp:HyperLink></li>
                             </ul>
+                            
                         </li>
                         <li>
-                            <asp:HyperLink runat="server" ID="hpldiadiemdulich" NavigateUrl="DiaDiemDLs.aspx"><i class="fa fa-bar-chart-o"></i><span class="nav-label">ĐỊA ĐIỂM DU LỊCH</span></asp:HyperLink>
+                            <asp:HyperLink runat="server" ID="hpldiadiemdulich" NavigateUrl="DiaDiemDLs.aspx"><i class="fa fa-map-marker"></i><span class="nav-label">ĐỊA ĐIỂM DU LỊCH</span></asp:HyperLink>
+                            
+                        </li>
+                       
+                        <li>
+                            <asp:HyperLink runat="server" ID="hplkhachsan" NavigateUrl="KhachSans.aspx"><i class="fa fa-bed"></i><span class="nav-label">KHÁCH SẠN</span></asp:HyperLink>
+                            
                         </li>
                         <li>
-                            <asp:HyperLink runat="server" ID="hplkhachsan" NavigateUrl="KhachSans.aspx"><i class="fa fa-bar-chart-o"></i><span class="nav-label">KHÁCH SẠN</span></asp:HyperLink>
+                            <asp:HyperLink runat="server" ID="hplContact" NavigateUrl="ConTact.aspx"><i class="fa fa-comments"></i><span class="nav-label">CONTACT</span></asp:HyperLink>
+                            
                         </li>
                         <li>
-                            <asp:HyperLink runat="server" ID="hplContact" NavigateUrl="ConTact.aspx"><i class="fa fa-bar-chart-o"></i><span class="nav-label">Contact</span></asp:HyperLink>
-                        </li>
-                        <li>
-                            <asp:HyperLink runat="server" ID="hplbcthongke" NavigateUrl="BC_THongKE.aspx"><i class="fa fa-bar-chart-o"></i><span class="nav-label">Báo cáo Thống kê</span></asp:HyperLink>
+                            <asp:HyperLink runat="server" ID="hplbcthongke" NavigateUrl="BC_THongKE.aspx"><i class="fa fa-bar-chart-o"></i><span class="nav-label">BÁO CÁO & THỐNG KÊ</span></asp:HyperLink>
+                            
                         </li>
                     </ul>
 
@@ -106,7 +117,8 @@
                 <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
                 <div role="search" class="navbar-form-custom">
                     <div class="form-group">
-                        <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                        <asp:TextBox runat="server" ID="txtsearch" placeholder="Search for something..." class="form-control" name="top-search"> </asp:TextBox>
+                        <asp:Button runat="server" ID="btnSearch" CssClass="hidden" OnClick="btnSearch_Click1" />
                     </div>
                 </div>
             </div>
@@ -119,6 +131,7 @@
                             <i class="fa fa-envelope"></i>  <span class="label label-warning">16</span>
                         </a>
                         <ul class="dropdown-menu dropdown-messages">
+                            
                             <li>
                                 <div class="dropdown-messages-box">
                                     <a href="profile.html" class="pull-left">
@@ -346,7 +359,7 @@
                                 <div class="sidebar-message">
                                     <a href="#">
                                         <div class="pull-left text-center">
-                                            <img alt="image" class="img-circle message-avatar" src="template/img/a1.jpg">
+                                            <img alt="image" class="img-circle message-avatar" src="Template/img/a1.jpg">
 
                                             <div class="m-t-xs">
                                                 <i class="fa fa-star text-warning"></i>
@@ -364,7 +377,7 @@
                                 <div class="sidebar-message">
                                     <a href="#">
                                         <div class="pull-left text-center">
-                                            <img alt="image" class="img-circle message-avatar" src="template/img/a2.jpg">
+                                            <img alt="image" class="img-circle message-avatar" src="Template/img/a2.jpg">
                                         </div>
                                         <div class="media-body">
                                             The point of using Lorem Ipsum is that it has a more-or-less normal.
@@ -376,7 +389,7 @@
                                 <div class="sidebar-message">
                                     <a href="#">
                                         <div class="pull-left text-center">
-                                            <img alt="image" class="img-circle message-avatar" src="template/img/a3.jpg">
+                                            <img alt="image" class="img-circle message-avatar" src="Template/img/a3.jpg">
 
                                             <div class="m-t-xs">
                                                 <i class="fa fa-star text-warning"></i>
@@ -390,11 +403,12 @@
                                             <small class="text-muted">Yesterday 1:10 pm</small>
                                         </div>
                                     </a>
+                                    
                                 </div>
                                 <div class="sidebar-message">
                                     <a href="#">
                                         <div class="pull-left text-center">
-                                            <img alt="image" class="img-circle message-avatar" src="template/img/a4.jpg">
+                                            <img alt="image" class="img-circle message-avatar" src="Template/img/a4.jpg">
                                         </div>
 
                                         <div class="media-body">
@@ -407,7 +421,7 @@
                                 <div class="sidebar-message">
                                     <a href="#">
                                         <div class="pull-left text-center">
-                                            <img alt="image" class="img-circle message-avatar" src="template/img/a8.jpg">
+                                            <img alt="image" class="img-circle message-avatar" src="Template/img/a8.jpg">
                                         </div>
                                         <div class="media-body">
 
@@ -420,7 +434,7 @@
                                 <div class="sidebar-message">
                                     <a href="#">
                                         <div class="pull-left text-center">
-                                            <img alt="image" class="img-circle message-avatar" src="template/img/a7.jpg">
+                                            <img alt="image" class="img-circle message-avatar" src="Template/img/a7.jpg">
                                         </div>
                                         <div class="media-body">
                                             Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
@@ -432,7 +446,7 @@
                                 <div class="sidebar-message">
                                     <a href="#">
                                         <div class="pull-left text-center">
-                                            <img alt="image" class="img-circle message-avatar" src="template/img/a3.jpg">
+                                            <img alt="image" class="img-circle message-avatar" src="Template/img/a3.jpg">
 
                                             <div class="m-t-xs">
                                                 <i class="fa fa-star text-warning"></i>
@@ -450,7 +464,7 @@
                                 <div class="sidebar-message">
                                     <a href="#">
                                         <div class="pull-left text-center">
-                                            <img alt="image" class="img-circle message-avatar" src="template/img/a4.jpg">
+                                            <img alt="image" class="img-circle message-avatar" src="Template/img/a4.jpg">
                                         </div>
                                         <div class="media-body">
                                             Uncover many web sites still in their infancy. Various versions have.
@@ -694,18 +708,19 @@
     </form>
 
     <!-- Mainly scripts -->
-    <script src="template/js/jquery-2.1.1.js"></script>
-    <script src="template/js/bootstrap.min.js"></script>
-    <script src="template/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="template/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    
+    <script src="Template/js/jquery-2.1.1.js"></script>
+    <script src="Template/js/bootstrap.min.js"></script>
+    <script src="Template/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="Template/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
 
     <!-- Custom and plugin javascript -->
-    <script src="template/js/inspinia.js"></script>
-    <script src="template/js/plugins/pace/pace.min.js"></script>
+    <script src="Template/js/inspinia.js"></script>
+    <script src="Template/js/plugins/pace/pace.min.js"></script>
 
     <!-- jQuery UI -->
-    <script src="template/js/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="Template/js/plugins/jquery-ui/jquery-ui.min.js"></script>
 
     <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
     </asp:ContentPlaceHolder>

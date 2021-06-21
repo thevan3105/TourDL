@@ -16,15 +16,15 @@ namespace QLTour
             // ma khach hang da dat
             if (!IsPostBack)
             {
-                if (Request.QueryString["MaTour"] == null)
-                {
-                    Response.Redirect("Home.aspx");
-                }
-                else
-                {
-                    getTenTour(Request.QueryString["MaTour"]);
-                    getGiaTour(Request.QueryString["MaTour"]);
-                }
+                //if (Request.QueryString["MaTour"] == null)
+                //{
+                //    Response.Redirect("Home.aspx");
+                //}
+                //else
+                //{
+                //    getTenTour(Request.QueryString["MaTour"]);
+                //    getGiaTour(Request.QueryString["MaTour"]);
+                //}
             }
         }
         public void getTenTour(string MaTour)

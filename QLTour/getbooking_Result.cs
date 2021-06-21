@@ -10,17 +10,19 @@
 namespace QLTour
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class DanhGia
+    public partial class getbooking_Result
     {
-        public int STT { get; set; }
+        public int MaVe { get; set; }
         public string MaTour { get; set; }
+        public Nullable<int> SLNguoiLon { get; set; }
+        public Nullable<int> SLTreEm { get; set; }
+        public string MaLT { get; set; }
         public string MaKH { get; set; }
-        public Nullable<int> MaVe { get; set; }
-        public Nullable<int> Diem { get; set; }
-    
-        public virtual Booking Booking { get; set; }
-        public virtual Tour Tour { get; set; }
+        public string MaDDDL { get; set; }
+        public string MaNV { get; set; }
+        public Nullable<int> TrangThai { get; set; }
+        public Nullable<int> GiaTien { get; set; }
+        public Nullable<System.DateTime> NgayBook { get; set; }
     }
 }

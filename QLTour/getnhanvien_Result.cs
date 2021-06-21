@@ -10,17 +10,17 @@
 namespace QLTour
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class DanhGia
+    public partial class getnhanvien_Result
     {
-        public int STT { get; set; }
-        public string MaTour { get; set; }
-        public string MaKH { get; set; }
-        public Nullable<int> MaVe { get; set; }
-        public Nullable<int> Diem { get; set; }
-    
-        public virtual Booking Booking { get; set; }
-        public virtual Tour Tour { get; set; }
+        public string MaNV { get; set; }
+        public string TenNV { get; set; }
+        public string NghiepVu { get; set; }
+        public Nullable<System.DateTime> NgaySinh { get; set; }
+        public string GioiTinh { get; set; }
+        public string DiaChi { get; set; }
+        public string TaiKhoan { get; set; }
+        public Nullable<int> SDT { get; set; }
+        public string PassWord { get; set; }
     }
 }

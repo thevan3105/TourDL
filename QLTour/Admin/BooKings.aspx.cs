@@ -106,5 +106,29 @@ namespace QLTour.Admin
                 //
             }
         }
+
+        public string gettrangthai(string TrangThai)
+        {
+            //TourDLEntities db = new TourDLEntities();
+            //int acb = Int32.Parse(TrangThai);
+
+            //int trangthai = Int32.Parse(db.Booking.First(x => x.TrangThai == acb).TrangThai.ToString());
+            if (TrangThai == "0")
+            {
+                return "Chờ Duyệt";
+            }
+            else if (TrangThai == "1")
+            {
+                return "Đã Duyệt";
+            }
+            else if (TrangThai == "2")
+            {
+                return "Không Được Duyệt";
+            }
+            else
+            {
+                return "";
+            }
+        }
     }
 }

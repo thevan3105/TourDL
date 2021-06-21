@@ -54,6 +54,7 @@
         <div class="home_background parallax-window" data-parallax="scroll" data-image-src="Template/images/elements_background.jpg"></div>
         <div class="home_content">
             <div class="home_title">Giỏ tour</div>
+            <h3>abc</h3>
         </div>
     </div>
 </asp:Content>

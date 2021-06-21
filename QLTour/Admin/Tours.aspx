@@ -2,6 +2,15 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
+        .Edit {
+            color: #1ab394;
+            font-size: 30px;
+            padding: 7px 5px 0px 0px;
+        }
+        .Delete {
+            color: #fc2406;
+            font-size: 30px;
+        }
         span#ContentPlaceHolder1_lbErrorxoa {
             margin-left: 45%;
         }
@@ -51,12 +60,12 @@
                         </a>
                     </div>
                 </div>
-                <div class="ibox-content">
+                <div class="ibox-content" style="box-shadow: 0 0 10px;">
                     <asp:Label runat="server" ID="lbErrorxoa" CssClass="text-danger"></asp:Label>
                     <br />
                     <asp:HyperLink runat="server" ID="hplBtnThem"  class="btn btn-info" NavigateUrl="QLTours.aspx">Thêm Tour</asp:HyperLink>
                     
-                    <asp:GridView runat="server" ID="dgvTour" 
+                    <asp:GridView runat="server" ID="dgvTour"  
                         class="table table-bordered table-hover"
                         AutoGenerateColumns="false"
                     >
@@ -94,8 +103,8 @@
                                     Chức năng
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <asp:HyperLink runat="server" ID="btnSua" Text="Sửa" NavigateUrl='<%# "QLTours.aspx?matour=" + Eval("MaTour").ToString() %>' />
-                                    <asp:LinkButton runat="server" ID="btnXoa" Text="Xóa"
+                                    <asp:HyperLink runat="server" ID="btnSua" class="fa fa-pencil-square-o Edit" NavigateUrl='<%# "QLTours.aspx?matour=" + Eval("MaTour").ToString() %>' />
+                                    <asp:LinkButton runat="server" ID="btnXoa" class="fa fa-times Delete"
                                         OnClientClick="return valid();"
                                         CommandArgument='<%# Eval("MaTour").ToString() %>' 
                                         OnCommand="btnXoa_Command"

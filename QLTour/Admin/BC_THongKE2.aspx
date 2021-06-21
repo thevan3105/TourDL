@@ -4,8 +4,20 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.24/datatables.min.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css" />
-    <link href="../Template/styles/offers_styles.css" rel="stylesheet" />
     <style>
+        input#ContentPlaceHolder1_btntimkiemtourmax {
+            margin: 9px;
+        }
+        .form-control {
+            color: #db5246;
+            width: 302px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+        i.fa.fa-chevron-down {
+            float: right;
+            padding: 14px 3px 10px 0px;
+        }
         input#ContentPlaceHolder1_btnxuatex {
             background-color: #23c6c8;
             border-color: #23c6c8;
@@ -13,6 +25,7 @@
             width: 94px;
             margin-top: 10px;
             height: 30px;
+            border-radius: 5px;
         }
 
         .offers_sorting li ul li {
@@ -22,7 +35,6 @@
             padding-right: 25px;
             height: 82px;
         }
-
         .sumdoanhthu {
             margin-top: 100px;
         }
@@ -73,11 +85,6 @@
         }
 
 
-        ul.offers_sorting {
-            text-align: center;
-            border: 4px solid #04ff00;
-        }
-
         .offers_content {
             margin-top: 22px;
         }
@@ -97,14 +104,15 @@
         }
 
         .offers_sorting_container {
-            background: #19eaf1;
-            font-weight: bold;
+            padding-bottom: 20px;
+            border-bottom: 3px solid royalblue;
         }
 
         ul.offers_sorting {
             text-align: center;
-            border: 4px solid #04ff00;
             width: 100%;
+            border: none;
+            font-family: sans-serif;
         }
 
         .offer_name {
@@ -128,34 +136,31 @@
             display: inline-block;
         }
 
-            .offers_sorting li ul {
-                display: none;
-            }
-
-            .offers_sorting > li:hover .offers_sorting li ul {
-                display: block;
-            }
-
-            .offers_sorting > li {
-                display: inline-table;
-                position: relative;
-                width: 404px;
-                height: 50px;
-                font-size: 18px;
-                font-weight: 700;
-                color: #2d2c2c;
-                text-transform: uppercase;
-                line-height: 50px;
-                cursor: pointer;
-                border: solid 2px #dadada;
-                padding-left: 25px;
-                padding-right: 14px;
-                margin-right: 0px;
-            }
-
-        .row.border-bottom.white-bg.dashboard-header {
-            font-family: cursive;
+        .offers_sorting li ul {
+            display: none;
         }
+
+        .offers_sorting > li:hover .offers_sorting li ul {
+            display: block;
+        }
+        li.col-xs-12.col-md-4.col-lg-4.col-xl-4.content-header-right {
+            float: revert;
+        }
+        .offers_sorting > li {
+            display: inline-table;
+            position: relative;
+            height: 50px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #2d2c2c;
+            text-transform: uppercase;
+            line-height: 50px;
+            cursor: pointer;
+            border: solid 2px #dadada;
+            margin-right: 0px;
+            border-radius: 5px;
+        }
+
 
         .offers_item.rating_6 .row {
             margin-right: -15px;
@@ -217,6 +222,7 @@
             width: 100%;
             max-height: 380px;
             margin-left: 2px;
+            display: flex;
         }
 
         .pagination {
@@ -337,136 +343,15 @@
             border-right: 2px outset;
             padding: 10px 0px 10px 0px;
         }
-    </style>
-
-    <style>
         div#example_wrapper {
             margin-top: 80px;
         }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="sumdoanhthu">
-
-        <%--<div class="form-group">
-            <label class="col-sm-2 control-label">Tổng danh thu từ ngày đến ngày <span class="text-danger">*</span></label>
-            <div class="col-sm-10">
-                <div class="form-group row">
-                    <div class="col-md-2">
-                        <asp:DropDownList runat="server" TextMode="SingleLine" ID="cmbNgaybd" class="form-control col-sm-2" placeholder="Ngày" />
-
-                    </div>
-                    <div class="col-md-2">
-                        <asp:DropDownList runat="server" TextMode="SingleLine" ID="cmbThangbd" class="form-control col-sm-2" placeholder="Tháng" />
-
-                    </div>
-                    <div class="col-md-2">
-                        <asp:DropDownList runat="server" TextMode="SingleLine" ID="cmbNambd" class="form-control col-sm-2" placeholder="Năm" />
-
-                    </div>
-
-                </div>
-                <div class="form-group row">
-                    <div class="col-md-2">
-                        <asp:DropDownList runat="server" TextMode="SingleLine" ID="cmbNgaykt" class="form-control col-sm-2" placeholder="Ngày" />
-
-                    </div>
-                    <div class="col-md-2">
-                        <asp:DropDownList runat="server" TextMode="SingleLine" ID="cmbThangkt" class="form-control col-sm-2" placeholder="Tháng" />
-
-                    </div>
-                    <div class="col-md-2">
-                        <asp:DropDownList runat="server" TextMode="SingleLine" ID="cmbNamkt" class="form-control col-sm-2" placeholder="Năm" />
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <asp:Label runat="server" ID="lbtongdoanhthu" ></asp:Label>
-        <asp:Button runat="server" ID="btntest" OnClick="btntest_Click" />
-        <div class="offers_item rating_1">
-            <div class="row">
-                <div class="col-md-12 ">
-                    <div class="card-body table-responsive p-0" style="height: 380px;">
-                        <asp:GridView runat="server" ID="dgvtongdanhthu" AutoGenerateColumns="false" class="table table-bordered table-head-fixed table-hover text-nowrap text-center">
-                            <Columns>
-                                <asp:BoundField DataField="MaTour" HeaderText="Mã tour" />
-                                <asp:TemplateField>
-                                    <HeaderTemplate>
-                                        Ngày Book
-                                    </HeaderTemplate>
-                                    <ItemTemplate>
-                                        <%# ((DateTime)Eval("NgayBook")).ToString("dd/MM/yyyy")%>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:BoundField DataField="MaNV" HeaderText="Mã nhân viên" />
-                            </Columns>
-                        </asp:GridView>
-                    </div>
-                </div>
-            </div>
-        </div>--%>
-    </div>
+    
     <div class="hr-line-dashed"></div>
-    <%--<table id="example" class="display nowrap" style="width: 100%">
-
-        <thead>
-            <tr>
-                <th>Mã nhân viên</th>
-                <th>tên nhân viên</th>
-                <th>Nghiệp vụ</th>
-                <th>Ngày sinh</th>
-                <th>Giới tính</th>
-                <th>Địa chỉ</th>
-                <th>Địa</th>
-            </tr>
-        </thead>
-
-        <tbody>
-
-            <tr>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>63</td>
-                <td>2011/07/25</td>
-                <td>$170,750</td>
-                <th>Địa</th>
-            </tr>
-            <tr>
-                <td>Ashton Cox</td>
-                <td>Junior Technical Author</td>
-                <td>San Francisco</td>
-                <td>66</td>
-                <td>2009/01/12</td>
-                <td>$86,000</td>
-                <th>Địa</th>
-            </tr>
-            <tr>
-                <td>San Francisco</td>
-                <td>Junior Technical Author</td>
-                <td>San Francisco</td>
-                <td>66</td>
-                <td>2009/01/12</td>
-                <td>$86,000</td>
-                <th>Địa</th>
-            </tr>
-
-        </tbody>
-        <tfoot>
-            <tr>
-                <th>Mã nhân viên</th>
-                <th>tên nhân viên</th>
-                <th>Nghiệp vụ</th>
-                <th>Ngày sinh</th>
-                <th>Giới tính</th>
-                <th>Địa chỉ</th>
-                <th>Địa</th>
-            </tr>
-        </tfoot>
-    </table>--%>
+    
 
     <div class="row  border-bottom white-bg dashboard-header">
         <h2>BÁO CÁO THỐNG KÊ E-tOUR</h2>
@@ -478,131 +363,67 @@
         </div>
         <%--menu hiển thị lọc kết quả--%>
         <div class="offers_sorting_container">
-            <ul class="offers_sorting">
-                <li>
-                    <span class="sorting_text">THỐNG KÊ TOUR</span>
+            <ul class="row offers_sorting">
+                <li class="col-xs-12 col-md-8 col-lg-8 col-xl-8">
+                    <span class="sorting_text"><asp:LinkButton runat="server" ID="lbtntourdatmax" OnClick="lbtntourdatmax_Click" >TOUR ĐẶT NHIỀU NHẤT / TỔNG DOANH THU</asp:LinkButton></span>
                     <i class="fa fa-chevron-down"></i>
-                    <ul>
-                        <li><span>
-                            <asp:LinkButton runat="server" ID="lbtntourdatmax" OnClick="lbtntourdatmax_Click">TOUR ĐẶT NHIỀU NHẤT</asp:LinkButton></span></li>
-                        <%--<li><span>
-                            <asp:LinkButton runat="server" ID="lbtntourdatmax" OnClick="lbtntourdatmax_Click1">TOUR ĐẶT NHIỀU NHẤT</asp:LinkButton></span></li>
-                        <li><span>
-                            <asp:LinkButton runat="server" ID="lbtntourdatmin" OnClick="lbtntourdatmin_Click">TOUR ĐẶT ÍT NHẤT</asp:LinkButton></span></li>--%>
-                    </ul>
                 </li>
-                <li>
-                    <span class="sorting_text">Tổng doanh thu</span>
+                <li class="col-xs-12 col-md-4 col-lg-4 col-xl-4 content-header-right">
+                    <span class="sorting_text"><asp:LinkButton runat="server" ID="lbttimbooktheoten" OnClick="lbttimbooktheoten_Click" >BOOKING THEO NAME $ TIMES</asp:LinkButton></span>
                     <i class="fa fa-chevron-down"></i>
-                    <ul>
-                        <li><span>
-                            <asp:LinkButton runat="server" ID="lbtongdoanhthu" OnClick="lbtongdoanhthu_Click">Tổng doanh thu</asp:LinkButton></span></li>
-
-
-                    </ul>
                 </li>
-
-                <li>
-                    <span class="sorting_text">Tìm booking theo tên NV</span>
-                    <i class="fa fa-chevron-down"></i>
-                    <ul>
-                        <li><span>
-                            <asp:LinkButton runat="server" ID="lbttimbooktheoten" OnClick="lbttimbooktheoten_Click">Tìm theo tên nv , trong khoảng thời gian</asp:LinkButton></span></li>
-
-                    </ul>
-                </li>
-
             </ul>
         </div>
-
-        <%--<div class="headtable">
-            <div class="hd1">
-                <div class="hd1_1">
-                    Tất cả booking tháng trước
-                </div>
-                <div class="hd1_2">
-                    Tour book max/ Tour book min
-                </div>
-            </div>
-            <div class="hd2">
-                <div class="hd1_3">
-                    Khách hàng book ít tour nhất
-                </div>
-                <div class="hd1_3">
-                    Khách hàng book nhiều tour nhất
-                </div>
-            </div>
-            <div class="hd2">
-                <div class="hd1_3">
-                    Nhân viên bán nhiều tour nhất
-                </div>
-                <div class="hd1_3">
-                    Nhân viên bán ít tour nhất
-                </div>
-            </div>
-        </div>--%>
-        <asp:Button runat="server" ID="btnxuatex" OnClick="btnxuatex_Click" Text="Xuất Excel" />
+        <asp:Button  runat="server" ID="btnxuatex" OnClick="btnxuatex_Click" Text="Xuất Excel" />
         <div class="form-group">
-            <asp:TextBox runat="server" ID="txttimkiem" placeholder="ngay bd" class="form-control" name="top-search"> </asp:TextBox>
-            <asp:TextBox runat="server" ID="txttimkiemngaykt" placeholder="ngày kt" class="form-control" name="top-search"> </asp:TextBox>
-            <asp:Button runat="server" ID="btntimkiemtourmax" Text="Tìm kiếm" OnClick="btntimkiemtourmax_Click" />
+            <div class="row">
+                <asp:TextBox runat="server" ID="txttimkiem" placeholder="ngay bd" class="col-xs-12 col-md-4 col-lg-4 form-control" name="top-search"> </asp:TextBox>
+                <asp:TextBox runat="server" ID="txttimkiemngaykt" placeholder="ngày kt" class="col-xs-12 col-md-4 col-lg-4 form-control" name="top-search"> </asp:TextBox>
+                <asp:Button runat="server" ID="btntimkiemtourmax" class="col-xs-12 col-md-1 col-lg-1 btn btn-info" Text="Tìm kiếm" OnClick="btntimkiemtourmax_Click" />
+            </div>
         </div>
         <%--Reoeater hiển thị all--%>
         <div class="offers_item rating_5">
             <div class="row">
-                <div class="col-md-12 ">
+                <div class="col-md-6 ">
+                    <h3>Top những Tour được đặt nhiều nhất</h3>
                     <div class="card-body table-responsive p-0" style="height: 380px;">
                         <asp:GridView runat="server" ID="dgvtourdatmax" AutoGenerateColumns="false" class="table table-bordered table-head-fixed table-hover text-nowrap text-center">
                             <Columns>
                                 <asp:BoundField DataField="MaTour" HeaderText="Mã tour" />
                                 <asp:BoundField DataField="TenTour" HeaderText="Tên tour" />
                                 <asp:BoundField DataField="MaLoaiTour" HeaderText="Mã loại tour" />
-                                <asp:BoundField DataField="SoLuong" HeaderText="Số Lượng đặt" />
+                                <asp:BoundField DataField="SLD" HeaderText="Số Lượng đặt" />
 
                             </Columns>
                         </asp:GridView>
                     </div>
                 </div>
-                <%--tìm booking--%>
-                <%--<div class="col-md-12 ">
+                <div class="col-md-6 ">
+                    <h4>Tổng doanh thu trong khoảng thời gian: <asp:Label runat="server" ID="lbngaybd"></asp:Label> - <asp:Label runat="server" ID="lbngaykt"></asp:Label> </h4>
                     <div class="card-body table-responsive p-0" style="height: 380px;">
-                        <asp:GridView runat="server" ID="dgvtimbooktheoten" AutoGenerateColumns="false" class="table table-bordered table-head-fixed table-hover text-nowrap text-center">
+                        <asp:GridView runat="server" ID="dgvtongdoanhthu" AutoGenerateColumns="false" class="table table-bordered table-head-fixed table-hover text-nowrap text-center">
                             <Columns>
-                                <asp:BoundField DataField="MaVe" HeaderText="Mã vé" />
-                                <asp:BoundField DataField="MaTour" HeaderText="MaTour" />
-                                <asp:BoundField DataField="MaLT" HeaderText="MaLT" />
-                                <asp:BoundField DataField="MaKH" HeaderText="MaKH" />
-                                <asp:BoundField DataField="MaNV" HeaderText="MaNV" />
-                                <asp:BoundField DataField="NgayBook" HeaderText="Ngày Book" />
-                               <%-- <asp:TemplateField>
-                                    <HeaderTemplate>
-                                        Ngày Book
-                                    </HeaderTemplate>
-                                    <ItemTemplate>
-                                        <%# ((DateTime)Eval("NgayBook")).ToString("dd/MM/yyyy")%>
-                                    </ItemTemplate>
-                                </asp:TemplateField>--%>
-                <%-- <asp:BoundField DataField="GiaTien" HeaderText="GiaTien" />
-                                <asp:BoundField DataField="TenNV" HeaderText="Tên Nhân viên" />--%>
-                <%-- <asp:TemplateField>
-                                    <HeaderTemplate>
-                                        tên nhân viên
-                                    </HeaderTemplate>
-                                    <ItemTemplate>
-                                        <%# gettennv(Eval("TenNV").ToString()) %>
-                                    </ItemTemplate>
-                                </asp:TemplateField>--%>
-                <%--</Columns>
+                                <asp:TemplateField>
+                                <HeaderTemplate>
+                                    Tổng doanh thu
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <%# ((Int32)Eval("TongDT")).ToString("N0")%> <span>VND</span>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            </Columns>
                         </asp:GridView>
-                    </div--%>>
+                    </div>
+                </div>
+                
+                </div>
             </div>
-            --%>
-                Tổng doanh thu:
-            <asp:Label runat="server" ID="lbtongdt"></asp:Label>
-            <span>VND</span>
+
+        <asp:Label runat="server" ID="lbtongdoanhthu" CssClass="text-danger"></asp:Label>
         </div>
-    </div>
-    </div>
+
+    <!---->
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.24/datatables.min.js"></script>

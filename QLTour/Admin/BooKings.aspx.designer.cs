@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QLTour.Admin {
-    
-    
-    public partial class BooKings {
-        
+namespace QLTour.Admin
+{
+
+
+    public partial class BooKings
+    {
+
         /// <summary>
         /// hplBtnThem control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace QLTour.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hplBtnThem;
-        
+
         /// <summary>
         /// dgvbooking control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace QLTour.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView dgvbooking;
-        
+
         /// <summary>
         /// dgvbookingCSKH control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace QLTour.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView dgvbookingCSKH;
-        
+
         /// <summary>
         /// dgvbookingSELL control.
         /// </summary>

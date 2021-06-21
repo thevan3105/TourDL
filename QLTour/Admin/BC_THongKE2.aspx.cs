@@ -13,20 +13,11 @@ namespace QLTour.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            selectourdatmax();
-            //getngaybk();
-            //getthangbk();
-            //getnambk();
-            //getngaykt();
-            //getthangkt();
-            //getnamkt();
-            //lbtongdoanhthu.Text = tongdanhthu();
+            lbtongdoanhthu.Enabled = true;
             getgiatourmax();
             countmax();
             countmin();
-            //selectourdatmax();
-            //lbmax.Text = selectourdatmax();
-            sumtongdoanhthu();
+            sumtongdoanhthuthangtruoc();
         }
         public string gettennv(string TenNV)
         {
@@ -69,7 +60,7 @@ namespace QLTour.Admin
             //rptourmin.DataBind();
         }
         // lấy ra tổng doanh thu từ ngày 01/01/2020 - 10/10/2021
-        public int seletongdanhthu()
+        public int seletongdanhthuInt()
         {
 
             TourDLEntities db = new TourDLEntities();
@@ -77,11 +68,54 @@ namespace QLTour.Admin
             string tgkt = txttimkiemngaykt.Text;
             DateTime bd = DateTime.Parse(tgbd);
             DateTime kt = DateTime.Parse(tgkt);
-            string lastmonth = db.Booking.Where(x => x.NgayBook.Value >= bd && x.NgayBook.Value <= kt).OrderByDescending(x => x.GiaTien).Sum(y => y.GiaTien).ToString();
-            return int.Parse(lastmonth);
+            string tong = db.Booking.Where(x => x.NgayBook.Value >= bd && x.NgayBook.Value <= kt).OrderByDescending(x => x.GiaTien).Sum(y => y.GiaTien).ToString();
+            return int.Parse(tong);
             //dgvkhdatmax.DataSource = dt;
             //dgvkhdatmax.DataBind();
 
+        }
+
+
+        /// <summary>
+        /// trả về một bảng doanh thu gồm header tổng doanh thu và giá trị tổng doanh thu được tính trong khoảng thời gian từ ngày bd đến ngày kt
+        /// </summary>
+        public void seletongdanhthu()
+        {
+
+            //TourDLEntities db = new TourDLEntities();
+
+            //DateTime bd = DateTime.Parse(txttimngaybd.Text);
+            //DateTime kt = DateTime.Parse(txttimngaykt.Text);
+            //string lastmonth = db.Booking.Where(x => x.NgayBook.Value >= bd && x.NgayBook.Value <= kt).OrderByDescending(x => x.GiaTien).Sum(y => y.GiaTien).ToString();
+            //return int.Parse(lastmonth);
+
+            try
+            {
+                SqlCommand cmd;
+                //SqlDataReader da;
+                //DataSet ds;
+                string connectionstring = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["TourDLEntities"].ConnectionString;
+                SqlConnection con;
+                SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=Van;Integrated Security=True");
+
+                con = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=Van;Integrated Security=True");
+                con.Open();
+                cmd = new SqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "dbo.sumtongdt";
+                cmd.Parameters.AddWithValue("@bd", txttimkiem.Text.Trim());
+                cmd.Parameters.AddWithValue("@kt", txttimkiemngaykt.Text.Trim());
+                cmd.Connection = con;
+                var reder = cmd.ExecuteReader();
+                dgvtongdoanhthu.DataSource = reder;
+                dgvtongdoanhthu.DataBind();
+                cmd.Dispose();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message);
+            }
         }
         // LẤY RA TÊN TÊN KHÁCH HÀNG ĐẶT ít TOUR NHẤT
         public void seleckhdatmin()
@@ -108,21 +142,25 @@ namespace QLTour.Admin
         {
             //TourDLEntities db = new TourDLEntities();
             //var obj = db.Booking.GroupBy(x => x.MaTour).OrderByDescending(y => y.Count()).Take(1);
-            //return obj.ToString();
-            TourDLEntities db = new TourDLEntities();
-            SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=Van;Integrated Security=True");
-
-            cnn.Open();
-            string sql = "select top 3  Tour.TenTour, Tour.MaTour, tour.MaLoaiTour, COUNT(1) as SoLuong from Tour, Booking where Tour.MaTour = Booking.MaTour and NgayBook between '" + txttimkiem.Text + "' and '" + txttimkiemngaykt.Text + "'  group by Booking.MaTour, Tour.TenTour, Tour.MaTour,tour.MaLoaiTour order by COUNT(1) desc";
-            SqlCommand com = new SqlCommand(sql, cnn); //bat dau truy van
-            com.CommandType = CommandType.Text;
-            SqlDataAdapter da = new SqlDataAdapter(com); //chuyen du lieu ve
-            DataTable dt = new DataTable(); //tạo một kho ảo để lưu trữ dữ liệu
-            da.Fill(dt);  // đổ dữ liệu vào kho
-            cnn.Close();  // đóng kết nối
-
-            dgvtourdatmax.DataSource = dt;
+            //return obj.ToString();SqlCommand cmd;
+            SqlCommand cmd;
+            //SqlDataReader da;
+            //DataSet ds;
+            string connectionstring = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["TourDLEntities"].ConnectionString;
+            SqlConnection con;
+            con = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=Van;Integrated Security=True");
+            con.Open();
+            cmd = new SqlCommand();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "dbo.toptourdatmax";
+            cmd.Parameters.AddWithValue("@bd", txttimkiem.Text.Trim());
+            cmd.Parameters.AddWithValue("@kt", txttimkiemngaykt.Text.Trim());
+            cmd.Connection = con;
+            var reder = cmd.ExecuteReader();
+            dgvtourdatmax.DataSource = reder;
             dgvtourdatmax.DataBind();
+            cmd.Dispose();
+            con.Close();
 
         }
 
@@ -139,10 +177,11 @@ namespace QLTour.Admin
             SqlDataAdapter da = new SqlDataAdapter(com); //chuyen du lieu ve
             DataTable dt = new DataTable(); //tạo một kho ảo để lưu trữ dữ liệu
             da.Fill(dt);  // đổ dữ liệu vào kho
-            cnn.Close();  // đóng kết nối
-
             //dgvtimbooktheoten.DataSource = dt;
             //dgvtimbooktheoten.DataBind();
+            cnn.Close();  // đóng kết nối
+
+
 
         }
         // LẤY RA TÊN NHÂN VIÊN BÁN TOUR ít NHẤT
@@ -208,7 +247,7 @@ namespace QLTour.Admin
         }
 
         // TỔNG DOANH THU BOOKING THÁNG TRƯỚC
-        public int sumtongdoanhthu()
+        public int sumtongdoanhthuthangtruoc()
         {
             TourDLEntities db = new TourDLEntities();
             DateTime today = DateTime.Now;
@@ -252,9 +291,9 @@ namespace QLTour.Admin
         public int doanhthuquy()
         {
 
-            int t1 = sumtongdoanhthu();
-            int t2 = sumtongdoanhthu() - 1;
-            int t3 = sumtongdoanhthu() - 2;
+            int t1 = sumtongdoanhthuthangtruoc();
+            int t2 = sumtongdoanhthuthangtruoc() - 1;
+            int t3 = sumtongdoanhthuthangtruoc() - 2;
             int tongquy = t1 + t2 + t3;
             return tongquy;
 
@@ -307,37 +346,55 @@ namespace QLTour.Admin
 
         protected void btnxuatex_Click(object sender, EventArgs e)
         {
-            Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
-            Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
-            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
-            worksheet = workbook.Sheets["Sheet1"];
-            worksheet = workbook.ActiveSheet;
-            app.Visible = true;
-            ///đổ dữ liệu vào sheet
-            worksheet.Cells[3, 3] = "DANH SÁCH TOP 3 TOUR DƯỢC BOOK NHIỀU THẤT";
-            worksheet.Cells[5, 2] = "E-TOUR";
-            worksheet.Cells[6, 2] = "Địa chỉ: Tòa nhà FPTS 52 Lạc Long Quân, Tây Hồ, Hà Nội";
-            worksheet.Cells[7, 2] = "Ngày: 01/01/2020 - 10/10/2021";
-            worksheet.Cells[7, 4] = "Tổng doanh thu: " + lbtongdoanhthu.Text;
-            worksheet.Cells[8, 1] = "STT";
-            worksheet.Cells[8, 2] = "Mã Tour";
-            worksheet.Cells[8, 3] = "Tên Tour";
-            worksheet.Cells[8, 4] = "Mã loại tour";
-            worksheet.Cells[8, 5] = "Số Lượng đặt";
-            for (int i = 0; i < dgvtourdatmax.Rows.Count; i++)
+            try
             {
-                for (int j = 0; j < 4; j++)
+                lbtongdoanhthu.Enabled = true;
+                lbtongdoanhthu.Text = seletongdanhthuInt().ToString("N0");
+                Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
+                Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
+                Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+                worksheet = workbook.Sheets["Sheet1"];
+                worksheet = workbook.ActiveSheet;
+                app.Visible = true;
+                ///đổ dữ liệu vào sheet
+                worksheet.Cells[3, 3] = "DANH SÁCH TOP 3 TOUR DƯỢC BOOK NHIỀU THẤT";
+                worksheet.Cells[5, 2] = "E-TOUR";
+                worksheet.Cells[6, 2] = "Địa chỉ: Tòa nhà FPTS 52 Lạc Long Quân, Tây Hồ, Hà Nội";
+                worksheet.Cells[7, 2] = "Ngày: " + txttimkiem.Text + " - " + txttimkiemngaykt.Text;
+                worksheet.Cells[7, 4] = "Tổng doanh thu: " + lbtongdoanhthu.Text;
+                worksheet.Cells[8, 1] = "STT";
+                worksheet.Cells[8, 2] = "Mã Tour";
+                worksheet.Cells[8, 3] = "Tên Tour";
+                worksheet.Cells[8, 4] = "Mã loại tour";
+                worksheet.Cells[8, 5] = "Số Lượng đặt";
+                for (int i = 0; i < dgvtourdatmax.Rows.Count; i++)
                 {
-                    worksheet.Cells[i + 9, 1] = i + 1;
-                    worksheet.Cells[i + 9, j + 2] = dgvtourdatmax.Rows[i].Cells[j].Text;
+                    for (int j = 0; j < 4; j++)
+                    {
+                        worksheet.Cells[i + 9, 1] = i + 1;
+                        worksheet.Cells[i + 9, j + 2] = dgvtourdatmax.Rows[i].Cells[j].Text;
+                    }
                 }
             }
+            catch (Exception)
+            {
+                Response.Write("<script>alert('xuất excel không thành công!');</script>");
+            }
+
         }
 
         protected void btntimkiemtourmax_Click(object sender, EventArgs e)
         {
             selectourdatmax();
-            lbtongdt.Text = seletongdanhthu().ToString("N0");
+            seletongdanhthu();
+            lbngaybd.Text = txttimkiem.Text;
+            lbngaykt.Text = txttimkiemngaykt.Text;
+            //lbtongdt.Text = seletongdanhthu();
+        }
+
+        protected void btntimkiem_Click(object sender, EventArgs e)
+        {
+            selecbooktheoten();
         }
     }
 }

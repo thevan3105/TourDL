@@ -129,6 +129,28 @@
                         </div>
                         <div class="hr-line-dashed"></div>
                         <div class="form-group">
+                            <label class="col-sm-2 control-label">Ngày Book <span class="text-danger">*</span></label>
+                            <div class="col-sm-10">
+                                <div class="form-group row">
+                                    <div class="col-md-2">
+                                        <asp:DropDownList runat="server" TextMode="SingleLine" ID="cmbNgaybk" class="form-control col-sm-2" placeholder="Ngày" />
+
+                                    </div>
+                                    <div class="col-md-2">
+                                        <asp:DropDownList runat="server" TextMode="SingleLine" ID="cmbThangbk" class="form-control col-sm-2" placeholder="Tháng" />
+
+                                    </div>
+                                    <div class="col-md-2">
+                                        <asp:DropDownList runat="server" TextMode="SingleLine" ID="cmbNambk" class="form-control col-sm-2" placeholder="Năm" />
+
+                                    </div>
+                                    
+                                </div>
+                                <span class="help-block m-b-none">Ví dụ: 12/03/2020 </span>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
                             <div class="col-sm-4 col-sm-offset-2">
                                 <asp:Button runat="server" ID="btnCancel" class="btn btn-white" Text="Hủy" OnClick="btnCancel_Click" />
                                 <asp:Button runat="server" ID="btnSave" class="btn btn-primary" Text="Lưu lại" OnClick="btnSave_Click" />

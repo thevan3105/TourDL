@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/mtHome.Master" AutoEventWireup="true" CodeBehind="Home1.aspx.cs" Inherits="QLTour.Admin.Home1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <%--<link href="../Template/styles/offers_styles.css" rel="stylesheet" />--%>
     <style>
         img#anhhome {
             width: 100%;
@@ -128,10 +129,10 @@
                 visibility: hidden;
                 opacity: 0;
                 z-index: 1;
-                /*box-shadow: 0 15px 25px rgb(63 78 100 / 15%);*/
+                box-shadow: 0 15px 25px rgb(63 78 100 / 15%);
                 -webkit-transition: opacity 0.3s ease;
                 -moz-transition: opacity 0.3s ease;
-                /*-ms-transition: opacity 0.3s ease;*/
+                -ms-transition: opacity 0.3s ease;
                 -o-transition: opacity 0.3s ease;
                 transition: all 0.3s ease;
             }
@@ -178,6 +179,8 @@
             border-radius: 4px;
         }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row  border-bottom white-bg dashboard-header">
@@ -197,11 +200,10 @@
                             <div class="ibox-content">
                                 <div>
                                     <span class="pull-right text-right">
-                                        <small>Average value of sales in the past month in: <strong>United states</strong></small>
+                                        <small>Giá trị trung bình của doanh số bán hàng trong tháng qua ở: <strong>Việt Nam</strong></small>
                                         <br />
-                                        All sales: 162,862
+                                        Tất cả các đợt bán hàng: 162,862
                                         </span>
-                                    <h1 class="m-b-xs">Manh</h1>
                                     <h3 class="font-bold no-margins">SƠ ĐỒ DOANH THU
                                         </h3>
                                     <small>Đơn vị VND.</small>
@@ -357,6 +359,9 @@
 
             var ctx = document.getElementById("lineChart").getContext("2d");
             var myNewChart = new Chart(ctx).Line(lineData, lineOptions);
+
+
+
         });
     </script>
 </asp:Content>

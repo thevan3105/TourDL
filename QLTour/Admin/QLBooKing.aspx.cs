@@ -20,6 +20,9 @@ namespace QLTour.Admin
                 }
                 else
                 {
+                    getnambk();
+                    getngaybk();
+                    getthangbk();
                     getSLTE();
                     getSLNL();
                     getcmbmatour();
@@ -103,6 +106,9 @@ namespace QLTour.Admin
                                 cmbSLNL.SelectedValue = obj.SLNguoiLon.ToString();
                                 cmbSLTE.SelectedValue = obj.SLTreEm.ToString();
                                 cmbTrangThai.Text = obj.TrangThai.ToString();
+                                cmbNambk.SelectedValue = obj.NgayBook.Value.Year.ToString();
+                                cmbThangbk.SelectedValue = obj.NgayBook.Value.Month.ToString();
+                                cmbNgaybk.SelectedValue = obj.NgayBook.Value.Day.ToString();
                             }
                         }
                         else
@@ -148,6 +154,18 @@ namespace QLTour.Admin
                             cmbTrangThai.Enabled = false;
                             cmbTrangThai.CssClass = cmbTrangThai.CssClass + " form-control";
 
+                            cmbNambk.SelectedValue = Request.QueryString["NgayBook"];
+                            cmbNambk.Enabled = false;
+                            cmbNambk.CssClass = cmbNambk.CssClass + " form-control";
+
+                            cmbNgaybk.SelectedValue = Request.QueryString["NgayBook"];
+                            cmbNgaybk.Enabled = false;
+                            cmbNgaybk.CssClass = cmbNgaybk.CssClass + " form-control";
+
+                            cmbThangbk.SelectedValue = Request.QueryString["NgayBook"];
+                            cmbThangbk.Enabled = false;
+                            cmbThangbk.CssClass = cmbThangbk.CssClass + " form-control";
+
                             // Query về db để lấy các thông tin còn lại
                             int mv = Int32.Parse(txtMaVe.Text);
                             QLTour.Booking obj = db.Booking.FirstOrDefault(x => x.MaVe == mv);
@@ -157,6 +175,7 @@ namespace QLTour.Admin
                             }
                             else
                             {
+                                txtMaVe.Text = obj.MaVe.ToString();
                                 cmbMaLT.Text = obj.MaLT;
                                 cmbMaTour.Text = obj.MaTour;
                                 txtGiaTien.Text = obj.GiaTien.ToString();
@@ -166,6 +185,9 @@ namespace QLTour.Admin
                                 cmbSLNL.SelectedValue = obj.SLNguoiLon.ToString();
                                 cmbSLTE.SelectedValue = obj.SLTreEm.ToString();
                                 cmbTrangThai.Text = obj.TrangThai.ToString();
+                                cmbNambk.SelectedValue = obj.NgayBook.Value.Year.ToString();
+                                cmbThangbk.SelectedValue = obj.NgayBook.Value.Month.ToString();
+                                cmbNgaybk.SelectedValue = obj.NgayBook.Value.Day.ToString();
                             }
                         }
                     }
@@ -201,6 +223,7 @@ namespace QLTour.Admin
                         if (txtMaNV.Text == "" || q == txtMaNV.Text)
                         {
                             //obj.MaVe = txtMaVe.Text;
+                            obj.MaVe = int.Parse(txtMaVe.Text);
                             obj.MaLT = cmbMaLT.SelectedValue;
                             obj.MaTour = cmbMaTour.SelectedValue;
                             obj.GiaTien = Int32.Parse(txtGiaTien.Text);
@@ -210,13 +233,16 @@ namespace QLTour.Admin
                             obj.SLNguoiLon = Int32.Parse(cmbSLNL.SelectedValue);
                             obj.SLTreEm = Int32.Parse(cmbSLTE.SelectedValue);
                             obj.TrangThai = Int32.Parse(cmbTrangThai.SelectedValue);
+                            string ngaybk = cmbThangbk.SelectedValue + "/" + cmbNgaybk.SelectedValue + "/" + cmbNambk.SelectedValue;
+                            obj.NgayBook = Convert.ToDateTime(ngaybk);
+
 
                             db.SaveChanges();
                             Response.Redirect("Bookings.aspx");
                         }
                         else
                         {
-                            lbErrordangky.Text = "Nhân viên bán tour mới có quyền sửa";
+                            lbErrordangky.Text = "Nhân viên bán tour mới có quyền sửa, Mã nhân viên: " + txtMaNV.Text;
                         }
 
                     }
@@ -287,50 +313,39 @@ namespace QLTour.Admin
         }
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            try
+
+            TourDLEntities db = new TourDLEntities();
+            QLTour.Booking obj = new Booking();
+
+            if (txtGiaTien.Text == "")
             {
-                int mv = Int32.Parse(txtMaVe.Text);
-                TourDLEntities db = new TourDLEntities();
-                QLTour.Booking obj = db.Booking.FirstOrDefault(x => x.MaVe == mv);
-                if (obj != null)
-                {
-                    // Cảnh báo mã sản phẩm đã tồn tại
-
-                }
-                else
-                {
-                    if (txtGiaTien.Text == "")
-                    {
-                        lbErrordangky.Text = "Bạn chưa nhập đủ thông tin!!!";
-                    }
-                    else
-                    {
-                        obj = new QLTour.Booking();
-                        //obj.MaVe = getmave();
-                        obj.MaLT = cmbMaLT.SelectedValue;
-                        obj.MaTour = cmbMaTour.SelectedValue;
-                        obj.GiaTien = Int32.Parse(txtGiaTien.Text);
-                        obj.MaNV = txtMaNV.Text;
-                        obj.MaKH = cmbMaKH.SelectedValue;
-                        obj.MaDDDL = cmbMaDDDL.SelectedValue;
-                        obj.SLNguoiLon = Int32.Parse(cmbSLNL.SelectedValue);
-                        obj.SLTreEm = Int32.Parse(cmbSLTE.SelectedValue);
-                        obj.TrangThai = Int32.Parse(cmbTrangThai.SelectedValue);
-
-                        db.Booking.Add(obj);
-                        db.SaveChanges();
-                        Response.Redirect("BooKings.aspx");
-                    }
-
-                }
+                lbErrordangky.Text = "Bạn chưa nhập đủ thông tin!!!";
             }
-            catch
+            else
             {
-                // Lỗi
-                lbErrordangky.Text = "Lỗi không thể thêm!, Vui lòng kiểm tra lại!";
+                obj = new QLTour.Booking();
+                //obj.MaVe = getmave();
+                //obj.MaVe = int.Parse(txtMaVe.Text);
+                obj.MaLT = cmbMaLT.SelectedValue;
+                obj.MaTour = cmbMaTour.SelectedValue;
+                obj.GiaTien = Int32.Parse(txtGiaTien.Text);
+                obj.MaNV = txtMaNV.Text;
+                obj.MaKH = cmbMaKH.SelectedValue;
+                obj.MaDDDL = cmbMaDDDL.SelectedValue;
+                obj.SLNguoiLon = Int32.Parse(cmbSLNL.SelectedValue);
+                obj.SLTreEm = Int32.Parse(cmbSLTE.SelectedValue);
+                obj.TrangThai = Int32.Parse(cmbTrangThai.SelectedValue);
+                string ngaybk = cmbThangbk.SelectedValue + "/" + cmbNgaybk.SelectedValue + "/" + cmbNambk.SelectedValue;
+                obj.NgayBook = Convert.ToDateTime(ngaybk);
+
+                db.Booking.Add(obj);
+                db.SaveChanges();
+                Response.Redirect("BooKings.aspx");
             }
 
         }
+
+
 
         //public string getmave()
         //{
@@ -368,12 +383,43 @@ namespace QLTour.Admin
         public void getSLTE()
         {
             List<int> lst = new List<int>();
-            for (int i = 1; i < 200; i++)
+            for (int i = 0; i < 200; i++)
             {
                 lst.Add(i);
             }
             cmbSLTE.DataSource = lst;
             cmbSLTE.DataBind();
+        }
+
+        public void getngaybk()
+        {
+            List<int> lst = new List<int>();
+            for (int i = 1; i < 32; i++)
+            {
+                lst.Add(i);
+            }
+            cmbNgaybk.DataSource = lst;
+            cmbNgaybk.DataBind();
+        }
+        public void getthangbk()
+        {
+            List<int> lst = new List<int>();
+            for (int i = 1; i < 13; i++)
+            {
+                lst.Add(i);
+            }
+            cmbThangbk.DataSource = lst;
+            cmbThangbk.DataBind();
+        }
+        public void getnambk()
+        {
+            List<int> lst = new List<int>();
+            for (int i = 2015; i < 2030; i++)
+            {
+                lst.Add(i);
+            }
+            cmbNambk.DataSource = lst;
+            cmbNambk.DataBind();
         }
     }
 }

@@ -11,9 +11,10 @@ namespace QLTour.Admin
 {
     public partial class BC_THongKE : System.Web.UI.Page
     {
+        protected DataTable myDT;
         protected void Page_Load(object sender, EventArgs e)
         {
-            selecbooktheoten();
+           
             //getngaybk();
             //getthangbk();
             //getnambk();
@@ -26,8 +27,9 @@ namespace QLTour.Admin
             countmin();
             //selectourdatmax();
             //lbmax.Text = selectourdatmax();
-            sumtongdoanhthu();
+            //sumtongdoanhthu();
         }
+
         //public void getngaybk()
         //{
         //    List<int> lst = new List<int>();
@@ -130,17 +132,44 @@ namespace QLTour.Admin
             //rptourmin.DataBind();
         }
         // lấy ra tổng doanh thu từ ngày 01/01/2020 - 10/10/2021
-        public int seletongdanhthu()
-        {
+        SqlCommand cmd;
+        //SqlDataReader da;
+        //DataSet ds;
+        string connectionstring = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["TourDLEntities"].ConnectionString;
+        SqlConnection con;
+        //public void seletongdanhthu()
+        //{
 
-            TourDLEntities db = new TourDLEntities();
+        //    //TourDLEntities db = new TourDLEntities();
 
-            DateTime bd = DateTime.Parse("01/01/2020");
-            DateTime kt = DateTime.Parse("10/10/2021");
-            string lastmonth = db.Booking.Where(x => x.NgayBook.Value >= bd && x.NgayBook.Value <= kt).OrderByDescending(x => x.GiaTien).Sum(y => y.GiaTien).ToString();
-            return int.Parse(lastmonth);
+        //    //DateTime bd = DateTime.Parse(txttimngaybd.Text);
+        //    //DateTime kt = DateTime.Parse(txttimngaykt.Text);
+        //    //string lastmonth = db.Booking.Where(x => x.NgayBook.Value >= bd && x.NgayBook.Value <= kt).OrderByDescending(x => x.GiaTien).Sum(y => y.GiaTien).ToString();
+        //    //return int.Parse(lastmonth);
+        //    SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=Van;Integrated Security=True");
 
-        }
+        //    con = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=Van;Integrated Security=True");
+        //    try
+        //    {
+        //        cmd = new SqlCommand();
+        //        cmd.CommandType = CommandType.StoredProcedure;
+        //        cmd.CommandText = "dbo.sumtongdt";
+        //        cmd.Parameters.AddWithValue("@bd", txttimngaybd.Text.Trim());
+        //        cmd.Parameters.AddWithValue("@kt", txttimngaykt.Text.Trim());
+        //        cmd.Connection = con;
+        //        con.Open();
+        //        var reder = cmd.ExecuteReader();
+        //        dgvtongdoanhthu.DataSource = reder;
+        //        dgvtongdoanhthu.DataBind();
+        //        cmd.Dispose();
+        //        con.Close();
+        //    }
+        //    catch(Exception ex)
+        //    {
+        //        Response.Write(ex.Message);
+        //    }
+        //    con.Close();
+        //}
         // LẤY RA TÊN TÊN KHÁCH HÀNG ĐẶT ít TOUR NHẤT
         public void seleckhdatmin()
         {
@@ -187,23 +216,60 @@ namespace QLTour.Admin
         // lấy ra booking theo tên nv và trong khoảng thời gian 01/01/2020 - 10/10/2021
         public void selecbooktheoten()
         {
-            TourDLEntities db = new TourDLEntities();
-
             SqlConnection cnn = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=Van;Integrated Security=True");
 
-            cnn.Open();
+            con = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=Van;Integrated Security=True");
+            try
+            {
+                cmd = new SqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "dbo.timbooktheotentime";
+                cmd.Parameters.AddWithValue("@timkiem", txttimkiem.Text.Trim());
+                cmd.Parameters.AddWithValue("@bd", txttimngaybd.Text.Trim());
+                cmd.Parameters.AddWithValue("@kt", txttimngaykt.Text.Trim());
+                cmd.Connection = con;
+                con.Open();
+                var reder = cmd.ExecuteReader();
+                dgvtimbooktheoten.DataSource = reder;
+                dgvtimbooktheoten.DataBind();
+                cmd.Dispose();
+                con.Close();
 
-            string sql = "select Booking.MaVe, Booking.MaTour, Booking.MaLT, Booking.MaKH, Booking.MaNV, Booking.NgayBook, Booking.GiaTien, NhanVien.TenNV as TenNV from Booking, NhanVien where Booking.MaNV = NhanVien.MaNV and NhanVien.TenNV like N'%" + txttimkiem.Text + "%' and  NgayBook between '01/01/2020' and '10/10/2021'";
-            SqlCommand com = new SqlCommand(sql, cnn); //bat dau truy van
-            com.CommandType = CommandType.Text;
-            SqlDataAdapter da = new SqlDataAdapter(com); //chuyen du lieu ve
-            DataTable dt = new DataTable(); //tạo một kho ảo để lưu trữ dữ liệu
-            da.Fill(dt);  // đổ dữ liệu vào kho
-            cnn.Close();  // đóng kết nối
-
-            dgvtimbooktheoten.DataSource = dt;
-            dgvtimbooktheoten.DataBind();
-
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message);
+            }
+        }
+        public DataTable gettheoten()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                con = new SqlConnection(@"Data Source=DESKTOP-AUOQ6RH;Initial Catalog=Van;Integrated Security=True");
+                cmd = new SqlCommand("timbooktheotentime", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@timkiem", txttimkiem.Text.Trim());
+                cmd.Parameters.AddWithValue("@bd", txttimngaybd.Text.Trim());
+                cmd.Parameters.AddWithValue("@kt", txttimngaykt.Text.Trim());
+                cmd.Connection = con;
+                con.Open();
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = cmd;
+                da.Fill(dt);
+                dgvtimbooktheoten.DataSource = dt;
+                dgvtimbooktheoten.DataBind();
+                myDT = new DataTable();
+                myDT = dt;
+                cmd.Dispose();
+                con.Close();
+            }
+            catch (Exception)
+            {
+                Response.Write("<script>alert('không thể load dữ liệu, kiểm tra lại thông tin tìm kiếm');</script>");
+            }
+            return myDT;
         }
         // LẤY RA TÊN NHÂN VIÊN BÁN TOUR ít NHẤT
         public void selecnhanvienbanmin()
@@ -330,13 +396,10 @@ namespace QLTour.Admin
             selectourdatmin();
         }
 
-
-
         protected void lbtnkhbookmin_Click(object sender, EventArgs e)
         {
             seleckhdatmin();
         }
-
 
         protected void lbtnnhanvienbanmin_Click(object sender, EventArgs e)
         {
@@ -356,7 +419,8 @@ namespace QLTour.Admin
 
         protected void lbttimbooktheoten_Click(object sender, EventArgs e)
         {
-            selecbooktheoten();
+            //selecbooktheoten();
+            gettheoten();
         }
 
 
@@ -367,40 +431,68 @@ namespace QLTour.Admin
 
         protected void btnxuatex_Click(object sender, EventArgs e)
         {
-            Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
-            Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
-            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
-            worksheet = workbook.Sheets["Sheet1"];
-            worksheet = workbook.ActiveSheet;
-            app.Visible = true;
-            ///đổ dữ liệu vào sheet
-            worksheet.Cells[3, 3] = "DANH SÁCH BOOKING THEO TÊN NHÂN VIÊN";
-            worksheet.Cells[5, 2] = "E-TOUR";
-            worksheet.Cells[6, 2] = "Địa chỉ: Tòa nhà FPTS 52 Lạc Long Quân, Tây Hồ, Hà Nội";
-            worksheet.Cells[7, 2] = "Ngày:";
-            worksheet.Cells[8, 1] = "STT";
-            worksheet.Cells[8, 2] = "Mã vé";
-            worksheet.Cells[8, 3] = "Mã Tour";
-            worksheet.Cells[8, 4] = "Mã Lịch Trình";
-            worksheet.Cells[8, 5] = "Mã Khách hàng";
-            worksheet.Cells[8, 6] = "Mã Nhân Viên";
-            worksheet.Cells[8, 7] = "Ngày book";
-            worksheet.Cells[8, 8] = "Giá Tiền";
-            worksheet.Cells[8, 9] = "Tên Nhân viên";
-            for (int i = 0; i < dgvtimbooktheoten.Rows.Count; i++)
+            try
             {
-                for (int j = 0; j < 8; j++)
+                Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
+                Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
+                Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+                worksheet = workbook.Sheets["Sheet1"];
+                worksheet = workbook.ActiveSheet;
+                app.Visible = true;
+                ///đổ dữ liệu vào sheet
+                worksheet.Cells[1, 7] = "DANH SÁCH BOOKING THEO TÊN NHÂN VIÊN";
+                worksheet.Cells[2, 2] = "E-TOUR";
+                worksheet.Cells[2, 10] = "Địa chỉ: Tòa nhà FPTS 52 Lạc Long Quân, Tây Hồ, Hà Nội";
+                worksheet.Cells[3, 2] = "Ngày:" + txttimngaybd.Text + "-" + txttimngaykt.Text;
+                worksheet.Cells[5, 1] = "STT";
+                worksheet.Cells[5, 2] = "Mã vé";
+                worksheet.Cells[5, 3] = "Mã Tour";
+                worksheet.Cells[5, 4] = "Mã Lịch Trình";
+                worksheet.Cells[5, 5] = "Mã Khách hàng";
+                worksheet.Cells[5, 6] = "Mã Nhân Viên";
+                worksheet.Cells[5, 7] = "Ngày book";
+                worksheet.Cells[5, 8] = "Giá Tiền";
+                worksheet.Cells[5, 9] = "Tên Nhân viên";
+                worksheet.Cells[5, 10] = "Mã Nhân viên";
+                worksheet.Cells[5, 11] = "Nghiệp vụ";
+                worksheet.Cells[5, 12] = "Giới tính";
+                worksheet.Cells[5, 13] = "Địa chỉ";
+                worksheet.Cells[5, 14] = "Số điện thoại";
+                worksheet.Cells[5, 15] = "ngày sinh";
+
+
+                //int n = myDT.Rows.Count;
+
+                for (int i = 0; i < dgvtimbooktheoten.Rows.Count; i++)
                 {
-                    worksheet.Cells[i + 9, 1] = i + 1;
-                    worksheet.Cells[i + 9, j + 2] = dgvtimbooktheoten.Rows[i].Cells[j].Text.ToString();
+                    for (int j = 0; j < 14; j++)
+                    {
+                        worksheet.Cells[i + 9, 1] = i + 1;
+                        worksheet.Cells[i + 9, j + 2] = dgvtimbooktheoten.Rows[i].Cells[j].Text.ToString();  /*myDT.Rows[i][j].ToString();*///dgvtimbooktheoten.Rows[i].Cells[j].Text.ToString();
+
+                    }
                 }
+            }
+            catch (Exception)
+            {
+                Response.Write("<script>alert('không thể xuất fiel excel, kiểm tra lại');</script>");
             }
         }
 
-
         protected void btntimkiem_Click(object sender, EventArgs e)
         {
-            selecbooktheoten();
+
+            try
+            {
+                //selecbooktheoten();
+                gettheoten();
+            }
+            catch (Exception)
+            {
+                Response.Write("<script>alert('thông tin tìm kiếm không hợp lệ!');</script>");
+            }
         }
+
+        
     }
 }

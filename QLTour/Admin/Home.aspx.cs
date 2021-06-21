@@ -13,11 +13,26 @@ namespace QLTour.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //txtsoluongdattourmin.Text = soluongdattourmin();
+            //selecnhanvienbanmin();
+            //selecnhanvienbanmax();
+            //seleckhdatmin();
+            //seleckhdatmax();
+            //selectourdatmin();
             getgiatourmax();
             countmax();
             countmin();
+            //selectourdatmax();
+            //lbmax.Text = selectourdatmax();
             sumtongdoanhthu();
+            //txtLineChart2.Text = getDataLineChart2();
+            //txtLineChart.Text = getDataLineChart();
+            //lbdoanhthuthangtruoc.Text = sumtongdoanhthu().ToString("N0");
+            //lbdoanhthuthanghientai.Text = sumtongdoanhthuthangnay().ToString("N0");
+            //lbtongdanhthulastyear.Text = doanhthuquy().ToString("N0");
+
         }
+
         string getDataLineChart()
         {
             TourDLEntities db = new TourDLEntities();
