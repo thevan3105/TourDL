@@ -18,7 +18,6 @@
             flex-direction: row-reverse;
             justify-content: center
         }
-
             .rating > input {
                 display: none
             }
