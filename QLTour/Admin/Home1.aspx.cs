@@ -28,7 +28,7 @@ namespace QLTour.Admin
             txtLineChart2.Text = getDataLineChart2();
             txtLineChart.Text = getDataLineChart();
             lbdoanhthuthangtruoc.Text = sumtongdoanhthu().ToString("N0");
-            lbdoanhthuthanghientai.Text = sumtongdoanhthuthangnay().ToString();
+            lbdoanhthuthanghientai.Text = sumtongdoanhthuthangnay().ToString("N0");
             lbtongdanhthulastyear.Text = doanhthuquy().ToString("N0");
         }
         public string getdateupdatechart()

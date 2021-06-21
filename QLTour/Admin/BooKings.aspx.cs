@@ -29,6 +29,7 @@ namespace QLTour.Admin
                     {
                         getDataSELL();
                     }
+
                     else
                     {
                         getData();
@@ -106,22 +107,28 @@ namespace QLTour.Admin
             }
         }
 
-        protected void dgvbooking_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        public string gettrangthai(string TrangThai)
         {
-            dgvbooking.PageIndex = e.NewPageIndex;
-            getData();
-        }
+            //TourDLEntities db = new TourDLEntities();
+            //int acb = Int32.Parse(TrangThai);
 
-        protected void dgvbookingCSKH_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            dgvbookingCSKH.PageIndex = e.NewPageIndex;
-            getDataCSKH();
-        }
-
-        protected void dgvbookingSELL_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            dgvbookingSELL.PageIndex = e.NewPageIndex;
-            getDataSELL();
+            //int trangthai = Int32.Parse(db.Booking.First(x => x.TrangThai == acb).TrangThai.ToString());
+            if (TrangThai == "0")
+            {
+                return "Chờ Duyệt";
+            }
+            else if (TrangThai == "1")
+            {
+                return "Đã Duyệt";
+            }
+            else if (TrangThai == "2")
+            {
+                return "Không Được Duyệt";
+            }
+            else
+            {
+                return "";
+            }
         }
     }
 }

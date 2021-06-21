@@ -59,7 +59,7 @@
                         <asp:HyperLink runat="server" ID="hplBtnThem" class="btn btn-info" NavigateUrl="QLBooKing.aspx">Tạo mới BooKing</asp:HyperLink>
                         <asp:GridView runat="server" ID="dgvbooking"
                             class="table table-bordered table-hover"
-                            AutoGenerateColumns="false" AllowPaging="true" PageSize="10" OnPageIndexChanging="dgvbooking_PageIndexChanging">
+                            AutoGenerateColumns="false">
                             <Columns>
                                 <asp:BoundField DataField="MaVe" HeaderText="Mã vé" />
                                 <asp:BoundField DataField="MaTour" HeaderText="Mã Tour" />
@@ -80,11 +80,19 @@
                                 <asp:BoundField DataField="TrangThai" HeaderText="Trạng thái" />
                                 <asp:TemplateField>
                                     <HeaderTemplate>
+                                        Ngày Book
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <%# ((DateTime)Eval("NgayBook")).ToString("dd/MM/yyyy")%>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField>
+                                    <HeaderTemplate>
                                         Chức năng
                                     </HeaderTemplate>
                                     <ItemTemplate>
                                         <asp:HyperLink runat="server" ID="btnSua" class="fa fa-pencil-square-o Edit" NavigateUrl='<%# "QLBooking.aspx?mave=" + Eval("MaVe").ToString() %>' />
-                                        <asp:LinkButton runat="server" ID="btnXoa" class="fa fa-times Delete"
+                                        <asp:LinkButton runat="server" ID="btnXoa" Text="Xóa" class="btn btn-danger btn-xs"
                                             OnClientClick="return valid();"
                                             CommandArgument='<%# Eval("MaVe").ToString() %>'
                                             OnCommand="btnXoa_Command" />
@@ -94,7 +102,7 @@
                         </asp:GridView>
                         <asp:GridView runat="server" ID="dgvbookingCSKH"
                             class="table table-bordered table-hover"
-                            AutoGenerateColumns="false" AllowPaging="true" PageSize="10" OnPageIndexChanging="dgvbookingCSKH_PageIndexChanging">
+                            AutoGenerateColumns="false">
                             <Columns>
                                 <asp:BoundField DataField="MaVe" HeaderText="Mã vé" />
                                 <asp:BoundField DataField="MaTour" HeaderText="Mã Tour" />
@@ -112,13 +120,28 @@
                                 <asp:BoundField DataField="MaKH" HeaderText="Mã khác hàng" />
                                 <asp:BoundField DataField="MaDDDL" HeaderText="Mã địa điểm du lịch" />
                                 <asp:BoundField DataField="MaNV" HeaderText="Mã nhân viên" />
-                                <asp:BoundField DataField="TrangThai" HeaderText="Trạng thái" />
-
+                                <asp:TemplateField>
+                                    <HeaderTemplate>
+                                        Trạng thái
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <%# gettrangthai(Eval("TrangThai").ToString()) %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <%--<asp:BoundField DataField="TrangThai" HeaderText="Trạng thái" />--%>
+                                <asp:TemplateField>
+                                    <HeaderTemplate>
+                                        Ngày Book
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <%# ((DateTime)Eval("NgayBook")).ToString("dd/MM/yyyy")%>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                             </Columns>
                         </asp:GridView>
                         <asp:GridView runat="server" ID="dgvbookingSELL"
                             class="table table-bordered table-hover"
-                            AutoGenerateColumns="false" AllowPaging="true" PageSize="10" OnPageIndexChanging="dgvbookingSELL_PageIndexChanging">
+                            AutoGenerateColumns="false">
                             <Columns>
                                 <asp:BoundField DataField="MaVe" HeaderText="Mã vé" />
                                 <asp:BoundField DataField="MaTour" HeaderText="Mã Tour" />
@@ -137,7 +160,14 @@
                                 <asp:BoundField DataField="MaDDDL" HeaderText="Mã địa điểm du lịch" />
                                 <asp:BoundField DataField="MaNV" HeaderText="Mã nhân viên" />
                                 <asp:BoundField DataField="TrangThai" HeaderText="Trạng thái" />
-
+                                <asp:TemplateField>
+                                    <HeaderTemplate>
+                                        Ngày Book
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <%# ((DateTime)Eval("NgayBook")).ToString("dd/MM/yyyy")%>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                                 <asp:TemplateField>
                                     <HeaderTemplate>
                                         Chức năng

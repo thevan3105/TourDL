@@ -57,7 +57,7 @@
                                 IN+
                             </div>
                         </li>
-                        <li><a href="Home1.aspx"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Home</span><span class="fa arrow"></span></a></li>
+                        <li><a href="Home1.aspx"><i class="fa fa-home"></i> <span class="nav-label">HOME</span><span class="fa arrow"></span></a></li>
                         <li >
                             <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">TOUR</span> <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -69,19 +69,19 @@
                             </ul>
                         </li>
                         <li>
-                            <asp:HyperLink runat="server" ID="hplkhachang" NavigateUrl="KhachHangs.aspx"><i class="fa fa-bar-chart-o"></i><span class="nav-label">KHÁCH HÀNG</span></asp:HyperLink>
+                            <asp:HyperLink runat="server" ID="hplkhachang" NavigateUrl="KhachHangs.aspx"><i class="fa fa-users"></i><span class="nav-label">KHÁCH HÀNG</span></asp:HyperLink>
                             
                         </li>
                         <li >
-                            <asp:HyperLink runat="server" ID="hplnhanvien" NavigateUrl="NhanViens.aspx"><i class="fa fa-bar-chart-o"></i><span class="nav-label">NHÂN VIÊN</span></asp:HyperLink>
+                            <asp:HyperLink runat="server" ID="hplnhanvien" NavigateUrl="NhanViens.aspx"><i class="fa fa-user"></i><span class="nav-label">NHÂN VIÊN</span></asp:HyperLink>
                             
                         </li>
                         <li>
-                            <asp:HyperLink runat="server" ID="hplbooking" NavigateUrl="Bookings.aspx"><i class="fa fa-bar-chart-o"></i><span class="nav-label">BOOKING TOUR</span></asp:HyperLink>
+                            <asp:HyperLink runat="server" ID="hplbooking" NavigateUrl="Bookings.aspx"><i class="fa fa-cart-arrow-down"></i><span class="nav-label">BOOKING TOUR</span></asp:HyperLink>
                             
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">PHƯƠNG TIỆN</span><span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-plane"></i> <span class="nav-label">PHƯƠNG TIỆN</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li><asp:HyperLink runat="server" ID="hplphuongtien" NavigateUrl="PhuongTiens.aspx">Phương tiện</asp:HyperLink></li>
                                 <li><asp:HyperLink runat="server" ID="hplloaiphuongtien" NavigateUrl="LoaiPhuongTiens.aspx">Loại Phương tiện</asp:HyperLink></li>
@@ -89,20 +89,20 @@
                             
                         </li>
                         <li>
-                            <asp:HyperLink runat="server" ID="hpldiadiemdulich" NavigateUrl="DiaDiemDLs.aspx"><i class="fa fa-bar-chart-o"></i><span class="nav-label">ĐỊA ĐIỂM DU LỊCH</span></asp:HyperLink>
+                            <asp:HyperLink runat="server" ID="hpldiadiemdulich" NavigateUrl="DiaDiemDLs.aspx"><i class="fa fa-map-marker"></i><span class="nav-label">ĐỊA ĐIỂM DU LỊCH</span></asp:HyperLink>
                             
                         </li>
                        
                         <li>
-                            <asp:HyperLink runat="server" ID="hplkhachsan" NavigateUrl="KhachSans.aspx"><i class="fa fa-bar-chart-o"></i><span class="nav-label">KHÁCH SẠN</span></asp:HyperLink>
+                            <asp:HyperLink runat="server" ID="hplkhachsan" NavigateUrl="KhachSans.aspx"><i class="fa fa-bed"></i><span class="nav-label">KHÁCH SẠN</span></asp:HyperLink>
                             
                         </li>
                         <li>
-                            <asp:HyperLink runat="server" ID="hplContact" NavigateUrl="ConTact.aspx"><i class="fa fa-bar-chart-o"></i><span class="nav-label">Contact</span></asp:HyperLink>
+                            <asp:HyperLink runat="server" ID="hplContact" NavigateUrl="ConTact.aspx"><i class="fa fa-comments"></i><span class="nav-label">CONTACT</span></asp:HyperLink>
                             
                         </li>
                         <li>
-                            <asp:HyperLink runat="server" ID="hplbcthongke" NavigateUrl="BC_THongKE.aspx"><i class="fa fa-bar-chart-o"></i><span class="nav-label">Báo cáo Thống kê</span></asp:HyperLink>
+                            <asp:HyperLink runat="server" ID="hplbcthongke" NavigateUrl="BC_THongKE.aspx"><i class="fa fa-bar-chart-o"></i><span class="nav-label">BÁO CÁO & THỐNG KÊ</span></asp:HyperLink>
                             
                         </li>
                     </ul>
